@@ -1,0 +1,262 @@
+---
+import { render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import OfferGrid from '../../components/OfferGrid.astro';
+import AdSlot from '../../components/AdSlot.astro';
+import { getOffers, isActive, formatDate, latest, offerPath, type Offer } from '../../lib/offers';
+import { categoryBySlug, offerTypes, site } from '../../site.config';
+
+export async function getStaticPaths() {
+  const offers = await getOffers();
+  return offers.map((offer) => ({ params: { slug: offer.id }, props: { offer } }));
+}
+
+const { offer } = Astro.props as { offer: Offer };
+const { data } = offer;
+const { Content } = await render(offer);
+const active = isActive(offer);
+const category = categoryBySlug[data.category];
+
+const related = (await getOffers(data.category))
+  .filter((o) => o.id !== offer.id && isActive(o))
+  .slice(0, 3);
+
+const cost =
+  data.shipping === 'tillkommer'
+    ? 'Gratis, frakt tillkommer'
+    : data.shipping > 0
+      ? `Gratis, frakt ${data.shipping} kr`
+      : '0 kr';
+const facts: [string, string][] = [
+  ['Typ', offerTypes[data.type]],
+  ['Kostnad', cost],
+  ['Krav', data.requirements.length ? data.requirements.join(' · ') : 'Inga särskilda krav'],
+  ['Giltigt till', data.expires ? formatDate(data.expires) : 'Tills vidare'],
+  ['Senast kontrollerad', formatDate(data.checked ?? latest(offer))],
+];
+
+const productLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Product',
+  name: data.title,
+  description: data.description,
+  brand: { '@type': 'Brand', name: data.brand },
+  category: category.name,
+  url: new URL(offerPath(offer), site.url).href,
+  offers: {
+    '@type': 'Offer',
+    price: '0',
+    priceCurrency: 'SEK',
+    url: data.url,
+    availability: active ? 'https://schema.org/InStock' : 'https://schema.org/Discontinued',
+    ...(data.expires && { priceValidUntil: data.expires.toISOString().slice(0, 10) }),
+    ...(typeof data.shipping === 'number' && data.shipping > 0 && {
+      shippingDetails: {
+        '@type': 'OfferShippingDetails',
+        shippingRate: { '@type': 'MonetaryAmount', value: String(data.shipping), currency: 'SEK' },
+        shippingDestination: { '@type': 'DefinedRegion', addressCountry: 'SE' },
+      },
+    }),
+  },
+};
+---
+
+<Base
+  title={data.title}
+  description={data.description}
+  type="article"
+  published={data.published}
+  modified={latest(offer)}
+  jsonLd={productLd}
+>
+  <div class="wrap">
+    <div class="head">
+      <Breadcrumbs
+        items={[
+          { label: category.name, href: category.path },
+          { label: data.brand, href: offerPath(offer) },
+        ]}
+      />
+    </div>
+
+    <div class="layout">
+      <article class="main">
+        <p class="eyebrow">{data.brand} · {category.name}</p>
+        <h1>{data.title}</h1>
+        <p class="lead">{data.description}</p>
+        {
+          active && (
+            <a class="btn mobile-cta" href={data.url} rel="nofollow noopener" target="_blank">
+              Till erbjudandet <span aria-hidden="true">↗</span>
+            </a>
+          )
+        }
+
+        {
+          !active && (
+            <p class="notice" role="status">
+              Det här erbjudandet har avslutats. Se <a href={category.path}>aktuella erbjudanden inom {category.name.toLowerCase()}</a>.
+            </p>
+          )
+        }
+
+        <div class="prose">
+          <Content />
+        </div>
+
+        <AdSlot slot="article" />
+
+        <p class="byline">
+          Publicerad <time datetime={data.published.toISOString()}>{formatDate(data.published)}</time>
+          {
+            data.updated && (
+              <>
+                {' '}· uppdaterad <time datetime={data.updated.toISOString()}>{formatDate(data.updated)}</time>
+              </>
+            )
+          }
+        </p>
+      </article>
+
+      <aside class="side">
+        <div class="facts">
+          <dl>
+            {
+              facts.map(([k, v]) => (
+                <div>
+                  <dt>{k}</dt>
+                  <dd>{v}</dd>
+                </div>
+              ))
+            }
+          </dl>
+          {
+            active ? (
+              <a class="btn facts__cta" href={data.url} rel="nofollow noopener" target="_blank">
+                Till erbjudandet hos {data.brand}
+                <span aria-hidden="true">↗</span>
+              </a>
+            ) : (
+              <span class="facts__ended">Avslutat</span>
+            )
+          }
+          <p class="facts__small">
+            Du beställer direkt hos {data.brand}. Kontrollera alltid villkoren innan du lämnar dina uppgifter.
+          </p>
+        </div>
+        <AdSlot slot="sidebar" />
+      </aside>
+    </div>
+
+    {
+      related.length > 0 && (
+        <section class="related">
+          <div class="section-head">
+            <h2>Mer inom {category.name.toLowerCase()}.</h2>
+            <a class="more" href={category.path}>
+              Visa alla
+            </a>
+          </div>
+          <OfferGrid offers={related} adAfter={0} />
+        </section>
+      )
+    }
+  </div>
+</Base>
+
+<style>
+  .head {
+    padding-top: 28px;
+  }
+  .layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 340px;
+    gap: clamp(32px, 5vw, 72px);
+    padding-top: 28px;
+    align-items: start;
+  }
+  .main {
+    display: grid;
+    gap: 20px;
+    min-width: 0;
+  }
+  .main h1 {
+    font-size: clamp(2rem, 4.6vw, 3.25rem);
+  }
+  .notice {
+    padding: 14px 18px;
+    border-radius: var(--radius-sm);
+    background: var(--surface);
+    border: 1px solid var(--line-strong);
+  }
+  .mobile-cta {
+    display: none;
+    justify-self: start;
+  }
+  .byline {
+    font-size: 0.88rem;
+    color: var(--muted);
+  }
+  .side {
+    position: sticky;
+    top: 92px;
+  }
+  .facts {
+    display: grid;
+    gap: 18px;
+    padding: 22px;
+    border-radius: var(--radius);
+    background: var(--surface);
+    border: 1px solid var(--line);
+  }
+  dl {
+    margin: 0;
+    display: grid;
+  }
+  dl > div {
+    display: grid;
+    grid-template-columns: 130px 1fr;
+    gap: 12px;
+    padding-block: 10px;
+    border-bottom: 1px solid var(--line);
+    font-size: 0.94rem;
+  }
+  dt {
+    color: var(--muted);
+  }
+  dd {
+    margin: 0;
+    font-weight: 600;
+  }
+  .facts__cta {
+    justify-content: center;
+    text-align: center;
+  }
+  .facts__ended {
+    text-align: center;
+    padding: 14px;
+    border-radius: 999px;
+    border: 1px dashed var(--line-strong);
+    color: var(--muted);
+    font-weight: 600;
+  }
+  .facts__small {
+    font-size: 0.82rem;
+    color: var(--muted);
+  }
+  .related {
+    margin-top: 80px;
+  }
+  @media (max-width: 900px) {
+    .layout {
+      grid-template-columns: 1fr;
+    }
+    .mobile-cta {
+      display: inline-flex;
+    }
+    .side {
+      position: static;
+    }
+  }
+</style>

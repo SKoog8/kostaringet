@@ -1,0 +1,67 @@
+---
+import { site } from '../site.config';
+
+interface Crumb {
+  label: string;
+  href: string;
+}
+interface Props {
+  items: Crumb[];
+}
+
+const items = [{ label: 'Start', href: '/' }, ...Astro.props.items];
+const ld = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: items.map((c, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    name: c.label,
+    item: new URL(c.href, site.url).href,
+  })),
+};
+---
+
+<nav aria-label="Brödsmulor" class="crumbs">
+  <ol>
+    {
+      items.map((c, i) =>
+        i === items.length - 1 ? (
+          <li aria-current="page">{c.label}</li>
+        ) : (
+          <li>
+            <a href={c.href}>{c.label}</a>
+          </li>
+        ),
+      )
+    }
+  </ol>
+</nav>
+<script type="application/ld+json" set:html={JSON.stringify(ld)} />
+
+<style>
+  .crumbs ol {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: 0.88rem;
+    color: var(--muted);
+  }
+  .crumbs li + li::before {
+    content: '/';
+    margin-right: 6px;
+    color: var(--line-strong);
+  }
+  .crumbs a {
+    text-decoration: none;
+  }
+  .crumbs a:hover {
+    text-decoration: underline;
+  }
+  [aria-current='page'] {
+    color: var(--ink-2);
+  }
+</style>

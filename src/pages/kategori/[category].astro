@@ -1,0 +1,28 @@
+---
+import ListingPage from '../../components/ListingPage.astro';
+import { getOffers } from '../../lib/offers';
+import { categories, type Category } from '../../site.config';
+
+export function getStaticPaths() {
+  // Föräldrar has its own top level page at /nyblivna-foraldrar/
+  return categories
+    .filter((c) => c.path.startsWith('/kategori/'))
+    .map((c) => ({ params: { category: c.slug }, props: { category: c } }));
+}
+
+const { category } = Astro.props as { category: Category };
+const offers = await getOffers(category.slug);
+---
+
+<ListingPage
+  title={`${category.heading}.`}
+  metaTitle={category.heading}
+  description={`${category.intro} Uppdateras löpande på kostaringet.se.`}
+  intro={category.intro}
+  offers={offers}
+  category={category.slug}
+  crumbs={[
+    { label: 'Alla erbjudanden', href: '/gratis/' },
+    { label: category.name, href: category.path },
+  ]}
+/>

@@ -1,0 +1,33 @@
+---
+import TextPage from '../layouts/TextPage.astro';
+import { site, ads } from '../site.config';
+---
+
+<TextPage
+  title="Integritet och cookies"
+  path="/integritetspolicy/"
+  description="Hur kostaringet.se hanterar personuppgifter och cookies."
+>
+  <p>
+    Kostaringet.se samlar inte in personuppgifter om dig. Vi har inga konton, inga formulär och sparar inte
+    vad du klickar på.
+  </p>
+  <h2>Cookies</h2>
+  {
+    ads.enabled ? (
+      <p>
+        Vi visar annonser från Google AdSense. Google kan använda cookies för att visa och mäta annonser. Du
+        väljer själv om du godkänner det i samtyckesrutan som visas vid ditt första besök.
+      </p>
+    ) : (
+      <p>Sajten sätter i dagsläget inga cookies. Om vi börjar visa annonser uppdaterar vi den här sidan och ber om ditt samtycke först.</p>
+    )
+  }
+  <h2>Länkar till andra sajter</h2>
+  <p>
+    När du beställer ett erbjudande gör du det hos företaget som erbjuder det. Då gäller deras villkor och
+    integritetspolicy. Läs dem innan du lämnar dina uppgifter.
+  </p>
+  <h2>Kontakt</h2>
+  <p>Frågor? Mejla <a href={`mailto:${site.email}`}>{site.email}</a>.</p>
+</TextPage>

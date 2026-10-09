@@ -1,0 +1,117 @@
+---
+import { categories, type CategorySlug } from '../site.config';
+import { getOffers, isActive } from '../lib/offers';
+
+interface Props {
+  current?: CategorySlug;
+  variant?: 'tiles' | 'chips';
+}
+
+const { current, variant = 'chips' } = Astro.props;
+const offers = await getOffers();
+const counts = Object.fromEntries(
+  categories.map((c) => [c.slug, offers.filter((o) => o.data.category === c.slug && isActive(o)).length]),
+);
+---
+
+{
+  variant === 'tiles' ? (
+    <ul class="tiles">
+      {categories.map((c) => (
+        <li>
+          <a href={c.path} class="tile">
+            <span class="tile__name">{c.name}</span>
+            <span class="tile__count">{counts[c.slug]} aktiva</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  ) : (
+    <ul class="chips">
+      <li>
+        <a href="/gratis/" aria-current={!current ? 'page' : undefined}>
+          Alla
+        </a>
+      </li>
+      {categories.map((c) => (
+        <li>
+          <a href={c.path} aria-current={current === c.slug ? 'page' : undefined}>
+            {c.short} <span>{counts[c.slug]}</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  )
+}
+
+<style>
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .tiles {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 210px), 1fr));
+    gap: 10px;
+  }
+  .tile {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 18px 20px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--surface);
+    text-decoration: none;
+    min-height: 92px;
+    justify-content: space-between;
+  }
+  .tile:hover {
+    border-color: var(--ink);
+    color: var(--ink);
+  }
+  .tile__name {
+    font-weight: 700;
+    font-size: 1.08rem;
+    letter-spacing: -0.01em;
+  }
+  .tile__count {
+    color: var(--muted);
+    font-size: 0.88rem;
+  }
+  .chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .chips a {
+    display: inline-flex;
+    gap: 6px;
+    align-items: center;
+    padding: 7px 14px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.93rem;
+    background: var(--surface);
+  }
+  .chips a span {
+    color: var(--muted);
+    font-weight: 500;
+  }
+  .chips a:hover {
+    border-color: var(--ink);
+    color: var(--ink);
+  }
+  .chips a[aria-current='page'] {
+    background: var(--ink);
+    border-color: var(--ink);
+    color: var(--paper);
+  }
+  .chips a[aria-current='page'] span {
+    color: inherit;
+    opacity: 0.7;
+  }
+</style>

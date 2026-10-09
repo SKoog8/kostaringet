@@ -1,0 +1,71 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { formatDate } from '../../lib/offers';
+
+const posts = (await getCollection('blogg', (p) => !p.data.draft)).sort(
+  (a, b) => b.data.published.getTime() - a.data.published.getTime(),
+);
+---
+
+<Base
+  title="Guider om gratisprover och prova på-erbjudanden"
+  description="Guider och tips om hur du hittar gratisprover, babyboxar och prova på-erbjudanden – och hur du undviker fällorna."
+>
+  <div class="wrap head">
+    <Breadcrumbs items={[{ label: 'Guider', href: '/blogg/' }]} />
+    <h1>Guider.</h1>
+    <p class="lead">Hur du får ut mest av gratisprover och provperioder – utan att råka betala.</p>
+  </div>
+  <div class="wrap">
+    <ul class="posts">
+      {
+        posts.map((p) => (
+          <li>
+            <a href={`/blogg/${p.id}/`}>
+              <time datetime={p.data.published.toISOString()}>{formatDate(p.data.published)}</time>
+              <h2>{p.data.title}</h2>
+              <p>{p.data.description}</p>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</Base>
+
+<style>
+  .head {
+    display: grid;
+    gap: 18px;
+    padding-block: clamp(32px, 6vw, 72px) 40px;
+  }
+  .posts {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid var(--line);
+  }
+  .posts a {
+    display: grid;
+    gap: 8px;
+    padding-block: 28px;
+    border-bottom: 1px solid var(--line);
+    text-decoration: none;
+  }
+  .posts a:hover h2 {
+    color: var(--accent);
+  }
+  time {
+    font-size: 0.86rem;
+    color: var(--muted);
+  }
+  h2 {
+    font-size: clamp(1.4rem, 2.6vw, 1.9rem);
+  }
+  .posts p {
+    color: var(--ink-2);
+    max-width: 44rem;
+  }
+</style>

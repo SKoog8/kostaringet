@@ -1,0 +1,63 @@
+---
+import OfferCard from './OfferCard.astro';
+import AdSlot from './AdSlot.astro';
+import { offerPath, type Offer } from '../lib/offers';
+import { site } from '../site.config';
+
+interface Props {
+  offers: Offer[];
+  /** Insert an ad after this many cards. 0 disables. */
+  adAfter?: number;
+  /** Emit schema.org ItemList for the listing. */
+  itemList?: boolean;
+}
+
+const { offers, adAfter = 6, itemList = false } = Astro.props;
+const ld = itemList
+  ? {
+      '@context': 'https://schema.org',
+      '@type': 'ItemList',
+      itemListElement: offers.slice(0, 50).map((o, i) => ({
+        '@type': 'ListItem',
+        position: i + 1,
+        url: new URL(offerPath(o), site.url).href,
+        name: o.data.title,
+      })),
+    }
+  : null;
+---
+
+{
+  offers.length === 0 ? (
+    <p class="empty">Inga erbjudanden här just nu. Boten letar dagligen – titta in igen snart.</p>
+  ) : (
+    <div class="grid">
+      {offers.map((offer, i) => (
+        <>
+          <OfferCard offer={offer} />
+          {adAfter > 0 && i + 1 === adAfter && offers.length > adAfter && (
+            <div class="grid__full">
+              <AdSlot slot="listing" />
+            </div>
+          )}
+        </>
+      ))}
+    </div>
+  )
+}
+{ld && <script type="application/ld+json" set:html={JSON.stringify(ld)} />}
+
+<style>
+  .grid__full {
+    grid-column: 1 / -1;
+  }
+  .grid__full:empty {
+    display: none;
+  }
+  .empty {
+    padding: 32px;
+    border: 1px dashed var(--line-strong);
+    border-radius: var(--radius);
+    color: var(--muted);
+  }
+</style>

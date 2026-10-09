@@ -1,0 +1,39 @@
+---
+// Wordmark: "kostaringet" with a small coin-like mark showing a zero.
+---
+
+<span class="logo">
+  <svg class="logo__mark" viewBox="0 0 32 32" width="28" height="28" aria-hidden="true">
+    <circle cx="16" cy="16" r="15" fill="currentColor"></circle>
+    <text
+      x="16"
+      y="21.5"
+      text-anchor="middle"
+      font-family="Hanken Grotesk Variable, sans-serif"
+      font-size="16"
+      font-weight="800"
+      fill="var(--paper)">0</text
+    >
+  </svg>
+  <span class="logo__word">kostaringet<span class="logo__tld">.se</span></span>
+</span>
+
+<style>
+  .logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    font-weight: 800;
+    font-size: 1.32rem;
+    letter-spacing: -0.04em;
+    line-height: 1;
+  }
+  .logo__mark {
+    color: var(--accent);
+    flex: none;
+  }
+  .logo__tld {
+    color: var(--muted);
+    font-weight: 600;
+  }
+</style>

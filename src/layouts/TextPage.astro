@@ -1,0 +1,30 @@
+---
+import Base from './Base.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  path: string;
+  noindex?: boolean;
+}
+const { title, description, path, noindex } = Astro.props;
+---
+
+<Base title={title} description={description} noindex={noindex}>
+  <div class="wrap text">
+    <Breadcrumbs items={[{ label: title, href: path }]} />
+    <h1>{title}.</h1>
+    <div class="prose">
+      <slot />
+    </div>
+  </div>
+</Base>
+
+<style>
+  .text {
+    display: grid;
+    gap: 28px;
+    padding-block: clamp(32px, 6vw, 72px) 0;
+  }
+</style>

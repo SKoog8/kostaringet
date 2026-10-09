@@ -1,0 +1,43 @@
+name: Bot – hitta nya erbjudanden
+
+on:
+  schedule:
+    - cron: '17 5 * * *' # varje morgon
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: bot
+  cancel-in-progress: false
+
+jobs:
+  find:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Kör boten
+        run: node bot/run.mjs
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          BOT_MODEL: ${{ vars.BOT_MODEL }}
+      - name: Öppna pull request med utkast
+        uses: peter-evans/create-pull-request@v7
+        with:
+          branch: bot/nya-erbjudanden
+          delete-branch: true
+          commit-message: 'Bot: nya utkast till erbjudanden'
+          title: 'Bot: nya gratiserbjudanden att granska'
+          body-path: bot/state/last-run.md
+          labels: bot
+          add-paths: |
+            src/content/erbjudanden/*.md
+            bot/state/state.json

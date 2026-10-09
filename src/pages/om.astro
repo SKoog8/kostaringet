@@ -1,0 +1,36 @@
+---
+import TextPage from '../layouts/TextPage.astro';
+import { site } from '../site.config';
+---
+
+<TextPage
+  title="Om kostaringet.se"
+  path="/om/"
+  description="Kostaringet.se samlar gratisprover och prova på-erbjudanden i Sverige. Så här letar och granskar vi."
+>
+  <p>
+    Kostaringet.se är en oberoende sajt som samlar saker du kan få, prova eller beställa helt gratis i Sverige
+    – gratisprover, babyboxar, välkomstpaket och provperioder.
+  </p>
+  <h2>Så hittar vi erbjudandena</h2>
+  <p>
+    En egenutvecklad bot går varje dag igenom nyhetsflöden och kampanjsidor hos svenska butiker och
+    varumärken. Det den hittar blir ett utkast som granskas innan det publiceras. Vi kontrollerar regelbundet
+    att länkarna fungerar och markerar erbjudanden som avslutade när de går ut.
+  </p>
+  <h2>Vad vi menar med gratis</h2>
+  <p>
+    Gratis ska betyda gratis. Om ett erbjudande kostar frakt, kräver medlemskap eller blir en betald
+    prenumeration om du inte säger upp den, skriver vi det tydligt – på kortet och överst på sidan.
+  </p>
+  <h2>Hur sajten finansieras</h2>
+  <p>
+    Sajten kan komma att visa annonser. Annonser är alltid tydligt märkta och påverkar inte vilka erbjudanden
+    vi listar.
+  </p>
+  <h2>Kontakt</h2>
+  <p>
+    Har du ett tips eller hittat ett fel? Mejla <a href={`mailto:${site.email}`}>{site.email}</a> eller använd
+    <a href="/tipsa/">tipssidan</a>.
+  </p>
+</TextPage>

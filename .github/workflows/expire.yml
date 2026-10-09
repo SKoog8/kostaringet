@@ -1,0 +1,33 @@
+name: Kontrollera erbjudanden
+
+on:
+  schedule:
+    - cron: '41 3 * * 1' # måndagar
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: node bot/expire.mjs
+      - name: Spara ändringar
+        run: |
+          git config user.name "kostaringet-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/content/erbjudanden bot/state/state.json
+          git diff --cached --quiet || (git commit -m "Bot: uppdatera status på erbjudanden" && git push)
+
+  deploy:
+    needs: check
+    uses: ./.github/workflows/deploy.yml

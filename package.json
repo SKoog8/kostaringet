@@ -1,0 +1,43 @@
+{
+  "name": "kostaringet",
+  "version": "1.0.0",
+  "description": "kostaringet.se – gratisprover, prova på-erbjudanden och saker du kan beställa gratis.",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check",
+    "bot": "node bot/run.mjs",
+    "bot:dry": "node bot/run.mjs --dry-run",
+    "bot:expire": "node bot/expire.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SKoog8/kostaringet.git"
+  },
+  "author": "",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/SKoog8/kostaringet/issues"
+  },
+  "homepage": "https://github.com/SKoog8/kostaringet#readme",
+  "dependencies": {
+    "@astrojs/rss": "^4.0.19",
+    "@astrojs/sitemap": "^3.7.4",
+    "@fontsource-variable/hanken-grotesk": "^5.3.0",
+    "@fontsource-variable/newsreader": "^5.3.0",
+    "astro": "^5.18.2"
+  },
+  "devDependencies": {
+    "@anthropic-ai/sdk": "^0.132.1",
+    "cheerio": "^1.2.0",
+    "rss-parser": "^3.13.0",
+    "yaml": "^2.9.1",
+    "zod": "^4.6.5"
+  },
+  "type": "module",
+  "private": true,
+  "engines": {
+    "node": ">=20"
+  }
+}

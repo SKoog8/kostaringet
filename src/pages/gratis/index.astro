@@ -1,0 +1,15 @@
+---
+import ListingPage from '../../components/ListingPage.astro';
+import { getOffers } from '../../lib/offers';
+
+const offers = await getOffers();
+---
+
+<ListingPage
+  title="Alla gratiserbjudanden."
+  metaTitle="Alla gratisprover och gratiserbjudanden just nu"
+  description="Alla aktuella gratisprover, gratis startpaket och prova på-erbjudanden i Sverige på ett ställe. Med tydlig info om frakt, krav och uppsägning."
+  intro="Allt vi hittat som går att beställa eller prova gratis just nu – nyast först. Kostar något frakt eller kräver uppsägning står det på kortet."
+  offers={offers}
+  crumbs={[{ label: 'Alla erbjudanden', href: '/gratis/' }]}
+/>

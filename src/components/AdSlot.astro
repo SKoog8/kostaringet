@@ -1,0 +1,48 @@
+---
+// Renders an ad unit when ads are enabled in site.config.ts, otherwise nothing.
+// Placeholders keep a reserved height so the layout does not jump (CLS) once ads load.
+import { ads } from '../site.config';
+
+interface Props {
+  slot: keyof typeof ads.slots;
+  label?: string;
+}
+
+const { slot, label = 'Annons' } = Astro.props;
+---
+
+{
+  ads.enabled && (
+    <aside class="ad" aria-label={label}>
+      <span class="ad__label">{label}</span>
+      <ins
+        class="adsbygoogle"
+        style="display:block"
+        data-ad-client={ads.client}
+        data-ad-slot={ads.slots[slot]}
+        data-ad-format="auto"
+        data-full-width-responsive="true"
+      />
+      <script is:inline>(window.adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </aside>
+  )
+}
+
+<style>
+  .ad {
+    margin-block: 32px;
+    min-height: 120px;
+    padding: 10px;
+    border-radius: var(--radius);
+    background: var(--surface);
+    border: 1px solid var(--line);
+  }
+  .ad__label {
+    display: block;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 6px;
+  }
+</style>

@@ -1,0 +1,52 @@
+# Where the bot looks for new free offers. Add, remove or tweak freely.
+#
+#   news:   Google News search queries (Swedish results). Good for brand-new campaigns.
+#   feeds:  Any RSS/Atom feed, e.g. a brand's news feed or a deal forum.
+#   pages:  Pages the bot re-reads every run. When the text changes and still
+#           mentions something free, it becomes a candidate.
+#   ai_discovery: Extra web searches done by Claude (needs ANTHROPIC_API_KEY).
+
+news:
+  - gratisprov
+  - gratis varuprov
+  - '"beställ gratis prov"'
+  - '"prova gratis" erbjudande'
+  - gratis babybox
+  - gratis startpaket gravid
+  - gratis välkomstpaket bebis
+  - blöjprov gratis
+  - gratis provperiod
+  - gratis hudvårdsprov
+  - gratis foderprov
+
+feeds: []
+  # - name: Exempel
+  #   url: https://example.se/feed.xml
+  #   category: skonhet
+
+pages:
+  - name: BabyBox
+    url: https://www.babybox.se/
+    category: foraldrar
+  - name: Liberoklubben
+    url: https://www.libero.se/liberoklubben/
+    category: foraldrar
+  - name: Goboken baby
+    url: https://www.goboken.se/baby/
+    category: foraldrar
+
+ai_discovery:
+  enabled: true
+  # Topics Claude searches the web for each run. Keep the list short – each is one search session.
+  topics:
+    - nya gratisprover och varuprover att beställa i Sverige
+    - gratis babyboxar, startpaket och välkomstgåvor för gravida och nyblivna föräldrar i Sverige
+    - gratis prova på-erbjudanden och provperioder i Sverige utan bindningstid
+
+limits:
+  # Max number of candidates sent to the AI verification step per run.
+  verify: 12
+  # Max number of drafts written per run.
+  drafts: 10
+  # Ignore news older than this many days.
+  max_age_days: 21

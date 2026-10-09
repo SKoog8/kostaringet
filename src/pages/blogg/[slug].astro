@@ -1,0 +1,103 @@
+---
+import { getCollection, render, type CollectionEntry } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import AdSlot from '../../components/AdSlot.astro';
+import OfferGrid from '../../components/OfferGrid.astro';
+import { formatDate, getOffers, isActive } from '../../lib/offers';
+import { categoryBySlug, site } from '../../site.config';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blogg', (p) => !p.data.draft);
+  return posts.map((post) => ({ params: { slug: post.id }, props: { post } }));
+}
+
+const { post } = Astro.props as { post: CollectionEntry<'blogg'> };
+const { data } = post;
+const { Content } = await render(post);
+const category = data.category ? categoryBySlug[data.category] : undefined;
+const offers = category ? (await getOffers(category.slug)).filter((o) => isActive(o)).slice(0, 6) : [];
+
+const articleLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: data.title,
+  description: data.description,
+  inLanguage: 'sv-SE',
+  datePublished: data.published.toISOString(),
+  dateModified: (data.updated ?? data.published).toISOString(),
+  author: { '@type': 'Organization', name: site.name, url: site.url },
+  publisher: { '@type': 'Organization', name: site.name, url: site.url },
+  mainEntityOfPage: new URL(`/blogg/${post.id}/`, site.url).href,
+};
+---
+
+<Base
+  title={data.title}
+  description={data.description}
+  type="article"
+  published={data.published}
+  modified={data.updated}
+  jsonLd={articleLd}
+>
+  <article class="wrap post">
+    <Breadcrumbs
+      items={[
+        { label: 'Guider', href: '/blogg/' },
+        { label: data.title, href: `/blogg/${post.id}/` },
+      ]}
+    />
+    <header>
+      <h1>{data.title}</h1>
+      <p class="lead">{data.description}</p>
+      <p class="byline">
+        <time datetime={data.published.toISOString()}>{formatDate(data.published)}</time>
+        {data.updated && <> · uppdaterad {formatDate(data.updated)}</>}
+      </p>
+    </header>
+    <div class="prose">
+      <Content />
+    </div>
+    <AdSlot slot="article" />
+  </article>
+
+  {
+    category && offers.length > 0 && (
+      <section class="wrap related">
+        <div class="section-head">
+          <h2>Aktuellt just nu.</h2>
+          <a class="more" href={category.path}>
+            Alla inom {category.name.toLowerCase()}
+          </a>
+        </div>
+        <OfferGrid offers={offers} adAfter={0} />
+      </section>
+    )
+  }
+</Base>
+
+<style>
+  .post {
+    display: grid;
+    gap: 28px;
+    padding-top: 28px;
+  }
+  header {
+    display: grid;
+    gap: 18px;
+    max-width: 48rem;
+  }
+  header h1 {
+    font-size: clamp(2.1rem, 5vw, 3.6rem);
+  }
+  .byline {
+    color: var(--muted);
+    font-size: 0.9rem;
+  }
+  .prose {
+    margin-top: 8px;
+  }
+  .related {
+    margin-top: 80px;
+  }
+</style>

@@ -1,0 +1,76 @@
+---
+// Shared layout for /gratis/, category pages and the parents page.
+import Base from '../layouts/Base.astro';
+import Breadcrumbs from './Breadcrumbs.astro';
+import CategoryList from './CategoryList.astro';
+import OfferGrid from './OfferGrid.astro';
+import { isActive, type Offer } from '../lib/offers';
+import type { CategorySlug } from '../site.config';
+
+interface Props {
+  title: string;
+  metaTitle: string;
+  description: string;
+  intro: string;
+  offers: Offer[];
+  crumbs: { label: string; href: string }[];
+  category?: CategorySlug;
+}
+
+const { title, metaTitle, description, intro, offers, crumbs, category } = Astro.props;
+const active = offers.filter((o) => isActive(o));
+const ended = offers.filter((o) => !isActive(o));
+---
+
+<Base title={metaTitle} description={description}>
+  <div class="wrap page-head">
+    <Breadcrumbs items={crumbs} />
+    <h1>{title}</h1>
+    <p class="lead">{intro}</p>
+    <p class="count">{active.length} aktiva erbjudanden</p>
+  </div>
+
+  <div class="wrap">
+    <div class="filters">
+      <CategoryList current={category} />
+    </div>
+    <OfferGrid offers={active} itemList />
+
+    <slot />
+
+    {
+      ended.length > 0 && (
+        <section class="ended">
+          <h2>Nyligen avslutade.</h2>
+          <p class="ended__p">Erbjudanden som har gått ut. Vi sparar dem så att du ser vad som brukar komma tillbaka.</p>
+          <OfferGrid offers={ended.slice(0, 12)} adAfter={0} />
+        </section>
+      )
+    }
+  </div>
+</Base>
+
+<style>
+  .page-head {
+    display: grid;
+    gap: 18px;
+    padding-block: clamp(32px, 6vw, 72px) 32px;
+  }
+  .count {
+    font-weight: 600;
+    color: var(--muted);
+    font-size: 0.95rem;
+  }
+  .filters {
+    margin-bottom: 28px;
+  }
+  .ended {
+    margin-top: 72px;
+    display: grid;
+    gap: 12px;
+  }
+  .ended__p {
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+</style>

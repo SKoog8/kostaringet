@@ -1,0 +1,23 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base title="Sidan finns inte" description="Sidan du letade efter finns inte längre." noindex>
+  <div class="wrap nf">
+    <p class="eyebrow">404</p>
+    <h1>Den här sidan kostar ingenting – för den finns inte.</h1>
+    <p class="lead">Erbjudandet kan ha tagits bort, eller så har länken ändrats.</p>
+    <div>
+      <a class="btn" href="/gratis/">Se aktuella erbjudanden</a>
+    </div>
+  </div>
+</Base>
+
+<style>
+  .nf {
+    display: grid;
+    gap: 20px;
+    padding-block: clamp(56px, 10vw, 120px);
+    max-width: 52rem;
+  }
+</style>

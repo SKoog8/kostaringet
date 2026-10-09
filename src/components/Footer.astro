@@ -1,0 +1,114 @@
+---
+import Logo from './Logo.astro';
+import { categories, site } from '../site.config';
+
+const year = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <div class="wrap footer__grid">
+    <div class="footer__brand">
+      <Logo />
+      <p>{site.tagline}</p>
+      <p class="footer__note">
+        Vi är inte knutna till företagen vars erbjudanden vi listar. Villkor kan ändras – läs alltid
+        hos avsändaren innan du beställer.
+      </p>
+    </div>
+    <div>
+      <h2 class="footer__h">Kategorier</h2>
+      <ul>
+        {
+          categories.map((c) => (
+            <li>
+              <a href={c.path}>{c.name}</a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+    <div>
+      <h2 class="footer__h">Sajten</h2>
+      <ul>
+        <li><a href="/gratis/">Alla erbjudanden</a></li>
+        <li><a href="/blogg/">Guider</a></li>
+        <li><a href="/tipsa/">Tipsa oss</a></li>
+        <li><a href="/om/">Om kostaringet.se</a></li>
+        <li><a href="/integritetspolicy/">Integritet &amp; cookies</a></li>
+        <li><a href="/rss.xml">RSS-flöde</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap footer__bottom">
+    <span>© {year} {site.domain}</span>
+    <a href={`mailto:${site.email}`}>{site.email}</a>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    margin-top: clamp(48px, 8vw, 96px);
+    border-top: 1px solid var(--line);
+    padding-top: 48px;
+    font-size: 0.95rem;
+    color: var(--ink-2);
+  }
+  .footer__grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 40px;
+  }
+  .footer__brand {
+    display: grid;
+    gap: 14px;
+    align-content: start;
+    max-width: 26rem;
+    color: var(--ink);
+  }
+  .footer__brand p {
+    color: var(--ink-2);
+  }
+  .footer__note {
+    font-size: 0.86rem;
+    color: var(--muted) !important;
+  }
+  .footer__h {
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 8px;
+  }
+  a {
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+  .footer__bottom {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-top: 48px;
+    padding-block: 20px 32px;
+    border-top: 1px solid var(--line);
+    color: var(--muted);
+    font-size: 0.86rem;
+  }
+  @media (max-width: 720px) {
+    .footer__grid {
+      grid-template-columns: 1fr 1fr;
+    }
+    .footer__brand {
+      grid-column: 1 / -1;
+    }
+  }
+</style>

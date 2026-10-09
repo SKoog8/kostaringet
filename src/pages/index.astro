@@ -1,0 +1,241 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import OfferGrid from '../components/OfferGrid.astro';
+import CategoryList from '../components/CategoryList.astro';
+import { getOffers, isActive, latest, formatDate } from '../lib/offers';
+import { site } from '../site.config';
+
+const offers = await getOffers();
+const active = offers.filter((o) => isActive(o));
+const newest = active.slice(0, 9);
+const parents = active.filter((o) => o.data.category === 'foraldrar').slice(0, 3);
+const lastUpdate = offers.length ? new Date(Math.max(...offers.map((o) => latest(o).getTime()))) : new Date();
+
+const guides = (await getCollection('blogg', (p) => !p.data.draft))
+  .sort((a, b) => b.data.published.getTime() - a.data.published.getTime())
+  .slice(0, 3);
+
+const websiteLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: site.domain,
+  url: site.url,
+  inLanguage: 'sv-SE',
+  description: site.description,
+};
+---
+
+<Base
+  title="Gratisprover och saker du kan beställa gratis – kostaringet.se"
+  suffix={false}
+  description={site.description}
+  jsonLd={websiteLd}
+>
+  <section class="hero">
+    <div class="wrap hero__inner">
+      <p class="eyebrow">{active.length} aktiva erbjudanden · uppdaterad {formatDate(lastUpdate)}</p>
+      <h1>Saker som<br />kostar ingenting.</h1>
+      <p class="lead">
+        Gratisprover, startpaket och prova på-erbjudanden från svenska butiker och varumärken. Vi letar varje
+        dag och skriver tydligt vad som krävs – så att gratis faktiskt är gratis.
+      </p>
+      <div class="hero__cta">
+        <a class="btn" href="/gratis/">Se alla erbjudanden</a>
+        <a class="btn btn--ghost" href="/nyblivna-foraldrar/">För nyblivna föräldrar</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Senast tillagt.</h2>
+        <a class="more" href="/gratis/">Visa alla</a>
+      </div>
+      <OfferGrid offers={newest} adAfter={0} />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Kategorier.</h2>
+      </div>
+      <CategoryList variant="tiles" />
+    </div>
+  </section>
+
+  {
+    parents.length > 0 && (
+      <section class="section">
+        <div class="wrap">
+          <div class="band">
+            <div class="band__text">
+              <p class="eyebrow">Egen flik</p>
+              <h2>Väntar ni barn?</h2>
+              <p>
+                Gravida och nyblivna föräldrar får fler gratispaket än någon annan. Vi har samlat babyboxar,
+                blöjprover och välkomstpaket på en sida – med hur länge du kan beställa.
+              </p>
+              <a class="more" href="/nyblivna-foraldrar/">Allt för nyblivna föräldrar</a>
+            </div>
+            <div class="band__list">
+              <OfferGrid offers={parents} adAfter={0} />
+            </div>
+          </div>
+        </div>
+      </section>
+    )
+  }
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Så funkar det.</h2>
+      </div>
+      <ol class="steps">
+        <li>
+          <span class="steps__n">1</span>
+          <h3>Vi letar.</h3>
+          <p>
+            En bot söker igenom nyheter, varumärkens kampanjsidor och flöden efter gratisprover och prova
+            på-erbjudanden – varje dag.
+          </p>
+        </li>
+        <li>
+          <span class="steps__n">2</span>
+          <h3>Vi kollar.</h3>
+          <p>
+            Varje tips granskas innan det publiceras. Kostar det frakt eller kräver uppsägning står det
+            överst.
+          </p>
+        </li>
+        <li>
+          <span class="steps__n">3</span>
+          <h3>Du beställer.</h3>
+          <p>Du beställer direkt hos företaget. Vi tar aldrig betalt och samlar inte in dina uppgifter.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  {
+    guides.length > 0 && (
+      <section class="section">
+        <div class="wrap">
+          <div class="section-head">
+            <h2>Guider.</h2>
+            <a class="more" href="/blogg/">Alla guider</a>
+          </div>
+          <ul class="guides">
+            {guides.map((g) => (
+              <li>
+                <a href={`/blogg/${g.id}/`}>
+                  <h3>{g.data.title}</h3>
+                  <p>{g.data.description}</p>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+    )
+  }
+</Base>
+
+<style>
+  .hero {
+    padding-block: clamp(56px, 10vw, 120px) clamp(24px, 4vw, 48px);
+  }
+  .hero__inner {
+    display: grid;
+    gap: 24px;
+  }
+  .hero h1 {
+    font-size: clamp(2.8rem, 9vw, 6.4rem);
+    letter-spacing: -0.05em;
+    line-height: 0.95;
+  }
+  .hero__cta {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 8px;
+  }
+  .band {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 2.2fr);
+    gap: clamp(24px, 4vw, 56px);
+    padding: clamp(24px, 4vw, 48px);
+    border-radius: calc(var(--radius) * 1.5);
+    background: var(--accent-soft);
+  }
+  .band__text {
+    display: grid;
+    gap: 14px;
+    align-content: start;
+  }
+  .band__text p:not(.eyebrow) {
+    color: var(--ink-2);
+  }
+  .band__list :global(.grid) {
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 220px), 1fr));
+  }
+  @media (max-width: 860px) {
+    .band {
+      grid-template-columns: 1fr;
+    }
+  }
+  .steps {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+    gap: 16px;
+  }
+  .steps li {
+    display: grid;
+    gap: 10px;
+    align-content: start;
+    padding: 24px;
+    border-top: 2px solid var(--ink);
+  }
+  .steps p {
+    color: var(--ink-2);
+  }
+  .steps__n {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 2.4rem;
+    line-height: 1;
+    color: var(--accent);
+  }
+  .guides {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+    gap: 16px;
+  }
+  .guides a {
+    display: grid;
+    gap: 8px;
+    height: 100%;
+    padding: 24px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--surface);
+    text-decoration: none;
+  }
+  .guides a:hover {
+    border-color: var(--ink);
+    color: var(--ink);
+  }
+  .guides p {
+    color: var(--ink-2);
+    font-size: 0.95rem;
+  }
+</style>

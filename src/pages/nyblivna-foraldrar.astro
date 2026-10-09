@@ -1,0 +1,92 @@
+---
+import ListingPage from '../components/ListingPage.astro';
+import { getOffers } from '../lib/offers';
+import { categoryBySlug } from '../site.config';
+
+const category = categoryBySlug.foraldrar;
+const offers = await getOffers('foraldrar');
+const year = new Date().getFullYear();
+
+const faq = [
+  {
+    q: 'När ska jag beställa babyboxar?',
+    a: 'De flesta startpaket kan beställas från ungefär vecka 20 av graviditeten och fram till att barnet är några månader. Beställ gärna tidigt – flera paket har begränsade upplagor.',
+  },
+  {
+    q: 'Är babyboxarna verkligen gratis?',
+    a: 'Innehållet är gratis, men vissa tar ut en fraktavgift eller kräver att du hämtar paketet i butik. Vi skriver alltid ut frakt och krav på varje erbjudande.',
+  },
+  {
+    q: 'Varför ger företag bort saker till nyblivna föräldrar?',
+    a: 'Föräldrar till nyfödda väljer nya märken för blöjor, hudvård och barnmat. Företagen hoppas att du fortsätter köpa det du provat. Var därför uppmärksam på vilka nyhetsbrev du tackar ja till.',
+  },
+  {
+    q: 'Behöver jag lämna personnummer?',
+    a: 'Oftast räcker namn, adress och beräknat förlossningsdatum. Vissa butiker vill se legitimation när du hämtar ut paketet. Lämna aldrig kortuppgifter för ett paket som ska vara gratis.',
+  },
+];
+
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faq.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+---
+
+<ListingPage
+  title={`${category.heading}.`}
+  metaTitle={`Gratis babypaket & babyboxar ${year} – för gravida och nyblivna föräldrar`}
+  description={`Alla gratis babyboxar, startpaket och blöjprover för gravida och nyblivna föräldrar ${year}. Se vad som ingår, vad frakten kostar och hur länge du kan beställa.`}
+  intro={category.intro}
+  offers={offers}
+  category="foraldrar"
+  crumbs={[{ label: category.name, href: category.path }]}
+>
+  <section class="faq">
+    <h2>Vanliga frågor.</h2>
+    <dl>
+      {
+        faq.map((f) => (
+          <div>
+            <dt>{f.q}</dt>
+            <dd>{f.a}</dd>
+          </div>
+        ))
+      }
+    </dl>
+    <a class="more" href="/blogg/gratis-till-nyblivna-foraldrar/">Läs hela guiden om gratis saker till bebis</a>
+  </section>
+  <script type="application/ld+json" set:html={JSON.stringify(faqLd)} />
+</ListingPage>
+
+<style>
+  .faq {
+    margin-top: 72px;
+    display: grid;
+    gap: 24px;
+    max-width: 46rem;
+  }
+  dl {
+    margin: 0;
+    display: grid;
+    gap: 0;
+    border-top: 1px solid var(--line);
+  }
+  dl > div {
+    padding-block: 18px;
+    border-bottom: 1px solid var(--line);
+  }
+  dt {
+    font-weight: 700;
+    font-size: 1.08rem;
+    margin-bottom: 6px;
+  }
+  dd {
+    margin: 0;
+    color: var(--ink-2);
+  }
+</style>
