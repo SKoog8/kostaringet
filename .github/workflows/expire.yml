@@ -1,8 +1,9 @@
 name: Kontrollera erbjudanden
 
 on:
-  schedule:
-    - cron: '41 3 * * 1' # måndagar
+  # Pausad tills vidare – kör manuellt under Actions. Avkommentera för veckovis körning.
+  # schedule:
+  #   - cron: '41 3 * * 1' # måndagar
   workflow_dispatch:
 
 permissions:

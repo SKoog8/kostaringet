@@ -1,8 +1,9 @@
 name: Bot – hitta nya erbjudanden
 
 on:
-  schedule:
-    - cron: '17 5 * * *' # varje morgon
+  # Pausad tills vidare – kör manuellt under Actions. Avkommentera för daglig körning.
+  # schedule:
+  #   - cron: '17 5 * * *' # varje morgon
   workflow_dispatch:
 
 permissions:
