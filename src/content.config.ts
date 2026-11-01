@@ -51,6 +51,10 @@ const blogg = defineCollection({
     published: z.coerce.date(),
     updated: z.coerce.date().optional(),
     category: z.enum(categorySlugs).optional(),
+    /** "dagens" = daily post about new finds, "guide" = evergreen guide. */
+    kind: z.enum(['dagens', 'guide']).default('guide'),
+    /** Offer slugs (filenames in erbjudanden) shown as cards under the post. */
+    offers: z.array(z.string()).default([]),
     draft: z.boolean().default(false),
   }),
 });

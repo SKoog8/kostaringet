@@ -121,7 +121,7 @@ export const nav = [
   { href: '/gratis/', label: 'Alla erbjudanden' },
   { href: '/nyblivna-foraldrar/', label: 'Nyblivna föräldrar' },
   { href: '/kategori/tjanster/', label: 'Prova på' },
-  { href: '/blogg/', label: 'Guider' },
+  { href: '/blogg/', label: 'Blogg' },
 ];
 
 // Ads are off until an AdSense publisher id is set. When enabled, a consent

@@ -1,14 +1,14 @@
 name: Kontrollera erbjudanden
 
 on:
-  schedule:
-    - cron: '41 3 * * 1' # måndagar
+  # Pausad tills vidare – kör manuellt under Actions. Avkommentera för veckovis körning.
+  # schedule:
+  #   - cron: '41 3 * * 1' # måndagar
   workflow_dispatch:
 
+# Ändringar som pushas här publiceras automatiskt av Vercel.
 permissions:
   contents: write
-  pages: write
-  id-token: write
 
 jobs:
   check:
@@ -28,6 +28,3 @@ jobs:
           git add src/content/erbjudanden bot/state/state.json
           git diff --cached --quiet || (git commit -m "Bot: uppdatera status på erbjudanden" && git push)
 
-  deploy:
-    needs: check
-    uses: ./.github/workflows/deploy.yml

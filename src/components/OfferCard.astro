@@ -67,26 +67,20 @@ const note = shippingNote ?? data.requirements[0] ?? 'Inga krav';
     flex: none;
   }
   .card__mono[data-cat='foraldrar'] {
-    background: #f6e3d6;
-    color: #8a4a22;
+    background: var(--cat-foraldrar-bg);
+    color: var(--cat-foraldrar-fg);
   }
   .card__mono[data-cat='skonhet'] {
-    background: #efe0ea;
-    color: #7d3866;
+    background: var(--cat-skonhet-bg);
+    color: var(--cat-skonhet-fg);
   }
   .card__mono[data-cat='mat-dryck'] {
-    background: #f3ebcf;
-    color: #7a5d0e;
+    background: var(--cat-mat-bg);
+    color: var(--cat-mat-fg);
   }
   .card__mono[data-cat='tjanster'] {
-    background: #dfe6f1;
-    color: #2f4f7f;
-  }
-  @media (prefers-color-scheme: dark) {
-    .card__mono[data-cat] {
-      background: var(--accent-soft);
-      color: var(--accent);
-    }
+    background: var(--cat-tjanster-bg);
+    color: var(--cat-tjanster-fg);
   }
   .card__brand {
     font-weight: 650;

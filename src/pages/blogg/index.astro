@@ -1,30 +1,31 @@
 ---
-import { getCollection } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import { formatDate } from '../../lib/offers';
+import { getPosts, kindLabel, postPath } from '../../lib/posts';
 
-const posts = (await getCollection('blogg', (p) => !p.data.draft)).sort(
-  (a, b) => b.data.published.getTime() - a.data.published.getTime(),
-);
+const posts = await getPosts();
 ---
 
 <Base
-  title="Guider om gratisprover och prova på-erbjudanden"
-  description="Guider och tips om hur du hittar gratisprover, babyboxar och prova på-erbjudanden – och hur du undviker fällorna."
+  title="Blogg – dagens gratisfynd och guider"
+  description="Nya gratisprover, startpaket och provperioder varje dag, plus guider om hur du får ut mest av dem utan att råka betala."
 >
   <div class="wrap head">
-    <Breadcrumbs items={[{ label: 'Guider', href: '/blogg/' }]} />
-    <h1>Guider.</h1>
-    <p class="lead">Hur du får ut mest av gratisprover och provperioder – utan att råka betala.</p>
+    <Breadcrumbs items={[{ label: 'Blogg', href: '/blogg/' }]} />
+    <h1>Blogg.</h1>
+    <p class="lead">Dagens fynd och guider om gratisprover och provperioder – utan att råka betala.</p>
   </div>
   <div class="wrap">
     <ul class="posts">
       {
         posts.map((p) => (
           <li>
-            <a href={`/blogg/${p.id}/`}>
-              <time datetime={p.data.published.toISOString()}>{formatDate(p.data.published)}</time>
+            <a href={postPath(p)}>
+              <span class="meta">
+                <span class:list={['kind', { 'kind--guide': p.data.kind === 'guide' }]}>{kindLabel[p.data.kind]}</span>
+                <time datetime={p.data.published.toISOString()}>{formatDate(p.data.published)}</time>
+              </span>
               <h2>{p.data.title}</h2>
               <p>{p.data.description}</p>
             </a>
@@ -57,12 +58,25 @@ const posts = (await getCollection('blogg', (p) => !p.data.draft)).sort(
   .posts a:hover h2 {
     color: var(--accent);
   }
-  time {
+  .meta {
+    display: flex;
+    gap: 10px;
+    align-items: center;
     font-size: 0.86rem;
     color: var(--muted);
   }
+  .kind {
+    font-weight: 650;
+    color: var(--accent);
+  }
+  .kind--guide {
+    color: var(--ink-2);
+  }
   h2 {
-    font-size: clamp(1.4rem, 2.6vw, 1.9rem);
+    font-family: var(--font-serif);
+    font-weight: 600;
+    font-size: clamp(1.5rem, 2.8vw, 2rem);
+    letter-spacing: -0.01em;
   }
   .posts p {
     color: var(--ink-2);

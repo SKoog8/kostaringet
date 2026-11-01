@@ -1,20 +1,22 @@
 ---
-import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
 import OfferGrid from '../components/OfferGrid.astro';
 import CategoryList from '../components/CategoryList.astro';
-import { getOffers, isActive, latest, formatDate } from '../lib/offers';
-import { site } from '../site.config';
+import { getOffers, isActive, offerPath, formatDate, formatShort, latest } from '../lib/offers';
+import { getPosts, kindLabel, postPath } from '../lib/posts';
+import { offerTypes, site } from '../site.config';
 
 const offers = await getOffers();
 const active = offers.filter((o) => isActive(o));
-const newest = active.slice(0, 9);
+const newestOffers = [...active].sort((a, b) => latest(b).getTime() - latest(a).getTime()).slice(0, 7);
 const parents = active.filter((o) => o.data.category === 'foraldrar').slice(0, 3);
-const lastUpdate = offers.length ? new Date(Math.max(...offers.map((o) => latest(o).getTime()))) : new Date();
 
-const guides = (await getCollection('blogg', (p) => !p.data.draft))
-  .sort((a, b) => b.data.published.getTime() - a.data.published.getTime())
-  .slice(0, 3);
+const posts = await getPosts();
+const [lead, ...rest] = posts;
+const recent = rest.slice(0, 6);
+const leadOffers = lead
+  ? lead.data.offers.map((slug) => offers.find((o) => o.id === slug)).filter((o) => o !== undefined)
+  : [];
 
 const websiteLd = {
   '@context': 'https://schema.org',
@@ -32,30 +34,88 @@ const websiteLd = {
   description={site.description}
   jsonLd={websiteLd}
 >
-  <section class="hero">
-    <div class="wrap hero__inner">
-      <p class="eyebrow">{active.length} aktiva erbjudanden · uppdaterad {formatDate(lastUpdate)}</p>
-      <h1>Saker som<br />kostar ingenting.</h1>
-      <p class="lead">
-        Gratisprover, startpaket och prova på-erbjudanden från svenska butiker och varumärken. Vi letar varje
-        dag och skriver tydligt vad som krävs – så att gratis faktiskt är gratis.
+  <section class="intro">
+    <div class="wrap intro__inner">
+      <h1>Saker som kostar ingenting.</h1>
+      <p class="intro__lead">
+        Varje dag letar vi upp gratisprover, startpaket och provperioder i Sverige – och skriver tydligt vad som krävs.
+        Just nu <a href="/gratis/">{active.length} aktiva erbjudanden</a>.
       </p>
-      <div class="hero__cta">
-        <a class="btn" href="/gratis/">Se alla erbjudanden</a>
-        <a class="btn btn--ghost" href="/nyblivna-foraldrar/">För nyblivna föräldrar</a>
-      </div>
     </div>
   </section>
 
-  <section class="section">
-    <div class="wrap">
-      <div class="section-head">
-        <h2>Senast tillagt.</h2>
-        <a class="more" href="/gratis/">Visa alla</a>
-      </div>
-      <OfferGrid offers={newest} adAfter={0} />
+  <div class="wrap">
+    {
+      lead && (
+        <article class="lead">
+          <p class="eyebrow">
+            {kindLabel[lead.data.kind]} · <time datetime={lead.data.published.toISOString()}>{formatDate(lead.data.published)}</time>
+          </p>
+          <h2 class="lead__title">
+            <a href={postPath(lead)}>{lead.data.title}</a>
+          </h2>
+          <p class="lead__desc">{lead.data.description}</p>
+          {leadOffers.length > 0 && (
+            <ul class="lead__brands" aria-label="I inlägget">
+              {leadOffers.map((o) => (
+                <li>{o.data.brand}</li>
+              ))}
+            </ul>
+          )}
+          <a class="more" href={postPath(lead)}>
+            Läs inlägget
+          </a>
+        </article>
+      )
+    }
+
+    <div class="columns">
+      <section class="posts" aria-labelledby="senaste-inlagg">
+        <div class="section-head">
+          <h2 id="senaste-inlagg">Senaste inläggen.</h2>
+          <a class="more" href="/blogg/">Alla inlägg</a>
+        </div>
+        <ul class="post-list">
+          {
+            recent.map((p) => (
+              <li>
+                <a href={postPath(p)}>
+                  <span class="post-list__meta">
+                    {kindLabel[p.data.kind]} · <time datetime={p.data.published.toISOString()}>{formatDate(p.data.published)}</time>
+                  </span>
+                  <span class="post-list__title">{p.data.title}</span>
+                  <span class="post-list__desc">{p.data.description}</span>
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </section>
+
+      <aside class="side" aria-labelledby="nya-erbjudanden">
+        <div class="section-head">
+          <h2 id="nya-erbjudanden">Nya erbjudanden.</h2>
+        </div>
+        <ul class="offer-list">
+          {
+            newestOffers.map((o) => (
+              <li>
+                <a href={offerPath(o)}>
+                  <span class="offer-list__top">
+                    <span>{o.data.brand}</span>
+                    <time datetime={latest(o).toISOString()}>{formatShort(latest(o))}</time>
+                  </span>
+                  <span class="offer-list__title">{o.data.title}</span>
+                  <span class="offer-list__type">{offerTypes[o.data.type]}</span>
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+        <a class="btn btn--ghost side__all" href="/gratis/">Alla erbjudanden</a>
+      </aside>
     </div>
-  </section>
+  </div>
 
   <section class="section">
     <div class="wrap">
@@ -98,18 +158,12 @@ const websiteLd = {
         <li>
           <span class="steps__n">1</span>
           <h3>Vi letar.</h3>
-          <p>
-            En bot söker igenom nyheter, varumärkens kampanjsidor och flöden efter gratisprover och prova
-            på-erbjudanden – varje dag.
-          </p>
+          <p>Varje dag går vi igenom varumärkens kampanjsidor, nyheter och flöden efter sådant som är gratis.</p>
         </li>
         <li>
           <span class="steps__n">2</span>
           <h3>Vi kollar.</h3>
-          <p>
-            Varje tips granskas innan det publiceras. Kostar det frakt eller kräver uppsägning står det
-            överst.
-          </p>
+          <p>Allt kontrolleras hos företaget innan det publiceras. Kostar det frakt eller kräver uppsägning står det tydligt.</p>
         </li>
         <li>
           <span class="steps__n">3</span>
@@ -119,50 +173,173 @@ const websiteLd = {
       </ol>
     </div>
   </section>
-
-  {
-    guides.length > 0 && (
-      <section class="section">
-        <div class="wrap">
-          <div class="section-head">
-            <h2>Guider.</h2>
-            <a class="more" href="/blogg/">Alla guider</a>
-          </div>
-          <ul class="guides">
-            {guides.map((g) => (
-              <li>
-                <a href={`/blogg/${g.id}/`}>
-                  <h3>{g.data.title}</h3>
-                  <p>{g.data.description}</p>
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
-    )
-  }
 </Base>
 
 <style>
-  .hero {
-    padding-block: clamp(56px, 10vw, 120px) clamp(24px, 4vw, 48px);
+  .intro {
+    padding-block: clamp(40px, 7vw, 80px) clamp(24px, 4vw, 40px);
+    border-bottom: 1px solid var(--line);
   }
-  .hero__inner {
+  .intro__inner {
     display: grid;
-    gap: 24px;
+    grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+    gap: 16px 48px;
+    align-items: end;
   }
-  .hero h1 {
-    font-size: clamp(2.8rem, 9vw, 6.4rem);
-    letter-spacing: -0.05em;
-    line-height: 0.95;
+  .intro h1 {
+    font-size: clamp(2.4rem, 6vw, 4.6rem);
+    letter-spacing: -0.045em;
+    line-height: 0.98;
   }
-  .hero__cta {
+  .intro__lead {
+    color: var(--ink-2);
+    font-size: 1.08rem;
+    max-width: 30rem;
+  }
+  .intro__lead a {
+    color: var(--accent);
+    font-weight: 650;
+  }
+  @media (max-width: 760px) {
+    .intro__inner {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .lead {
+    display: grid;
+    gap: 14px;
+    padding-block: clamp(40px, 6vw, 72px);
+    border-bottom: 1px solid var(--line);
+    max-width: 52rem;
+  }
+  .lead__title {
+    font-family: var(--font-serif);
+    font-weight: 600;
+    font-size: clamp(2rem, 4.6vw, 3.4rem);
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+  }
+  .lead__title a {
+    text-decoration: none;
+  }
+  .lead__desc {
+    font-size: clamp(1.08rem, 1.8vw, 1.25rem);
+    color: var(--ink-2);
+    max-width: 42rem;
+  }
+  .lead__brands {
     display: flex;
-    gap: 12px;
     flex-wrap: wrap;
-    margin-top: 8px;
+    gap: 6px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
   }
+  .lead__brands li {
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 999px;
+    border: 1px solid var(--line-strong);
+    color: var(--ink-2);
+  }
+
+  .columns {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 340px;
+    gap: clamp(32px, 5vw, 72px);
+    padding-top: clamp(40px, 6vw, 64px);
+    align-items: start;
+  }
+  @media (max-width: 900px) {
+    .columns {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .post-list,
+  .offer-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .post-list {
+    border-top: 1px solid var(--line);
+  }
+  .post-list a {
+    display: grid;
+    gap: 6px;
+    padding-block: 22px;
+    border-bottom: 1px solid var(--line);
+    text-decoration: none;
+  }
+  .post-list__meta {
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+  .post-list__title {
+    font-family: var(--font-serif);
+    font-weight: 600;
+    font-size: 1.5rem;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+  }
+  .post-list__desc {
+    color: var(--ink-2);
+    font-size: 0.97rem;
+  }
+  .post-list a:hover .post-list__title {
+    color: var(--accent);
+  }
+
+  .side {
+    display: grid;
+    gap: 0;
+    padding: 22px;
+    border-radius: var(--radius);
+    background: var(--surface);
+    border: 1px solid var(--line);
+  }
+  .side .section-head {
+    margin-bottom: 8px;
+  }
+  .side h2 {
+    font-size: 1.3rem;
+  }
+  .offer-list a {
+    display: grid;
+    gap: 4px;
+    padding-block: 14px;
+    border-bottom: 1px solid var(--line);
+    text-decoration: none;
+  }
+  .offer-list__top {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    font-size: 0.82rem;
+    font-weight: 650;
+    color: var(--muted);
+  }
+  .offer-list__title {
+    font-weight: 650;
+    line-height: 1.25;
+  }
+  .offer-list__type {
+    font-size: 0.8rem;
+    color: var(--accent);
+    font-weight: 600;
+  }
+  .offer-list a:hover .offer-list__title {
+    color: var(--accent);
+  }
+  .side__all {
+    margin-top: 18px;
+    justify-content: center;
+  }
+
   .band {
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(0, 2.2fr);
@@ -211,31 +388,5 @@ const websiteLd = {
     font-size: 2.4rem;
     line-height: 1;
     color: var(--accent);
-  }
-  .guides {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
-    gap: 16px;
-  }
-  .guides a {
-    display: grid;
-    gap: 8px;
-    height: 100%;
-    padding: 24px;
-    border: 1px solid var(--line);
-    border-radius: var(--radius);
-    background: var(--surface);
-    text-decoration: none;
-  }
-  .guides a:hover {
-    border-color: var(--ink);
-    color: var(--ink);
-  }
-  .guides p {
-    color: var(--ink-2);
-    font-size: 0.95rem;
   }
 </style>
