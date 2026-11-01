@@ -8,7 +8,7 @@ url: https://www.babybag.se/
 requirements:
   - Delas ut av din vårdenhet
 published: 2026-10-09
-checked: 2026-10-09
+checked: 2026-11-01
 ---
 
 BabyBag har delats ut till svenska föräldrar sedan 1992. Väskan innehåller produkter, varuprover och information som ska underlätta vardagen med en nyfödd. Innehållet granskas av en oberoende grupp barnmorskor och sjukvårdspersonal.

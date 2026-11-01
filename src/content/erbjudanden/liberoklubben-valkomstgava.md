@@ -1,6 +1,6 @@
 ---
 title: Gratis välkomstgåva när du går med i Liberoklubben
-description: Liberoklubben är gratis för gravida och nyblivna föräldrar. Som ny medlem får du en välkomstgåva och kan samla poäng på Libero-blöjor som byts mot gåvor.
+description: Liberoklubben är gratis för gravida och nyblivna föräldrar. Nya medlemmar får en välkomstbox värd cirka 500 kr och kan samla poäng på Libero-blöjor.
 brand: Libero
 category: foraldrar
 type: medlemsgava
@@ -8,7 +8,8 @@ url: https://www.libero.se/liberoklubben/
 requirements:
   - Gratis medlemskap i Liberoklubben
 published: 2026-10-09
-checked: 2026-10-09
+updated: 2026-11-01
+checked: 2026-11-01
 featured: true
 ---
 
@@ -16,7 +17,7 @@ Liberoklubben är Libero och Essitys klubb för blivande och nyblivna föräldra
 
 ## Vad ingår
 
-- En gratis välkomstgåva till nya medlemmar.
+- En gratis välkomstbox till nya medlemmar, enligt Libero värd cirka 500 kr.
 - Poäng på Libero-produkter som du kan byta mot gåvor.
 - Medlemsrabatter och en app där du kan följa graviditeten och barnets utveckling.
 
