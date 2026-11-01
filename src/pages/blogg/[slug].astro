@@ -1,14 +1,15 @@
 ---
-import { getCollection, render, type CollectionEntry } from 'astro:content';
+import { render, type CollectionEntry } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import AdSlot from '../../components/AdSlot.astro';
 import OfferGrid from '../../components/OfferGrid.astro';
 import { formatDate, getOffers, isActive } from '../../lib/offers';
+import { getPosts, kindLabel, postPath } from '../../lib/posts';
 import { categoryBySlug, site } from '../../site.config';
 
 export async function getStaticPaths() {
-  const posts = await getCollection('blogg', (p) => !p.data.draft);
+  const posts = await getPosts();
   return posts.map((post) => ({ params: { slug: post.id }, props: { post } }));
 }
 
@@ -16,7 +17,17 @@ const { post } = Astro.props as { post: CollectionEntry<'blogg'> };
 const { data } = post;
 const { Content } = await render(post);
 const category = data.category ? categoryBySlug[data.category] : undefined;
-const offers = category ? (await getOffers(category.slug)).filter((o) => isActive(o)).slice(0, 6) : [];
+const allOffers = await getOffers();
+// Offers named in the post come first; otherwise show what is active in the post's category.
+const mentioned = data.offers
+  .map((slug) => allOffers.find((o) => o.id === slug))
+  .filter((o): o is NonNullable<typeof o> => Boolean(o));
+const offers = mentioned.length
+  ? mentioned
+  : category
+    ? allOffers.filter((o) => o.data.category === category.slug && isActive(o)).slice(0, 6)
+    : [];
+const newer = (await getPosts()).filter((p) => p.id !== post.id).slice(0, 3);
 
 const articleLd = {
   '@context': 'https://schema.org',
@@ -28,7 +39,7 @@ const articleLd = {
   dateModified: (data.updated ?? data.published).toISOString(),
   author: { '@type': 'Organization', name: site.name, url: site.url },
   publisher: { '@type': 'Organization', name: site.name, url: site.url },
-  mainEntityOfPage: new URL(`/blogg/${post.id}/`, site.url).href,
+  mainEntityOfPage: new URL(postPath(post), site.url).href,
 };
 ---
 
@@ -43,11 +54,12 @@ const articleLd = {
   <article class="wrap post">
     <Breadcrumbs
       items={[
-        { label: 'Guider', href: '/blogg/' },
+        { label: 'Blogg', href: '/blogg/' },
         { label: data.title, href: `/blogg/${post.id}/` },
       ]}
     />
     <header>
+      <p class="eyebrow">{kindLabel[data.kind]}</p>
       <h1>{data.title}</h1>
       <p class="lead">{data.description}</p>
       <p class="byline">
@@ -62,15 +74,42 @@ const articleLd = {
   </article>
 
   {
-    category && offers.length > 0 && (
+    offers.length > 0 && (
       <section class="wrap related">
         <div class="section-head">
-          <h2>Aktuellt just nu.</h2>
-          <a class="more" href={category.path}>
-            Alla inom {category.name.toLowerCase()}
-          </a>
+          <h2>{mentioned.length ? 'Erbjudandena i inlägget.' : 'Aktuellt just nu.'}</h2>
+          {category && (
+            <a class="more" href={category.path}>
+              Alla inom {category.name.toLowerCase()}
+            </a>
+          )}
         </div>
         <OfferGrid offers={offers} adAfter={0} />
+      </section>
+    )
+  }
+
+  {
+    newer.length > 0 && (
+      <section class="wrap related">
+        <div class="section-head">
+          <h2>Fler inlägg.</h2>
+          <a class="more" href="/blogg/">
+            Alla inlägg
+          </a>
+        </div>
+        <ul class="more-posts">
+          {newer.map((p) => (
+            <li>
+              <a href={postPath(p)}>
+                <span class="more-posts__meta">
+                  {kindLabel[p.data.kind]} · {formatDate(p.data.published)}
+                </span>
+                <span class="more-posts__title">{p.data.title}</span>
+              </a>
+            </li>
+          ))}
+        </ul>
       </section>
     )
   }
@@ -99,5 +138,30 @@ const articleLd = {
   }
   .related {
     margin-top: 80px;
+  }
+  .more-posts {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid var(--line);
+  }
+  .more-posts a {
+    display: grid;
+    gap: 4px;
+    padding-block: 18px;
+    border-bottom: 1px solid var(--line);
+    text-decoration: none;
+  }
+  .more-posts__meta {
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+  .more-posts__title {
+    font-weight: 700;
+    font-size: 1.15rem;
+    letter-spacing: -0.01em;
+  }
+  .more-posts a:hover .more-posts__title {
+    color: var(--accent);
   }
 </style>
