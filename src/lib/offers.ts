@@ -37,3 +37,13 @@ const shortFmt = new Intl.DateTimeFormat('sv-SE', { day: 'numeric', month: 'shor
 export const formatDate = (d: Date) => dateFmt.format(d);
 export const formatShort = (d: Date) => shortFmt.format(d).replace('.', '');
 export const isoDate = (d: Date) => d.toISOString().slice(0, 10);
+
+/** Where the "Till erbjudandet" button points, and the rel attribute Google expects for it. */
+export function outbound(offer: Offer): { href: string; rel: string; sponsored: boolean } {
+  const sponsored = Boolean(offer.data.affiliate);
+  return {
+    href: offer.data.affiliate ?? offer.data.url,
+    rel: sponsored ? 'sponsored nofollow noopener' : 'nofollow noopener',
+    sponsored,
+  };
+}

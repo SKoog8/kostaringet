@@ -29,6 +29,8 @@ Ett erbjudande får bara publiceras om du har läst det **på företagets egen s
 
 Skriv alltid ut frakt, krav på medlemskap, att provperioder blir betalda och slutdatum om det finns.
 
+**Annonslänkar:** fältet `affiliate` läggs in för hand av sajtägaren. Sätt det aldrig själv, ändra det aldrig och ta aldrig bort det. Lägg aldrig in spårnings- eller affiliatelänkar i texten eller i `url`, som alltid ska vara företagets vanliga sida.
+
 **Ta inte med:** tävlingar och utlottningar, rabatter och "köp 2 betala för 1", "köp och få pengarna tillbaka", gratis frakt, sådant som kräver ett köp, erbjudanden till företag, erbjudanden utanför Sverige, och sådant du bara har sett på en annan gratissajt eller i sociala medier.
 
 Hittar du färre än två kontrollerade erbjudanden: skriv en guide i stället (se steg 5).

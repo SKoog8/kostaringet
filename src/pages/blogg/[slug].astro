@@ -27,6 +27,7 @@ const offers = mentioned.length
   : category
     ? allOffers.filter((o) => o.data.category === category.slug && isActive(o)).slice(0, 6)
     : [];
+const hasAdLinks = offers.some((o) => Boolean(o.data.affiliate));
 const newer = (await getPosts()).filter((p) => p.id !== post.id).slice(0, 3);
 
 const articleLd = {
@@ -65,6 +66,7 @@ const articleLd = {
       <p class="byline">
         <time datetime={data.published.toISOString()}>{formatDate(data.published)}</time>
         {data.updated && <> · uppdaterad {formatDate(data.updated)}</>}
+        {hasAdLinks && <> · Innehåller annonslänkar</>}
       </p>
     </header>
     <div class="prose">
