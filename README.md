@@ -19,7 +19,7 @@ npm run build      # bygger till dist/
 | `src/content/blogg/*.md` | Guider (SEO-artiklar) |
 | `src/pages/` | Sidor: start, `/gratis/`, `/nyblivna-foraldrar/`, `/kategori/…`, `/blogg/` |
 | `bot/` | Boten som hittar nya erbjudanden |
-| `.github/workflows/` | Publicering, bot och veckokontroll |
+| `.github/workflows/` | Bot, veckokontroll och nattlig ombyggnad |
 
 ### Ett erbjudande
 
@@ -66,16 +66,17 @@ npm run bot:expire
 
 Modellen kan bytas med repo-variabeln `BOT_MODEL` (standard `claude-opus-5-5`).
 
-## Publicering (GitHub Pages)
+## Publicering (Vercel + Loopia)
 
-1. Skapa grenen `main` från den här grenen och gör den till standardgren.
-2. **Settings → Pages → Source: GitHub Actions.**
-3. **Settings → Secrets and variables → Actions:** lägg till `ANTHROPIC_API_KEY`.
-4. **Settings → Actions → General:** tillåt "Read and write permissions" och "Allow GitHub Actions to create and approve pull requests" (krävs för botens pull requests).
-5. Domänen: lägg in `kostaringet.se` under Pages → Custom domain och peka DNS hos registraren:
-   - `A`-poster för `@`: `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`
-   - `CNAME` för `www`: `skoog8.github.io`
-   - Kryssa i "Enforce HTTPS" när certifikatet är klart.
+Vercel bygger och publicerar sajten automatiskt vid varje push. Inställningarna finns i `vercel.json`.
+
+1. **Vercel → Add New → Project →** importera `SKoog8/kostaringet`. Vercel känner igen Astro, så standardinställningarna fungerar.
+2. **Settings → Domains:** lägg till `kostaringet.se` och `www.kostaringet.se`. Välj att `www` ska omdirigeras till `kostaringet.se`.
+3. **Loopia Kundzon → Domäner → kostaringet.se → DNS-editor:**
+   - Ta bort Loopias standardposter för `@`, `www` och `*` (A och AAAA som pekar på Loopias parkeringssida).
+   - Lägg till den `A`-post för `@` och den `CNAME`-post för `www` som Vercel visar under Domains.
+   - Ändringen syns oftast inom en timme. Vercel ordnar HTTPS automatiskt.
+4. **Valfritt:** skapa en Deploy Hook i Vercel (Settings → Git → Deploy Hooks) och spara URL:en som GitHub-hemligheten `VERCEL_DEPLOY_HOOK`. Då bygger `rebuild.yml` om sajten varje natt, så att utgångna erbjudanden markeras som avslutade.
 
 ## SEO
 
