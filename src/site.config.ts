@@ -136,3 +136,39 @@ export const ads = {
     sidebar: '0000000000',
   },
 };
+
+// Our own products (sold elsewhere, e.g. on Etsy). Shown in clearly labelled
+// "Från oss" boxes, never mixed in with the free offers.
+export interface Product {
+  slug: string;
+  title: string;
+  tagline: string;
+  price: string;
+  url: string;
+  image: string;
+  imageAlt: string;
+  format: string;
+  includes: string[];
+}
+
+export const products: Product[] = [
+  {
+    slug: 'blojfri-pa-7-dagar',
+    title: 'Blöjfri på 7 dagar',
+    tagline:
+      'En svensk steg-för-steg-guide som tar er från blöja till potta på en vecka – med tre intensiva dagar hemma och sedan ut i vardagen och förskolan.',
+    price: '98,75 kr',
+    url: 'https://www.etsy.com/se/listing/4603755049/pottraning-pa-7-dagar-svensk-pdf-guide-o',
+    image: '/produkter/blojfri-pa-7-dagar.jpg',
+    imageAlt: 'Blöjfri på 7 dagar – PDF-guide om potträning',
+    format: 'PDF, 17 sidor A4 · laddas ner direkt',
+    includes: [
+      'Checklista: är ditt barn redo?',
+      'En sida per dag med mål, steg och tips',
+      'Logg för kiss, bajs och olyckor',
+      'Klistermärkestavla och diplom att skriva ut',
+    ],
+  },
+];
+
+export const productBySlug = Object.fromEntries(products.map((p) => [p.slug, p])) as Record<string, Product>;

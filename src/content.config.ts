@@ -61,6 +61,8 @@ const blogg = defineCollection({
     kind: z.enum(['dagens', 'guide']).default('guide'),
     /** Offer slugs (filenames in erbjudanden) shown as cards under the post. */
     offers: z.array(z.string()).default([]),
+    /** Slug of one of our own products (site.config.ts) to show after the text. */
+    product: z.string().optional(),
     draft: z.boolean().default(false),
   }),
 });

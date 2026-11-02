@@ -106,6 +106,15 @@ Då händer följande automatiskt:
 
 Den dagliga rutinen rör aldrig fältet `affiliate`.
 
+## Egna produkter
+
+Egna produkter, till exempel PDF-guiden *Blöjfri på 7 dagar* på Etsy, ligger i `products` i `src/site.config.ts`. Där ändrar du pris, länk, bild och texter. Bilderna ligger i `public/produkter/`.
+
+Produkterna visas i en tydligt märkt ruta, "Från oss", och aldrig bland gratiserbjudandena. Rutan visas:
+
+- på sidan Nyblivna föräldrar
+- i blogginlägg som har `product: <slug>` i frontmatter, till exempel guiden om potträning
+
 ## Annonser
 
 Annonsplatser finns redan i listor, på erbjudandesidor och i guider, men är avstängda. Så slår du på dem:

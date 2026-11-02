@@ -3,6 +3,7 @@ import { render, type CollectionEntry } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import AdSlot from '../../components/AdSlot.astro';
+import ProductBox from '../../components/ProductBox.astro';
 import OfferGrid from '../../components/OfferGrid.astro';
 import { formatDate, getOffers, isActive } from '../../lib/offers';
 import { getPosts, kindLabel, postPath } from '../../lib/posts';
@@ -72,6 +73,7 @@ const articleLd = {
     <div class="prose">
       <Content />
     </div>
+    {data.product && <ProductBox slug={data.product} />}
     <AdSlot slot="article" />
   </article>
 
