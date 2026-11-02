@@ -9,7 +9,9 @@ requirements:
   - Gratis medlemskap
   - Du måste bli utvald till en kampanj
 published: 2026-10-09
-checked: 2026-10-09
+status: avslutad
+updated: 2026-11-02
+checked: 2026-11-02
 ---
 
 Buzzador samarbetar med varumärken som vill att vanliga konsumenter ska testa deras produkter. Som medlem söker du till de kampanjer som intresserar dig. Blir du utvald skickas produkten hem till dig gratis.
@@ -25,3 +27,5 @@ Buzzador samarbetar med varumärken som vill att vanliga konsumenter ska testa d
 
 - Du får inte produkter bara genom att bli medlem. Det är kampanjen som avgör vem som väljs ut.
 - Läs vad som förväntas av dig i varje kampanj. Ibland ska du publicera inlägg med en viss hashtag.
+
+> Uppdatering 2 november 2026: Buzzadors svenska startsida leder i dag till en kampanj som avslutades i april 2026, och vi hittar inga aktuella kampanjer. Vi markerar därför erbjudandet som avslutat tills vidare.

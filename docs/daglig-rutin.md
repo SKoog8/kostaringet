@@ -66,6 +66,8 @@ En inledande mening om vad man får.
 - …
 ```
 
+**Tips:** innehåller en rubrik eller beskrivning ett kolon följt av mellanslag, sätt hela värdet inom citattecken. Annars går bygget sönder.
+
 ## 5. Skriv dagens inlägg
 
 En fil: `src/content/blogg/ÅÅÅÅ-MM-DD-<kort-slug>.md`

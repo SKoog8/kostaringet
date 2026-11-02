@@ -6,7 +6,7 @@ category: halsa
 type: gratisprov
 url: https://www.attends.se/kostnadsfria-varuprover
 published: 2026-10-09
-checked: 2026-10-09
+checked: 2026-11-02
 ---
 
 Attends gör inkontinensskydd och hjälpmedel i flera absorptionsnivåer. För att det ska bli lättare att hitta rätt skydd kan du beställa gratis produktprover hem.
