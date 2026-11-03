@@ -2,6 +2,7 @@
 title: Gratis tygprover, produkttester och Aftonbladet Plus för studenter
 description: "Dagens fynd 2 november – gratis tygprover från Soferia, produkttester hos Smartson och fem månader Aftonbladet Plus för studenter. Plus: Bokus Play förlänger till 60 dagar."
 published: 2026-11-02
+updated: 2026-11-03
 kind: dagens
 offers:
   - soferia-gratis-tygprover
@@ -34,4 +35,6 @@ Bokus Play har förlängt sin provperiod. [Nya användare får nu 60 dagar grati
 
 ## Det här tog slut
 
-Testpanelen Buzzador har inte haft några nya kampanjer sedan i våras, så vi har markerat den som avslutad tills vidare. Treateaters sökte testpiloter till nytt hundtugg, men ansökan stängde den 30 oktober.
+Treateaters sökte testpiloter till nytt hundtugg, men ansökan stängde den 30 oktober.
+
+> Rättelse 3 november: I en tidigare version stod det att testpanelen Buzzador var avslutad. Det stämde inte. Buzzador har aktiva kampanjer, se [dagens inlägg](/blogg/2026-11-03-robotdammsugare-akustikpaneler/).

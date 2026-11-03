@@ -7,11 +7,11 @@ type: startpaket
 url: https://www.babybox.se/
 requirements:
   - En box per hushåll
-  - Hemleverans mot avgift
+  - Hemleverans 69 kr
 shipping: 0
 published: 2026-10-09
 updated: 2026-11-01
-checked: 2026-11-01
+checked: 2026-11-03
 featured: true
 ---
 
@@ -20,7 +20,7 @@ BabyBox är ett av de mest kända startpaketen för blivande föräldrar i Sveri
 ## Så beställer du
 
 1. Gå till babybox.se och fyll i dina uppgifter och beräknat förlossningsdatum.
-2. Välj om du vill hämta lådan gratis i närmaste Lekia- eller Babya-butik eller få den hemlevererad mot en avgift.
+2. Välj om du vill hämta lådan gratis i närmaste Lekia- eller Babya-butik eller få den hemlevererad för 69 kr.
 3. Ta med legitimation när du hämtar ut den.
 
 ## Bra att veta

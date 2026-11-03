@@ -106,6 +106,7 @@ Kontrollera de fem aktiva erbjudanden som har äldst `checked`-datum:
 
 - Finns erbjudandet kvar: sätt `checked` till dagens datum.
 - Är det slut: sätt `status: avslutad` och `updated` till dagens datum. Radera aldrig filen.
+- Var säker innan du avslutar. En startsida som leder till en gammal kampanj betyder inte att allt är slut. Kolla företagets kampanj- eller erbjudandesida och sök efter aktuella kampanjer först.
 
 ## 7. Bygg, committa och pusha
 

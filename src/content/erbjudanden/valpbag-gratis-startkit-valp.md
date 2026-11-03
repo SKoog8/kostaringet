@@ -10,7 +10,7 @@ requirements:
   - En per hushåll
 shipping: 59
 published: 2026-10-09
-checked: 2026-10-09
+checked: 2026-11-03
 featured: true
 ---
 
