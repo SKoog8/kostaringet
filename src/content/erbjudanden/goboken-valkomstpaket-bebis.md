@@ -1,6 +1,6 @@
 ---
 title: Gratis välkomstpaket till bebis från Goboken
-description: Goboken skickar ett gratis välkomstpaket med mjukisdjur, skallra och en föräldraguide om barnets utveckling. Paketet är gratis, frakten kostar 79 kr.
+description: Gobokens gratis välkomstpaket till bebis har just nu jultema, med en julbok, sångkort och en haklapp. Paketet är gratis, frakten kostar 79 kr.
 brand: Goboken
 category: foraldrar
 type: startpaket
@@ -9,11 +9,11 @@ requirements:
   - Startar en bokklubb som går att avsluta
 shipping: 79
 published: 2026-10-09
-updated: 2026-11-01
-checked: 2026-11-01
+updated: 2026-11-04
+checked: 2026-11-04
 ---
 
-Goboken är en bokklubb för barn mellan 0 och 6 år. Som start får bebisen ett välkomstpaket med mjuka leksaker som Lilla Lejonet och Lilla Nyckelpigan, en skallra och en guide om barnets utveckling.
+Goboken är en bokklubb för barn mellan 0 och 6 år. Som start får bebisen ett välkomstpaket. Just nu har paketet jultema och innehåller bland annat en julbok, sångkort och en haklapp med julmotiv. Innehållet byts ut under året.
 
 ## Bra att veta innan du beställer
 

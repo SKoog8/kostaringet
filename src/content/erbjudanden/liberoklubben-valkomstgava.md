@@ -7,9 +7,10 @@ type: medlemsgava
 url: https://www.libero.se/liberoklubben/
 requirements:
   - Gratis medlemskap i Liberoklubben
+  - Under graviditeten eller tills barnet är 8 veckor
 published: 2026-10-09
-updated: 2026-11-01
-checked: 2026-11-01
+updated: 2026-11-04
+checked: 2026-11-04
 featured: true
 ---
 
@@ -17,7 +18,7 @@ Liberoklubben är Libero och Essitys klubb för blivande och nyblivna föräldra
 
 ## Vad ingår
 
-- En gratis välkomstbox till nya medlemmar, enligt Libero värd cirka 500 kr.
+- En gratis välkomstbox till nya medlemmar, enligt Libero värd cirka 500 kr. Den kan beställas under graviditeten och tills barnet är 8 veckor.
 - Poäng på Libero-produkter som du kan byta mot gåvor.
 - Medlemsrabatter och en app där du kan följa graviditeten och barnets utveckling.
 
