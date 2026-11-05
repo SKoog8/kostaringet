@@ -22,7 +22,7 @@ Sikta på 3–5 nya erbjudanden. Sprid gärna över kategorierna, och prioritera
 
 ## 3. Kontrollera varje erbjudande
 
-Ett erbjudande får bara publiceras om du har läst det **på företagets egen sida** i dag och kan svara ja på:
+Ett erbjudande får bara publiceras om du har läst det **på företagets egen sida** i dag (läs sidan färskt, inte en sparad version – med Firecrawl: `maxAge: 0`) och kan svara ja på:
 
 - Kan en privatperson i Sverige få det utan att betala för själva produkten?
 - Är det aktuellt just nu, och inte redan slut?

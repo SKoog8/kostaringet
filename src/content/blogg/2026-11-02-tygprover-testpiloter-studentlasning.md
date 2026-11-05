@@ -1,8 +1,8 @@
 ---
 title: Gratis tygprover, produkttester och Aftonbladet Plus för studenter
-description: "Dagens fynd 2 november – gratis tygprover från Soferia, produkttester hos Smartson och fem månader Aftonbladet Plus för studenter. Plus: Bokus Play förlänger till 60 dagar."
+description: "Dagens fynd 2 november – gratis tygprover från Soferia, produkttester hos Smartson och fem månader Aftonbladet Plus för studenter. Plus: Bokus Play i 30 dagar."
 published: 2026-11-02
-updated: 2026-11-03
+updated: 2026-11-05
 kind: dagens
 offers:
   - soferia-gratis-tygprover
@@ -29,12 +29,14 @@ Studerar du kan du läsa [Aftonbladet Plus för 0 kr i fem månader](/gratis/aft
 
 Hos Mecenat finns i dag också andra provperioder för studenter, bland annat två månader gratis hos Readly och 30 dagar gratis hos Storytel.
 
-## Uppdaterat: Bokus Play nu gratis i 60 dagar
+## Bokus Play
 
-Bokus Play har förlängt sin provperiod. [Nya användare får nu 60 dagar gratis](/gratis/bokus-play-30-dagar-gratis/), med högst 30 timmars lyssning. Därefter kostar Premium 149 kr i månaden utan bindningstid. Vi har uppdaterat vår [jämförelse av ljudbokstjänsterna](/blogg/gratis-provperiod-ljudbocker/).
+Bokus Play har [30 dagars gratis provperiod](/gratis/bokus-play-30-dagar-gratis/) med upp till 30 timmars lyssning, och därefter från 79 kr i månaden utan bindningstid.
 
 ## Det här tog slut
 
 Treateaters sökte testpiloter till nytt hundtugg, men ansökan stängde den 30 oktober.
 
 > Rättelse 3 november: I en tidigare version stod det att testpanelen Buzzador var avslutad. Det stämde inte. Buzzador har aktiva kampanjer, se [dagens inlägg](/blogg/2026-11-03-robotdammsugare-akustikpaneler/).
+
+> Rättelse 5 november: I en tidigare version stod det att Bokus Play förlängt provperioden till 60 dagar. Det stämde inte. Provperioden är 30 dagar.

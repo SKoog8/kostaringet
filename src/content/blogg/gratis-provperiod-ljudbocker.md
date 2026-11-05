@@ -1,8 +1,8 @@
 ---
 title: Ljudböcker gratis – jämför provperioderna och undvik att betala
-description: BookBeat, Bokus Play och Nextory har gratis provperioder på ljudböcker – Bokus Play nu i 60 dagar. Så länge gäller de, vad som ingår och hur du säger upp i tid.
+description: BookBeat, Bokus Play och Nextory har gratis provperioder på ljudböcker. Så länge gäller de, vad som ingår och hur du säger upp i tid.
 published: 2026-10-09
-updated: 2026-11-02
+updated: 2026-11-05
 category: tjanster
 ---
 
@@ -13,7 +13,7 @@ Nästan alla ljudbokstjänster i Sverige låter nya användare lyssna gratis en 
 | Tjänst | Gratis i | Bra att veta |
 | --- | --- | --- |
 | [BookBeat](/gratis/bookbeat-ljudbocker-30-dagar-gratis/) | 30 dagar | 20 timmar ingår, sedan från 99 kr/mån |
-| [Bokus Play](/gratis/bokus-play-30-dagar-gratis/) | 60 dagar | Högst 30 timmar, sedan 149 kr/mån |
+| [Bokus Play](/gratis/bokus-play-30-dagar-gratis/) | 30 dagar | Upp till 30 timmar, sedan från 79 kr/mån |
 | [Nextory](/gratis/nextory-ljudbocker-14-dagar-gratis/) | 14 dagar | Kortast provperiod av de tre |
 
 Villkoren ändras ofta. Kontrollera alltid hos tjänsten innan du startar.
