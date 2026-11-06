@@ -11,7 +11,9 @@ requirements:
   - Recension och slutrapport
 expires: 2026-11-04
 published: 2026-11-03
-checked: 2026-11-03
+status: avslutad
+updated: 2026-11-06
+checked: 2026-11-06
 ---
 
 Testpanelen Buzzador söker personer som vill testa Boschs nya robotdammsugare Spotless, som både dammsuger och moppar. Den som blir utvald och genomför uppdraget får behålla dammsugaren utan kostnad.

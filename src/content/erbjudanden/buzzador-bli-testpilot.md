@@ -10,7 +10,7 @@ requirements:
   - Du måste bli utvald till en kampanj
 published: 2026-10-09
 updated: 2026-11-03
-checked: 2026-11-03
+checked: 2026-11-06
 ---
 
 Buzzador samarbetar med varumärken som vill att vanliga konsumenter ska testa deras produkter. Som medlem söker du till de kampanjer som intresserar dig. Blir du utvald skickas produkten hem till dig gratis.

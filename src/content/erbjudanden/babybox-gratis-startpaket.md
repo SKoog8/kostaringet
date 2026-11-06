@@ -11,7 +11,7 @@ requirements:
 shipping: 0
 published: 2026-10-09
 updated: 2026-11-01
-checked: 2026-11-03
+checked: 2026-11-06
 featured: true
 ---
 

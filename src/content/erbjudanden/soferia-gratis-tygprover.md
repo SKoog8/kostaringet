@@ -8,7 +8,7 @@ url: https://soferia.se/tyger-och-gratisprover/bestall-prover/
 requirements:
   - Max 5 prover med gratis leverans
 published: 2026-11-02
-checked: 2026-11-02
+checked: 2026-11-06
 ---
 
 Soferia syr överdrag på mått till IKEA-soffor, fåtöljer och stolar i över 120 olika tyger. Innan du bestämmer dig kan du beställa tygprover hem gratis och se hur färgen och materialet ser ut i ditt eget rum.
