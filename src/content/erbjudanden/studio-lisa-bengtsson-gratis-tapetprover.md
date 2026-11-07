@@ -9,7 +9,7 @@ requirements:
   - Max 10 tapetprover per order
 shipping: tillkommer
 published: 2026-10-09
-checked: 2026-11-03
+checked: 2026-11-07
 ---
 
 Tapeter ser ofta annorlunda ut på väggen än på skärmen. Studio Lisa Bengtsson har därför gratis tapetprover på alla sina mönster, så att du kan se färger och tryck i ditt eget ljus.
