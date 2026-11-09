@@ -8,7 +8,7 @@ url: https://www.lanstrafiken.se/nyheter/nyheter/reflexkampanj/
 requirements:
   - Hämtas på resecentrum i Örebro
 published: 2026-11-05
-checked: 2026-11-05
+checked: 2026-11-09
 ---
 
 Under kampanjen "Syns du inte, finns du inte" vill Länstrafiken Örebro, länets kommuner och Svealandstrafiken få fler att synas i mörkret. Som en del av kampanjen kan du hämta en gratis reflex hos Länstrafikens kundservice.

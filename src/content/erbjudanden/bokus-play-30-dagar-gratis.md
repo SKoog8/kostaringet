@@ -10,7 +10,7 @@ requirements:
   - Säg upp innan 30 dagar om du inte vill betala
 published: 2026-10-09
 updated: 2026-11-05
-checked: 2026-11-05
+checked: 2026-11-09
 ---
 
 Bokus Play är bokhandeln Bokus egen tjänst för ljudböcker och e-böcker. Nya användare kan prova gratis i 30 dagar, med upp till 30 timmars lyssning och läsning, och få tillgång till över 100 000 titlar.
