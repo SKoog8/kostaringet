@@ -9,7 +9,7 @@ requirements:
   - För barn som bor i Örebro län
   - Delas ut av BVC vid besök
 published: 2026-11-06
-checked: 2026-11-06
+checked: 2026-11-10
 ---
 
 Bokstart är en nationell satsning från Kulturrådet för att stärka små barns språkutveckling. I Örebro län får alla barn tre gåvoböcker från barnhälsovården under de första åren.

@@ -23,6 +23,8 @@ Ett tips: tygprover fungerar lika bra när du ska matcha färger till kuddar och
 
 Hos testpanelen [Smartson](/gratis/smartson-bli-testpilot/) kan du just nu söka till tester av bland annat Wilfas sladdlösa dammsugare, en elektrisk mopp och flera köksapparater. Blir du utvald får du produkten för att testa den och lämna dina synpunkter. Alla som söker blir inte utvalda, och varje test har ett sista ansökningsdatum, så sök hellre tidigt.
 
+*Uppdaterat 10 november: i Smartsons tester just nu får testpiloterna köpa produkten till ett lägre pris. De är alltså inte gratis längre.*
+
 ## Aftonbladet Plus i fem månader för studenter
 
 Studerar du kan du läsa [Aftonbladet Plus för 0 kr i fem månader](/gratis/aftonbladet-plus-student-5-manader-gratis/) via studentrabattappen Mecenat. Det gäller nya kunder. Efter fem månader fortsätter prenumerationen för 79 kr i månaden, så skriv upp datumet om du bara vill läsa gratis.

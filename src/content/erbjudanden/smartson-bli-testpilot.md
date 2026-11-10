@@ -9,12 +9,14 @@ requirements:
   - Du måste bli utvald
   - Varje test har ett sista ansökningsdatum
 published: 2026-11-02
-checked: 2026-11-05
+updated: 2026-11-10
+checked: 2026-11-10
+status: avslutad
 ---
 
 Smartson är en svensk testpanel där företag låter konsumenter prova nya produkter och tjänster. Du söker till de tester som intresserar dig, och blir du utvald får du produkten för att testa den och lämna dina synpunkter.
 
-Just nu finns bland annat tester av Electrolux handdammsugare ErgoMini, Wilfas sladdlösa dammsugare och elektriska mopp, och av köksapparater som kaffebryggare och stavmixer.
+**Uppdaterat 10 november 2026:** I de tester som finns just nu får testpiloterna köpa produkten till ett lägre pris, alltså inte gratis. Därför visar vi erbjudandet som avslutat tills det finns gratis tester igen.
 
 ## Så gör du
 

@@ -9,7 +9,7 @@ requirements:
   - Förstagångsföräldrar i utvalda stadsdelar
   - Erbjudandet kommer via BVC
 published: 2026-11-06
-checked: 2026-11-06
+checked: 2026-11-10
 ---
 
 Inom Bokstart i Göteborg får familjer med små barn tips om språkutveckling och böcker att behålla. Satsningen sker i samarbete mellan barnhälsovården, förskolor och biblioteken.
