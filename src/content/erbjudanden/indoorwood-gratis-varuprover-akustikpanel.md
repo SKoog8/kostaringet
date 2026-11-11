@@ -9,7 +9,7 @@ requirements:
   - Max 3 prover per beställning
 shipping: 69
 published: 2026-11-03
-checked: 2026-11-06
+checked: 2026-11-11
 ---
 
 Akustikpaneler i trä är populära både för att dämpa ljud och som inredning. Färgen på träet är svår att bedöma på en skärm, så IndoorWood låter dig beställa upp till tre varuprover hem. Proverna är gratis, och du betalar bara frakten.

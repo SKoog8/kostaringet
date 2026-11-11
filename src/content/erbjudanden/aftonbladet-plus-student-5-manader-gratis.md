@@ -10,7 +10,7 @@ requirements:
   - Gäller nya kunder
   - Blir 79 kr/mån efter 5 månader
 published: 2026-11-02
-checked: 2026-11-07
+checked: 2026-11-11
 ---
 
 Är du student kan du få Aftonbladet Plus för 0 kr i fem månader. Erbjudandet går via Mecenat, som samlar studentrabatter, och ger tillgång till alla artiklar, analyser och livesport på Aftonbladet.
