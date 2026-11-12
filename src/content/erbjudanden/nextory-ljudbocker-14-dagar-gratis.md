@@ -10,7 +10,7 @@ requirements:
   - Säg upp innan 14 dagar om du inte vill betala
 published: 2026-10-09
 updated: 2026-11-07
-checked: 2026-11-07
+checked: 2026-11-12
 ---
 
 Nextory är en tjänst för ljudböcker och e-böcker. Nya användare kan prova gratis i 14 dagar, med upp till 30 timmars läsning och lyssning, och välja mellan olika abonnemang, till exempel Standard med upp till 30 timmars läsning och lyssning per månad.
