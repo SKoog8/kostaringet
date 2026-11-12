@@ -4,7 +4,7 @@ import Base from '../../layouts/Base.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import OfferGrid from '../../components/OfferGrid.astro';
 import AdSlot from '../../components/AdSlot.astro';
-import { getOffers, isActive, formatDate, latest, offerPath, type Offer } from '../../lib/offers';
+import { getOffers, isActive, formatDate, latest, offerPath, outbound, type Offer } from '../../lib/offers';
 import { categoryBySlug, offerTypes, site } from '../../site.config';
 
 export async function getStaticPaths() {
@@ -16,6 +16,7 @@ const { offer } = Astro.props as { offer: Offer };
 const { data } = offer;
 const { Content } = await render(offer);
 const active = isActive(offer);
+const link = outbound(offer);
 const category = categoryBySlug[data.category];
 
 const related = (await getOffers(data.category))
@@ -87,9 +88,12 @@ const productLd = {
         <p class="lead">{data.description}</p>
         {
           active && (
-            <a class="btn mobile-cta" href={data.url} rel="nofollow noopener" target="_blank">
-              Till erbjudandet <span aria-hidden="true">↗</span>
-            </a>
+            <p class="mobile-cta">
+              <a class="btn" href={link.href} rel={link.rel} target="_blank">
+                Till erbjudandet <span aria-hidden="true">↗</span>
+              </a>
+              {link.sponsored && <span class="adlabel">Annonslänk</span>}
+            </p>
           )
         }
 
@@ -133,7 +137,7 @@ const productLd = {
           </dl>
           {
             active ? (
-              <a class="btn facts__cta" href={data.url} rel="nofollow noopener" target="_blank">
+              <a class="btn facts__cta" href={link.href} rel={link.rel} target="_blank">
                 Till erbjudandet hos {data.brand}
                 <span aria-hidden="true">↗</span>
               </a>
@@ -142,6 +146,12 @@ const productLd = {
             )
           }
           <p class="facts__small">
+            {link.sponsored && (
+              <>
+                <strong>Annonslänk.</strong> Vi kan få ersättning om du beställer via länken. Det kostar inget extra och
+                påverkar inte vilka erbjudanden vi skriver om.{' '}
+              </>
+            )}
             Du beställer direkt hos {data.brand}. Kontrollera alltid villkoren innan du lämnar dina uppgifter.
           </p>
         </div>
@@ -192,7 +202,13 @@ const productLd = {
   }
   .mobile-cta {
     display: none;
+    align-items: center;
+    gap: 12px;
     justify-self: start;
+  }
+  .adlabel {
+    font-size: 0.8rem;
+    color: var(--muted);
   }
   .byline {
     font-size: 0.88rem;
@@ -253,7 +269,7 @@ const productLd = {
       grid-template-columns: 1fr;
     }
     .mobile-cta {
-      display: inline-flex;
+      display: flex;
     }
     .side {
       position: static;

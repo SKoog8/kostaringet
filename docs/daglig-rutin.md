@@ -22,12 +22,14 @@ Sikta på 3–5 nya erbjudanden. Sprid gärna över kategorierna, och prioritera
 
 ## 3. Kontrollera varje erbjudande
 
-Ett erbjudande får bara publiceras om du har läst det **på företagets egen sida** i dag och kan svara ja på:
+Ett erbjudande får bara publiceras om du har läst det **på företagets egen sida** i dag (läs sidan färskt, inte en sparad version – med Firecrawl: `maxAge: 0`) och kan svara ja på:
 
 - Kan en privatperson i Sverige få det utan att betala för själva produkten?
 - Är det aktuellt just nu, och inte redan slut?
 
 Skriv alltid ut frakt, krav på medlemskap, att provperioder blir betalda och slutdatum om det finns.
+
+**Annonslänkar:** fältet `affiliate` läggs in för hand av sajtägaren. Sätt det aldrig själv, ändra det aldrig och ta aldrig bort det. Lägg aldrig in spårnings- eller affiliatelänkar i texten eller i `url`, som alltid ska vara företagets vanliga sida.
 
 **Ta inte med:** tävlingar och utlottningar, rabatter och "köp 2 betala för 1", "köp och få pengarna tillbaka", gratis frakt, sådant som kräver ett köp, erbjudanden till företag, erbjudanden utanför Sverige, och sådant du bara har sett på en annan gratissajt eller i sociala medier.
 
@@ -63,6 +65,8 @@ En inledande mening om vad man får.
 
 - …
 ```
+
+**Tips:** innehåller en rubrik eller beskrivning ett kolon följt av mellanslag, sätt hela värdet inom citattecken. Annars går bygget sönder.
 
 ## 5. Skriv dagens inlägg
 
@@ -102,6 +106,7 @@ Kontrollera de fem aktiva erbjudanden som har äldst `checked`-datum:
 
 - Finns erbjudandet kvar: sätt `checked` till dagens datum.
 - Är det slut: sätt `status: avslutad` och `updated` till dagens datum. Radera aldrig filen.
+- Var säker innan du avslutar. En startsida som leder till en gammal kampanj betyder inte att allt är slut. Kolla företagets kampanj- eller erbjudandesida och sök efter aktuella kampanjer först.
 
 ## 7. Bygg, committa och pusha
 

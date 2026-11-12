@@ -8,7 +8,7 @@ url: https://www.tena.nu/kvinnor/produkter/gratis-prov.html
 requirements:
   - Ett prov per person var sjätte månad
 published: 2026-10-09
-checked: 2026-10-09
+checked: 2026-11-12
 ---
 
 Urinläckage är vanligt, och det kan vara svårt att veta vilket skydd som passar. TENA låter dig därför beställa ett kostnadsfritt provpaket hem.

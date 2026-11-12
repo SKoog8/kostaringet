@@ -25,6 +25,12 @@ const erbjudanden = defineCollection({
     type: z.enum(offerTypes).default('gratisprov'),
     /** The official page where the reader claims the offer. */
     url: z.string().url(),
+    /**
+     * Affiliate/tracking link to the same offer (Adtraction, Awin, …). When set,
+     * the button uses it and the page is marked as containing an ad link.
+     * Added by hand; the daily routine never sets or changes it.
+     */
+    affiliate: z.string().url().optional(),
     /** Short notes on what is required, e.g. "Kräver medlemskap". */
     requirements: z.array(z.string()).default([]),
     /** Shipping cost in SEK. 0 means truly free, 'tillkommer' when the amount is unknown. */
@@ -55,6 +61,8 @@ const blogg = defineCollection({
     kind: z.enum(['dagens', 'guide']).default('guide'),
     /** Offer slugs (filenames in erbjudanden) shown as cards under the post. */
     offers: z.array(z.string()).default([]),
+    /** Slug of one of our own products (site.config.ts) to show after the text. */
+    product: z.string().optional(),
     draft: z.boolean().default(false),
   }),
 });

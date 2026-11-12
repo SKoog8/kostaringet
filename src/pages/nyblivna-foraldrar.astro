@@ -1,5 +1,6 @@
 ---
 import ListingPage from '../components/ListingPage.astro';
+import ProductBox from '../components/ProductBox.astro';
 import { getOffers } from '../lib/offers';
 import { categoryBySlug } from '../site.config';
 
@@ -46,6 +47,8 @@ const faqLd = {
   category="foraldrar"
   crumbs={[{ label: category.name, href: category.path }]}
 >
+  <ProductBox slug="blojfri-pa-7-dagar" />
+
   <section class="faq">
     <h2>Vanliga frågor.</h2>
     <dl>

@@ -87,6 +87,34 @@ Vercel bygger och publicerar sajten automatiskt vid varje push. Inställningarna
 - Lägg till sajten i [Google Search Console](https://search.google.com/search-console) och skicka in `https://kostaringet.se/sitemap-index.xml`.
 - Skriv fler guider i `src/content/blogg/`. Långa, uppdaterade guider ("Gratis saker till bebis 2026", "Alla gratis provperioder") är det som drar mest trafik.
 
+## Annonslänkar (affiliate)
+
+Gå med i ett affiliatenätverk, till exempel Adtraction, Awin eller Adrecord, och ansök om de program som passar erbjudandena. Exempel på sådana program är ljudbokstjänster, babyklubbar och linsbutiker.
+
+När du har en spårningslänk lägger du den i erbjudandets fil:
+
+```yaml
+url: https://www.bookbeat.com/se          # företagets vanliga sida, ändra inte
+affiliate: https://…spårningslänk…        # din affiliatelänk
+```
+
+Då händer följande automatiskt:
+
+- Knappen "Till erbjudandet" går via affiliatelänken och får `rel="sponsored"`, som Google kräver.
+- Erbjudandesidan märks med "Annonslänk" och en kort förklaring.
+- Blogginlägg som tar upp erbjudandet märks med "Innehåller annonslänkar".
+
+Den dagliga rutinen rör aldrig fältet `affiliate`.
+
+## Egna produkter
+
+Egna produkter, till exempel PDF-guiden *Blöjfri på 7 dagar* på Etsy, ligger i `products` i `src/site.config.ts`. Där ändrar du pris, länk, bild och texter. Bilderna ligger i `public/produkter/`.
+
+Produkterna visas i en tydligt märkt ruta, "Från oss", och aldrig bland gratiserbjudandena. Rutan visas:
+
+- på sidan Nyblivna föräldrar
+- i blogginlägg som har `product: <slug>` i frontmatter, till exempel guiden om potträning
+
 ## Annonser
 
 Annonsplatser finns redan i listor, på erbjudandesidor och i guider, men är avstängda. Så slår du på dem:

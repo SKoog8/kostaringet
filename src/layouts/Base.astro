@@ -38,7 +38,7 @@ const organization = {
   '@type': 'Organization',
   name: site.name,
   url: site.url,
-  logo: new URL('/favicon.svg', site.url).href,
+  logo: new URL('/icon-512.png', site.url).href,
 };
 const ld = [organization, ...(Array.isArray(jsonLd) ? jsonLd : jsonLd ? [jsonLd] : [])];
 ---
@@ -67,8 +67,11 @@ const ld = [organization, ...(Array.isArray(jsonLd) ? jsonLd : jsonLd ? [jsonLd]
     {modified && <meta property="article:modified_time" content={modified.toISOString()} />}
     <meta name="twitter:card" content="summary_large_image" />
 
+    <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon-48.png" type="image/png" sizes="48x48" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
     <link rel="alternate" type="application/rss+xml" title={`${site.domain} – nya erbjudanden`} href="/rss.xml" />
     <link rel="sitemap" href="/sitemap-index.xml" />
     <meta name="theme-color" content="#f6f4ee" media="(prefers-color-scheme: light)" />
