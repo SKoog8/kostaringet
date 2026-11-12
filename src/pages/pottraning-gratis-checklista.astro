@@ -1,0 +1,48 @@
+---
+import TextPage from '../layouts/TextPage.astro';
+import ProductBox from '../components/ProductBox.astro';
+import { productBySlug } from '../site.config';
+
+const product = productBySlug['blojfri-pa-7-dagar'];
+const freebie = product.freebie!;
+---
+
+<TextPage
+  title="Gratis checklista för potträning"
+  description="Ladda ner en gratis checklista: är ditt barn redo för potträning? Med lista över vad ni behöver och en logg för första dagen. PDF att skriva ut."
+  path={freebie.page}
+>
+  <p>
+    Undrar du om ert barn är redo att sluta med blöjan? Den här gratis PDF:en är ett smakprov från vår guide <em>Blöjfri på 7 dagar</em>. Skriv ut den och fyll i hemma.
+  </p>
+
+  <h2>Det här finns i checklistan</h2>
+  <ul>
+    <li>Åtta tecken på att barnet är redo, att kryssa i, och vad resultatet betyder.</li>
+    <li>En lista över vad ni behöver förbereda innan första dagen.</li>
+    <li>En logg för första dagen, där ni skriver upp när barnet kissar och bajsar.</li>
+  </ul>
+
+  <p class="download">
+    <a class="btn" href={freebie.file} download>Ladda ner gratis (PDF, 2 sidor)</a>
+  </p>
+  <p class="small">Ingen registrering, ingen e-post. Filen laddas ner direkt.</p>
+
+  <h2>Vill du ha hela veckan?</h2>
+  <p>
+    Hela guiden har en sida per dag med mål och tips, loggar för hela veckan, råd inför förskolan, en klistermärkestavla och ett diplom. Den kostar pengar och säljs via Etsy.
+  </p>
+  <ProductBox slug="blojfri-pa-7-dagar" hideFreebie />
+
+  <p>Läs också vår guide <a href="/blogg/pottraning-sa-kommer-ni-igang/">Potträning – så kommer ni igång med pottan</a>.</p>
+</TextPage>
+
+<style>
+  .download {
+    margin-top: 8px;
+  }
+  .small {
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+</style>

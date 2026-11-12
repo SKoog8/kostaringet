@@ -5,9 +5,12 @@ import { productBySlug } from '../site.config';
 
 interface Props {
   slug: string;
+  /** Hide the free sample link, e.g. on the free sample page itself. */
+  hideFreebie?: boolean;
 }
 
 const product = productBySlug[Astro.props.slug];
+const freebie = Astro.props.hideFreebie ? undefined : product?.freebie;
 ---
 
 {
@@ -31,6 +34,11 @@ const product = productBySlug[Astro.props.slug];
           </a>
           <span class="product__format">{product.format}</span>
         </div>
+        {freebie && (
+          <p class="product__freebie">
+            Vill du prova först? <a href={freebie.page}>{freebie.title}</a>, gratis att ladda ner.
+          </p>
+        )}
         <p class="product__note">
           Det här är vår egen guide, och den kostar pengar. Den säljs via Etsy, där du betalar och laddar ner den.
         </p>
@@ -103,6 +111,12 @@ const product = productBySlug[Astro.props.slug];
   .product__format {
     font-size: 0.85rem;
     color: var(--muted);
+  }
+  .product__freebie {
+    font-size: 0.95rem;
+  }
+  .product__freebie a {
+    font-weight: 700;
   }
   .product__note {
     font-size: 0.82rem;

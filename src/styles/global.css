@@ -233,6 +233,7 @@ p {
   border-radius: 999px;
   background: var(--ink);
   color: var(--paper);
+  font-family: var(--font-sans);
   font-weight: 650;
   text-decoration: none;
   border: 1px solid var(--ink);
@@ -301,7 +302,7 @@ p {
 .prose li + li {
   margin-top: 0.35em;
 }
-.prose a {
+.prose a:not(.btn) {
   color: var(--accent);
 }
 .prose strong {

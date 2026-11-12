@@ -115,6 +115,8 @@ Produkterna visas i en tydligt märkt ruta, "Från oss", och aldrig bland gratis
 - på sidan Nyblivna föräldrar
 - i blogginlägg som har `product: <slug>` i frontmatter, till exempel guiden om potträning
 
+En produkt kan ha ett gratis smakprov (`freebie` i `site.config.ts`). Då får rutan en länk till smakprovet. Smakprovet för *Blöjfri på 7 dagar* är en PDF i `public/produkter/` med en egen sida, `/pottraning-gratis-checklista/`. Källfilen finns i `docs/produkter/` och renderas till PDF med Playwright.
+
 ## Annonser
 
 Annonsplatser finns redan i listor, på erbjudandesidor och i guider, men är avstängda. Så slår du på dem:

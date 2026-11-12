@@ -149,6 +149,8 @@ export interface Product {
   imageAlt: string;
   format: string;
   includes: string[];
+  /** Optional free sample (our own PDF) that leads to the full product. */
+  freebie?: { title: string; file: string; page: string };
 }
 
 export const products: Product[] = [
@@ -168,6 +170,11 @@ export const products: Product[] = [
       'Logg för kiss, bajs och olyckor',
       'Klistermärkestavla och diplom att skriva ut',
     ],
+    freebie: {
+      title: 'Gratis smakprov: checklista och logg för dag 1',
+      file: '/produkter/blojfri-pa-7-dagar-smakprov.pdf',
+      page: '/pottraning-gratis-checklista/',
+    },
   },
 ];
 
