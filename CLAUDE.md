@@ -1,6 +1,6 @@
 # kostaringet.se
 
-Svensk sajt (Astro, statisk) som listar gratisprover, startpaket och provperioder, plus ett dagligt blogginlägg. Publiceras på Vercel från grenen `claude/kostaringet-blog-freebot-q6sb78`.
+Svensk sajt (Astro, statisk) som listar gratisprover, startpaket och provperioder, plus ett dagligt blogginlägg. Publiceras på Vercel från grenen `main`. Pusha alltid direkt till `main`; andra grenar blir bara förhandsversioner.
 
 - Erbjudanden: `src/content/erbjudanden/*.md`, schema i `src/content.config.ts`.
 - Blogginlägg och guider: `src/content/blogg/*.md` (`kind: dagens` eller `kind: guide`).

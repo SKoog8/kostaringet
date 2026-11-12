@@ -4,7 +4,7 @@ Den här rutinen körs en gång om dagen av Claude. Målet är ett bra, sant inl
 
 ## 1. Förbered
 
-1. `git fetch origin claude/kostaringet-blog-freebot-q6sb78 && git checkout claude/kostaringet-blog-freebot-q6sb78 && git pull`
+1. `git fetch origin main && git checkout main && git pull`
 2. `npm ci`
 3. Läs igenom vad som redan finns, så att du inte skriver om samma sak:
    - `src/content/erbjudanden/*.md` (titel, varumärke och `url`)
@@ -112,7 +112,7 @@ Kontrollera de fem aktiva erbjudanden som har äldst `checked`-datum:
 
 1. `npm run build` måste gå igenom utan fel. Rätta det som är fel innan du går vidare.
 2. Committa med meddelandet `Dagens fynd ÅÅÅÅ-MM-DD` (eller `Guide ÅÅÅÅ-MM-DD`).
-3. `git push origin claude/kostaringet-blog-freebot-q6sb78`. Vercel publicerar automatiskt.
+3. `git push origin main`. Vercel publicerar automatiskt (andra grenar blir bara förhandsversioner).
 4. Skapa ingen pull request.
 
 ## 8. Rapportera
