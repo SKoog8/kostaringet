@@ -1,0 +1,138 @@
+---
+// Seasonal page: free things for Christmas. Update the year and the facts every autumn.
+import Base from '../layouts/Base.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import OfferGrid from '../components/OfferGrid.astro';
+import { getOffers, isActive } from '../lib/offers';
+
+const year = 2026;
+const checked = '12 november 2026';
+
+const slugs = [
+  'goboken-valkomstpaket-bebis',
+  'fritidsbanken-lana-sportutrustning-gratis',
+  'amazon-prime-30-dagar-gratis',
+  'trippel-viaplay-storytel-podme-30-dagar',
+  'bokus-play-30-dagar-gratis',
+];
+const all = await getOffers();
+const offers = slugs
+  .map((s) => all.find((o) => o.id === s))
+  .filter((o): o is NonNullable<typeof o> => Boolean(o) && isActive(o!));
+
+const faq = [
+  {
+    q: `Vad är SVT:s julkalender ${year}?`,
+    a: `Årets julkalender heter Den ofrivillige tomten och har premiär den 1 december på SVT och SVT Play. Den är gratis att se.`,
+  },
+  {
+    q: 'Vad är tomtens adress?',
+    a: 'Tomten, 173 00 Tomteboda. PostNord tar hand om breven, och alla barn som skriver sin adress på brevet får en hälsning tillbaka. Brevet behöver frimärke.',
+  },
+  {
+    q: 'Kan man se julfilmer gratis?',
+    a: 'Ja, med en gratis provperiod hos en streamingtjänst. Kom ihåg att säga upp den innan provtiden är slut, annars blir den betald.',
+  },
+];
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faq.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+};
+---
+
+<Base
+  title={`Gratis till jul ${year} – julkalendrar, brev till tomten och julpaket`}
+  description={`Det här kan du få gratis till jul ${year}: julkalendern på SVT och Sveriges Radio, svar från tomten, julpaket till bebisen och julfilmer med provperiod.`}
+  jsonLd={faqLd}
+>
+  <div class="wrap"><div class="page-head">
+    <Breadcrumbs items={[{ label: `Gratis till jul ${year}`, href: '/jul/' }]} />
+    <p class="eyebrow">Säsong</p>
+    <h1>Gratis till jul {year}.</h1>
+    <p class="lead"> Julkalendrar, brev från tomten, ett julpaket till bebisen och julfilmer utan att betala. Allt på sidan är kontrollerat hos den som erbjuder det. Senast kontrollerad {checked}. </p>
+  </div></div>
+
+  <div class="wrap jul">
+    <div class="prose">
+      <h2>Julkalendrar att se och lyssna på</h2>
+      <p> <strong>SVT:s julkalender {year} heter <em>Den ofrivillige tomten</em></strong> och har premiär den 1 december. Den handlar om advokaten Per som oväntat blir utvald till ny tomte. Den visas på SVT och är gratis att se på <a href="https://www.svtplay.se/kategori/julkalendrar" rel="noopener">SVT Play</a>. </p>
+      <p> På SVT Play finns också många gamla julkalendrar. Från den 1 december läggs bland annat <em>Sunes jul</em>, <em>Kurt Olssons julkalender</em> och <em>Julstrul med Staffan och Bengt</em> ut i sin helhet. Klassiker som <em>Mysteriet på Greveholm</em>, <em>Pelle Svanslös</em> och <em>Julens hjältar</em> finns där året runt. För de minsta finns Bolibompa minis julkalender. </p>
+      <p> <strong>Sveriges Radios julkalender {year} heter <em>Djuphavsjul</em></strong> och har premiär den 1 december. Den utspelar sig i en undervattensstad och riktar sig till barn ungefär 9–13 år. Lyssna gratis i <a href="https://sverigesradio.se/julkalendern" rel="noopener">Sveriges Radio Play</a>. </p>
+
+      <h2>Skriv brev till tomten och få svar</h2>
+      <p> Tomtens adress är <strong>Tomten, 173 00 Tomteboda</strong>. Det är PostNord som tar hand om breven, och <a href="https://www.postnord.se/privat/jul-och-nyar/brev-till-tomten/" rel="noopener">alla barn som skriver sin adress på brevet får en hälsning tillbaka</a>. Svaret är gratis, men brevet till tomten behöver ett frimärke. Skicka i god tid i december om svaret ska hinna fram före julafton. </p>
+
+      <h2>Julpaket till bebisen</h2>
+      <p> Goboken skickar ett välkomstpaket till bebisar som just nu är jultema: en julbok som lyser och spelar, en låda med julsångskort och en röd dregglis med texten "God Jul". Paketet är gratis, men frakten kostar 79 kr. Fler babypaket hittar du på sidan för <a href="/nyblivna-foraldrar/">nyblivna föräldrar</a>. </p>
+
+      <h2>Julfilmer med gratis provperiod</h2>
+      <p> Vill du se julfilmer utan att betala kan du starta en gratis provperiod, till exempel Amazon Prime i 30 dagar eller Viaplay via Trippel. Lägg in en påminnelse och säg upp innan provtiden är slut. Läs mer i guiden <a href="/blogg/2026-11-11-sag-upp-provperioden-i-tid/">Så säger du upp en gratis provperiod i tid</a>. </p>
+
+      <h2>Ut i vintern</h2>
+      <p> På jullovet kan ni låna sport- och friluftsutrustning gratis i 14 dagar på Fritidsbanken. Se vad som finns inne på er närmaste fritidsbank innan ni går dit. </p>
+    </div>
+
+    {
+      offers.length > 0 && (
+        <section class="related">
+          <h2>Erbjudandena på sidan.</h2>
+          <OfferGrid offers={offers} adAfter={0} />
+        </section>
+      )
+    }
+
+    <section class="faq prose">
+      <h2>Vanliga frågor.</h2>
+      <dl>
+        {
+          faq.map((f) => (
+            <div>
+              <dt>{f.q}</dt>
+              <dd>{f.a}</dd>
+            </div>
+          ))
+        }
+      </dl>
+    </section>
+  </div>
+</Base>
+
+<style>
+  .page-head {
+    display: grid;
+    gap: 16px;
+    padding-top: 28px;
+    max-width: 48rem;
+  }
+  .jul {
+    display: grid;
+    gap: 56px;
+    margin-top: 32px;
+  }
+  .jul > .prose {
+    max-width: 46rem;
+  }
+  .related h2 {
+    margin-bottom: 20px;
+  }
+  .faq {
+    max-width: 46rem;
+  }
+  dl {
+    margin: 0;
+    border-top: 1px solid var(--line);
+  }
+  dl > div {
+    padding-block: 18px;
+    border-bottom: 1px solid var(--line);
+  }
+  dt {
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  dd {
+    margin: 0;
+    color: var(--ink-2);
+  }
+</style>
