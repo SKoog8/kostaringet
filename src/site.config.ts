@@ -125,12 +125,14 @@ export const nav = [
   { href: '/blogg/', label: 'Blogg' },
 ];
 
-// Ads are off until an AdSense publisher id is set. When enabled, a consent
-// banner (CMP) is required for visitors in the EU – see README.
+// The AdSense script (needed for site review/verification) loads whenever a
+// real publisher id is set. Ad units (AdSlot) only render when `enabled` is
+// true – set real slot ids first. A consent banner (CMP) is required for
+// visitors in the EU – see README.
 export const ads = {
   enabled: false,
   provider: 'adsense' as const,
-  client: 'ca-pub-XXXXXXXXXXXXXXXX',
+  client: 'ca-pub-9866808586759490',
   slots: {
     listing: '0000000000',
     article: '0000000000',

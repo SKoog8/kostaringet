@@ -80,7 +80,7 @@ const ld = [organization, ...(Array.isArray(jsonLd) ? jsonLd : jsonLd ? [jsonLd]
     <script type="application/ld+json" set:html={JSON.stringify(ld)} />
 
     {
-      ads.enabled && (
+      ads.client && !ads.client.includes('XXXX') && (
         <script
           async
           src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ads.client}`}
