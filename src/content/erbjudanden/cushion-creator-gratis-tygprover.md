@@ -9,7 +9,7 @@ requirements:
   - Sidan är på engelska
 shipping: 0
 published: 2026-11-08
-checked: 2026-11-08
+checked: 2026-11-13
 ---
 
 Cushion Creator är en verkstad som syr dynor, kuddar och överdrag på mått. Innan du beställer kan du få tygprover hemskickade utan kostnad.
