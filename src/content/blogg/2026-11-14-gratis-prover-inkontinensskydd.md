@@ -7,6 +7,7 @@ category: halsa
 offers:
   - tena-gratis-prov
   - attends-gratis-produktprov
+  - alggutten-gratis-foderprov-hund
 ---
 
 Urinläckage är vanligt, både hos kvinnor och män och i alla åldrar. Det är också något många tycker är jobbigt att prata om, och det är svårt att veta vilket skydd som passar utan att prova. Därför är gratisprover ett bra sätt att börja. Du kan beställa dem hem, och ingen annan behöver veta.
@@ -30,6 +31,10 @@ Eftersom proverna är populära kan du bara beställa ett prov per person var sj
 ## Fråga vården
 
 Har du mycket läckage, eller har det börjat plötsligt, är det bra att prata med vårdcentralen. Det finns ofta behandling och träning som hjälper, till exempel bäckenbottenträning. Vid stora behov kan inkontinensskydd också förskrivas som hjälpmedel. Fråga hur det fungerar där du bor, eftersom reglerna skiljer sig mellan regionerna.
+
+## Nytt i kväll: gratis foderprov till hunden
+
+Ett fynd till för dig med hund: [AlgGuttens Hundmat](/gratis/alggutten-gratis-foderprov-hund/) bjuder på en påse hundfoder på 100 g. Du väljer bland fem sorter, till exempel lamm, junior eller senior, och får ta en påse per sort. Provet kostar 0 kr, men frakt tillkommer. Kolla beloppet i kassan innan du beställer.
 
 ## Fler gratisprover inom hälsa
 
