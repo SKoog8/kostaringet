@@ -78,6 +78,16 @@ Vercel bygger och publicerar sajten automatiskt vid varje push. Inställningarna
    - Ändringen syns oftast inom en timme. Vercel ordnar HTTPS automatiskt.
 4. **Valfritt:** skapa en Deploy Hook i Vercel (Settings → Git → Deploy Hooks) och spara URL:en som GitHub-hemligheten `VERCEL_DEPLOY_HOOK`. Då bygger `rebuild.yml` om sajten varje natt, så att utgångna erbjudanden markeras som avslutade.
 
+## Kontaktformulär
+
+Formulären på `/kontakt/` och `/tipsa/` skickar till Vercel-funktionen `api/contact.js`, som mejlar via [Resend](https://resend.com). Mottagaradressen ligger bara i Vercel och syns aldrig på sajten. Lägg in i Vercel → Settings → Environment Variables:
+
+- `RESEND_API_KEY` – API-nyckel från Resend (samma konto som på andra sajter går bra)
+- `CONTACT_TO` – adressen som ska få mejlen
+- `CONTACT_FROM` – valfri. Utan den skickas mejlen från `onboarding@resend.dev`, som bara kan skicka till adressen du registrerade Resend-kontot med. Verifiera kostaringet.se hos Resend för att skicka från en egen adress.
+
+Gör en ny driftsättning efter att variablerna lagts in.
+
 ## SEO
 
 - Statisk HTML, snabba sidor, inga cookies.

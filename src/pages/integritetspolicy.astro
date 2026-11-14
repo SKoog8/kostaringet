@@ -1,6 +1,5 @@
 ---
 import TextPage from '../layouts/TextPage.astro';
-import { site } from '../site.config';
 ---
 
 <TextPage
@@ -9,8 +8,11 @@ import { site } from '../site.config';
   description="Hur kostaringet.se hanterar personuppgifter och cookies."
 >
   <p>
-    Kostaringet.se samlar inte in personuppgifter om dig. Vi har inga konton, inga formulär och sparar inte
-    vad du klickar på.
+    Kostaringet.se samlar inte in personuppgifter om dig när du läser sajten. Vi har inga konton och sparar inte vad du klickar på.
+  </p>
+  <h2>Kontaktformuläret</h2>
+  <p>
+    Skriver du till oss via kontakt- eller tipsformuläret skickas ditt namn (om du anger det), din e-postadress och ditt meddelande till oss som ett mejl. Vi använder uppgifterna bara för att svara dig och läsa ditt tips, och vi sparar dem inte någon annanstans än i vår inkorg. Mejlet skickas via tjänsten Resend. Vi rensar gamla mejl när ärendet är klart.
   </p>
   <h2>Cookies</h2>
   <p>
@@ -35,5 +37,5 @@ import { site } from '../site.config';
     integritetspolicy. Läs dem innan du lämnar dina uppgifter.
   </p>
   <h2>Kontakt</h2>
-  <p>Frågor? Mejla <a href={`mailto:${site.email}`}>{site.email}</a>.</p>
+  <p>Frågor? Använd <a href="/kontakt/">kontaktformuläret</a>.</p>
 </TextPage>
