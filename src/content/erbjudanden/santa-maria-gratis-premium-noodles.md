@@ -11,11 +11,15 @@ requirements:
   - Kupongen gäller i 30 dagar, inte i e-handel
 shipping: 0
 published: 2026-11-09
-checked: 2026-11-09
+updated: 2026-11-14
+checked: 2026-11-14
+status: avslutad
 expires: 2026-12-12
 ---
 
-Santa Maria bjuder på en förpackning av sina nya Premium Noodles. Du får en kupong på sms och hämtar nudlarna i en vanlig matbutik.
+**Uppdaterat 14 november 2026:** Kupongerna är slut enligt Santa Marias kampanjsida.
+
+Santa Maria bjöd på en förpackning av sina nya Premium Noodles. Du får en kupong på sms och hämtar nudlarna i en vanlig matbutik.
 
 ## Så beställer du
 

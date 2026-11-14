@@ -13,7 +13,7 @@ Ett vanligt sätt för märken att låta folk prova något nytt är en sms-kupon
 
 ## Två kuponger att hämta just nu
 
-**Santa Maria Premium Noodles.** Santa Maria bjuder på en förpackning av sina nya [Premium Noodles](/gratis/santa-maria-gratis-premium-noodles/) i valfri smak. Kupongen löses in på ICA, Hemköp, Willys och Coop och gäller i 30 dagar. Kampanjen pågår till 12 december, men antalet kuponger är begränsat.
+**Santa Maria Premium Noodles.** Santa Maria bjuder på en förpackning av sina nya [Premium Noodles](/gratis/santa-maria-gratis-premium-noodles/) i valfri smak. Kupongen löses in på ICA, Hemköp, Willys och Coop och gäller i 30 dagar. Kampanjen pågår till 12 december, men antalet kuponger är begränsat. *Uppdaterat 14 november: kupongerna är slut.*
 
 **Always Ultra-dagbindor.** Always delar under november ut kuponger på ett [helt paket dagbindor](/gratis/always-gratis-paket-dagbindor/). Den gäller på ICA, Coop, Hemköp, Willys och City Gross i 15 dagar. Ett visst antal kuponger släpps varje dag.
 

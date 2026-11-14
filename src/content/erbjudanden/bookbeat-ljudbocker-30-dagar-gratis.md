@@ -9,7 +9,7 @@ requirements:
   - Gäller nya användare
   - Säg upp innan 30 dagar om du inte vill betala
 published: 2026-10-09
-checked: 2026-11-09
+checked: 2026-11-14
 ---
 
 BookBeat är en svensk tjänst för ljudböcker och e-böcker. Som ny användare kan du prova gratis i 30 dagar.
