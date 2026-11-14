@@ -118,11 +118,12 @@ export const offerTypes = {
 export type OfferType = keyof typeof offerTypes;
 
 export const nav = [
+  { href: '/', label: 'Hem' },
   { href: '/gratis/', label: 'Alla erbjudanden' },
   { href: '/nyblivna-foraldrar/', label: 'Nyblivna föräldrar' },
   { href: '/kategori/tjanster/', label: 'Prova på' },
   { href: '/jul/', label: 'Jul' },
-  { href: '/blogg/', label: 'Blogg' },
+  { href: '/om/', label: 'Om' },
 ];
 
 // The AdSense script (needed for site review/verification) loads whenever a
