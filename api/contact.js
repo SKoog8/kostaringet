@@ -47,7 +47,10 @@ export default async function handler(req, res) {
 
   if (!r?.ok) {
     console.error('Resend misslyckades:', r?.status, await r?.text().catch(() => ''));
-    return res.status(502).json({ error: 'Meddelandet kunde inte skickas. Försök igen om en stund.' });
+    // Resends statuskod (inte felmeddelandet, som kan innehålla e-postadresser) hjälper vid felsökning.
+    return res
+      .status(502)
+      .json({ error: 'Meddelandet kunde inte skickas. Försök igen om en stund.', code: r?.status ?? 'timeout' });
   }
   return res.status(200).json({ ok: true });
 }
