@@ -1,5 +1,5 @@
 ---
-// Kontaktformulär som skickar till /api/contact (Vercel-funktion som mejlar via Resend).
+// Kontaktformulär som skickar till /api/contact/ (Vercel-funktion som mejlar via Resend).
 interface Props {
   topic?: 'kontakt' | 'tips';
   label?: string;
@@ -49,7 +49,7 @@ const { topic = 'kontakt', label = 'Meddelande', placeholder = '' } = Astro.prop
       button.disabled = true;
       button.textContent = 'Skickar …';
       try {
-        const res = await fetch('/api/contact', {
+        const res = await fetch('/api/contact/', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(Object.fromEntries(new FormData(form))),
