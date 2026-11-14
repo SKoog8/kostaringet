@@ -1,0 +1,42 @@
+---
+import TextPage from '../layouts/TextPage.astro';
+import { site } from '../site.config';
+---
+
+<TextPage
+  title="Kontakta kostaringet.se"
+  path="/kontakt/"
+  description="Så når du kostaringet.se – för tips på gratiserbjudanden, rättelser, frågor om sajten och samarbeten."
+>
+  <p>
+    Kostaringet.se drivs av en person i Sverige. Det enklaste sättet att nå oss är via mejl:
+    <a href={`mailto:${site.email}`}>{site.email}</a>. Vi brukar svara inom ett par vardagar.
+  </p>
+
+  <h2>Tipsa om ett erbjudande</h2>
+  <p>
+    Har du hittat ett gratisprov, en babybox eller en provperiod som saknas här? Använd
+    <a href="/tipsa/">tipssidan</a> eller mejla länken direkt. Vi kontrollerar alltid erbjudandet på företagets
+    egen sida innan vi lägger upp det.
+  </p>
+
+  <h2>Fel eller utgånget erbjudande</h2>
+  <p>
+    Erbjudanden tar ibland slut snabbare än vi hinner märka. Om något inte stämmer – en länk som inte fungerar,
+    ett erbjudande som börjat kosta eller ett villkor som ändrats – mejla oss så rättar vi det.
+  </p>
+
+  <h2>Företag och samarbeten</h2>
+  <p>
+    Har ditt företag ett gratisprov eller ett prova på-erbjudande som passar våra läsare? Hör av dig. Vi tar inte
+    betalt för att lista erbjudanden, och vi skriver bara om sådant som verkligen är gratis eller tydligt
+    redovisar vad det kostar.
+  </p>
+
+  <h2>Personuppgifter</h2>
+  <p>
+    Mejl du skickar till oss används bara för att svara dig. Läs mer i vår
+    <a href="/integritetspolicy/">integritetspolicy</a>. Mer om hur sajten fungerar finns på
+    <a href="/om/">Om kostaringet.se</a>.
+  </p>
+</TextPage>

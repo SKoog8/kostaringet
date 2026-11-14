@@ -1,6 +1,6 @@
 ---
 import TextPage from '../layouts/TextPage.astro';
-import { site, ads } from '../site.config';
+import { site } from '../site.config';
 ---
 
 <TextPage
@@ -13,16 +13,18 @@ import { site, ads } from '../site.config';
     vad du klickar på.
   </p>
   <h2>Cookies</h2>
-  {
-    ads.enabled ? (
-      <p>
-        Vi visar annonser från Google AdSense. Google kan använda cookies för att visa och mäta annonser. Du
-        väljer själv om du godkänner det i samtyckesrutan som visas vid ditt första besök.
-      </p>
-    ) : (
-      <p>Sajten sätter i dagsläget inga cookies. Om vi börjar visa annonser uppdaterar vi den här sidan och ber om ditt samtycke först.</p>
-    )
-  }
+  <p>
+    Vi visar annonser från Google AdSense. Google och Googles annonspartner kan använda cookies och liknande
+    tekniker för att visa, anpassa och mäta annonser. Om du besöker sajten från EU, EES, Storbritannien eller
+    Schweiz visas en samtyckesruta vid ditt första besök. Där väljer du om du godkänner cookies för anpassade
+    annonser, avböjer dem eller gör egna val. Avböjer du kan du fortfarande se annonser, men de anpassas inte
+    efter dig.
+  </p>
+  <p>
+    Du kan ändra eller ta tillbaka ditt val när som helst via länken för integritets- och cookieinställningar
+    som visas på sajten. Läs mer om hur Google använder uppgifter på
+    <a href="https://policies.google.com/technologies/partner-sites?hl=sv" rel="nofollow noopener">Googles sida om partnerwebbplatser</a>.
+  </p>
   <h2>Länkar till andra sajter</h2>
   <p>
     Vissa länkar är annonslänkar via affiliatenätverk. När du klickar på en sådan länk kan nätverket sätta en
