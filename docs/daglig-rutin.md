@@ -1,6 +1,16 @@
 # Daglig rutin: dagens gratisfynd
 
-Den här rutinen körs en gång om dagen av Claude. Målet är ett bra, sant inlägg per dag om saker som går att få gratis i Sverige. Kvalitet går före kvantitet: hellre ett kort inlägg med två kontrollerade erbjudanden än ett långt med gissningar.
+Den här rutinen körs av Claude **tre gånger om dagen**: morgon (cirka 06:52), lunch (cirka 12:52) och kväll (cirka 18:52), svensk tid. Målet är sanna, kontrollerade tips om saker som går att få gratis i Sverige. Kvalitet går före kvantitet: hellre ett kort inlägg med två kontrollerade erbjudanden än ett långt med gissningar.
+
+## 0. Tre körningar om dagen – inga dubbletter
+
+- **Ta reda på vilken körning det är** utifrån klockan i svensk tid: före 10 = morgon, 10–16 = lunch, efter 16 = kväll.
+- **Kolla först vad som redan publicerats i dag:** erbjudanden med `published` = dagens datum, dagens inlägg i `src/content/blogg/` (filnamn som börjar med dagens datum) och `git log --since=midnight` på `main`.
+- **Lägg bara till nytt.** Ett erbjudande som redan finns, även som avslutat, ska inte läggas till igen. Jämför varumärke och `url`, inte bara titeln. Är en gammal kampanj tillbaka: uppdatera den befintliga filen (`status: aktiv`, nya datum) i stället för att skapa en ny.
+- **Finns inget nytt: ändra ingenting.** Ingen commit och ingen push. Rapportera bara vad du letade efter och varför inget gick att publicera.
+- **Ett inlägg per dag.** Första körningen som hittar nya erbjudanden skapar dagens inlägg. Senare körningar samma dag lägger till sina erbjudanden i samma inlägg (ny `##`-rubrik, ny slug under `offers`, och rubrik och beskrivning justeras om det behövs). Skapa inte ett andra inlägg samma dag.
+- **Guide bara på kvällen.** Har dagen inte fått något inlägg när kvällskörningen är klar, skriver kvällskörningen en guide (se steg 5). Morgon och lunch skriver inga guider.
+- **Städning bara på morgonen.** Steg 6 görs bara i morgonkörningen.
 
 ## 1. Förbered
 
@@ -12,13 +22,21 @@ Den här rutinen körs en gång om dagen av Claude. Målet är ett bra, sant inl
 
 ## 2. Leta
 
-Sök på webben efter nya gratiserbjudanden i Sverige. Bra startpunkter:
+Sök brett efter nya gratiserbjudanden i Sverige. Gå igenom de här källorna:
 
-- sökningar som "gratisprov", "gratis varuprov", "beställ gratis", "prova gratis", "gratis babybox", "gratis startpaket", "gratis provperiod", "gratis foderprov", "gratis doftprov"
-- svenska gratissajter som samlar tips (gratisguiden.se, gratisprinsessan.se, bastgratis.se). Använd dem bara för att hitta tips, aldrig som källa.
-- varumärkens egna kampanjsidor
+- **Företagens egna kampanj- och provsidor**, till exempel sidor som heter "gratisprov", "varuprover", "prova gratis" eller "kampanj".
+- **Kedjornas erbjudanden och appar:** Apotea, Apotek Hjärtat, Kronans Apotek, Lyko, KICKS, ICA, Coop, Willys, Pressbyrån, 7-Eleven, Circle K och snabbmatskedjor (McDonald's, Max, Burger King med flera). Leta efter sådant som är helt gratis, till exempel en gratis produkt i appen eller ett prov vid beställning utan köpkrav.
+- **Provperioder:** streaming, ljudböcker, matkassar, appar och tidningar.
+- **Födelsedagserbjudanden och medlemsklubbar:** gratis gåvor eller produkter som man får som medlem eller på sin födelsedag.
+- **Kommuner, bibliotek och Fritidsbanken:** gratis reflexer, gratis böcker (till exempel Bokstart), lån av utrustning och liknande.
+- **Startpaket och boxar för gravida och föräldrar.**
+- **Metas annonsbibliotek** (facebook.com/ads/library, land Sverige) för kampanjer med gratisprover. Sök på ord som "gratisprov", "gratis prov", "beställ gratis" och "prova gratis".
+- **Andra gratissajter** (gratisguiden.se, gratisprinsessan.se, bastgratis.se med flera), men **bara som tips**. Kontrollera allt på företagets egen sida och kopiera aldrig deras text.
+- Sökningar som "gratisprov", "gratis varuprov", "beställ gratis", "prova gratis", "gratis babybox", "gratis startpaket", "gratis provperiod", "gratis foderprov" och "gratis doftprov".
 
-Sikta på 3–5 nya erbjudanden. Sprid gärna över kategorierna, och prioritera föräldrar, skönhet, mat & dryck och husdjur.
+**Prioritera kategorier med få aktiva erbjudanden.** Räkna aktiva erbjudanden per kategori innan du letar (till exempel med `grep -l "^category: <slug>"` och utan `status: avslutad`), och lägg mest tid på de kategorier som har minst. Sikta på 1–3 nya erbjudanden per körning.
+
+Annonser i sociala medier och tips från andra sajter räknas aldrig som källa. Går erbjudandet bara att beställa direkt i en annons, utan någon sida hos företaget, tas det inte med.
 
 ## 3. Kontrollera varje erbjudande
 
@@ -33,7 +51,7 @@ Skriv alltid ut frakt, krav på medlemskap, att provperioder blir betalda och sl
 
 **Ta inte med:** tävlingar och utlottningar, rabatter och "köp 2 betala för 1", "köp och få pengarna tillbaka", gratis frakt, sådant som kräver ett köp, erbjudanden till företag, erbjudanden utanför Sverige, och sådant du bara har sett på en annan gratissajt eller i sociala medier.
 
-Hittar du färre än två kontrollerade erbjudanden: skriv en guide i stället (se steg 5).
+Hittar du inget kontrollerat erbjudande: ändra ingenting i den här körningen (se steg 0). Bara kvällskörningen skriver en guide, och bara om dagen inte redan har ett inlägg.
 
 ## 4. Skriv erbjudandena
 
@@ -70,7 +88,7 @@ En inledande mening om vad man får.
 
 ## 5. Skriv dagens inlägg
 
-En fil: `src/content/blogg/ÅÅÅÅ-MM-DD-<kort-slug>.md`
+En fil per dag: `src/content/blogg/ÅÅÅÅ-MM-DD-<kort-slug>.md`. Finns dagens fil redan, lägg till de nya erbjudandena i den i stället för att skapa en ny (se steg 0).
 
 ```markdown
 ---
@@ -91,7 +109,7 @@ Innehåll, 250–500 ord:
 - Ett stycke per erbjudande (`##`-rubrik per erbjudande) med vad man får, vad det kostar och vad man ska tänka på. Länka till erbjudandets sida på sajten, `/gratis/<slug>/`.
 - Avsluta gärna med ett praktiskt tips som hör ihop med dagens fynd.
 
-Om det inte finns tillräckligt med nytt: skriv en guide med `kind: guide` om ett ämne som inte redan finns, till exempel gratis babyboxar året runt, gratis provperioder på streaming, gratis till skolbarn, gratis hudvårdsprover, säsongens gratisprover eller hur man säger upp provperioder. Länka till befintliga erbjudanden.
+Har dagen inte fått något inlägg när kvällskörningen är klar: skriv en guide med `kind: guide` om ett ämne som inte redan finns, till exempel gratis babyboxar året runt, gratis provperioder på streaming, gratis till skolbarn, gratis hudvårdsprover, säsongens gratisprover eller hur man säger upp provperioder. Länka till befintliga erbjudanden.
 
 ### Skrivregler
 
@@ -111,10 +129,10 @@ Kontrollera de fem aktiva erbjudanden som har äldst `checked`-datum:
 ## 7. Bygg, committa och pusha
 
 1. `npm run build` måste gå igenom utan fel. Rätta det som är fel innan du går vidare.
-2. Committa med meddelandet `Dagens fynd ÅÅÅÅ-MM-DD` (eller `Guide ÅÅÅÅ-MM-DD`).
+2. Committa med meddelandet `Dagens fynd ÅÅÅÅ-MM-DD (morgon|lunch|kväll)` (eller `Guide ÅÅÅÅ-MM-DD (kväll)`). Finns inget nytt: committa inte.
 3. `git push origin main`. Vercel publicerar automatiskt (andra grenar blir bara förhandsversioner).
 4. Skapa ingen pull request.
 
 ## 8. Rapportera
 
-Avsluta med en kort sammanfattning: inläggets rubrik, vilka erbjudanden som lades till, vilka som markerades som avslutade och vilka tips du valde bort och varför.
+Avsluta med en kort sammanfattning på svenska som börjar med vilken körning det var (morgon, lunch eller kväll). Ta med inläggets rubrik, vilka erbjudanden som lades till, vilka som markerades som avslutade och vilka tips du valde bort och varför. Ändrades ingenting, säg det och förklara kort varför.
