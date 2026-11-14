@@ -25,9 +25,11 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: 'Meddelandet ska vara mellan 10 och 5 000 tecken.' });
   }
 
-  const apiKey = process.env.RESEND_API_KEY ?? '';
-  const to = process.env.CONTACT_TO ?? '';
-  const from = process.env.CONTACT_FROM || 'kostaringet.se <onboarding@resend.dev>';
+  // Tålig mot vanliga misstag i Vercel: mellanslag och citattecken runt värdet.
+  const env = (k) => String(process.env[k] ?? '').trim().replace(/^["']|["']$/g, '').trim();
+  const apiKey = env('RESEND_API_KEY');
+  const to = env('CONTACT_TO');
+  const from = env('CONTACT_FROM') || 'kostaringet.se <onboarding@resend.dev>';
   if (!apiKey || !to) {
     return res.status(503).json({ error: 'Kontaktformuläret är inte igång just nu. Försök igen senare.' });
   }
