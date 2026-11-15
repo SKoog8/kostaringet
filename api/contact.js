@@ -34,7 +34,10 @@ export default async function handler(req, res) {
     const m = v.match(/^\s*([^"<]+?)\s*<([^>]+)>\s*$/);
     return m ? `"${m[1]}" <${m[2]}>` : v;
   };
-  const from = quoteName(env('CONTACT_FROM') || 'Kostar ingenting <onboarding@resend.dev>');
+  // Är CONTACT_FROM ingen giltig adress används Resends standardavsändare i stället.
+  const fromEnv = env('CONTACT_FROM');
+  const fromAddr = (fromEnv.match(/<([^>]+)>/)?.[1] ?? fromEnv).trim();
+  const from = EMAIL.test(fromAddr) ? quoteName(fromEnv) : 'Kostar ingenting <onboarding@resend.dev>';
   if (!apiKey || !to) {
     return res.status(503).json({ error: 'Kontaktformuläret är inte igång just nu. Försök igen senare.' });
   }
