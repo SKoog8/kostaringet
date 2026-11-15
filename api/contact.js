@@ -58,7 +58,11 @@ export default async function handler(req, res) {
     // Resends statuskod och feltyp (inte felmeddelandet, som kan innehålla e-postadresser) hjälper vid felsökning.
     return res
       .status(502)
-      .json({ error: 'Meddelandet kunde inte skickas. Försök igen om en stund.', code: r?.status ?? 'timeout', reason: detail.name });
+      .json({ error: 'Meddelandet kunde inte skickas. Försök igen om en stund.', code: r?.status ?? 'timeout',
+        reason: detail.name,
+        // Förklaringen från Resend, med e-postadresser bortmaskade.
+        detail: String(detail.message ?? '').replace(/[^\s<>@"'`]+@[^\s<>@"'`]+/g, '…@…').slice(0, 300),
+      });
   }
   return res.status(200).json({ ok: true });
 }
