@@ -29,7 +29,12 @@ export default async function handler(req, res) {
   const env = (k) => String(process.env[k] ?? '').trim().replace(/^["']|["']$/g, '').trim();
   const apiKey = env('RESEND_API_KEY');
   const to = env('CONTACT_TO');
-  const from = env('CONTACT_FROM') || 'kostaringet.se <onboarding@resend.dev>';
+  // Ett avsändarnamn med punkt (t.ex. kostaringet.se) måste stå inom citattecken, annars nekar Resend med 422.
+  const quoteName = (v) => {
+    const m = v.match(/^\s*([^"<]+?)\s*<([^>]+)>\s*$/);
+    return m ? `"${m[1]}" <${m[2]}>` : v;
+  };
+  const from = quoteName(env('CONTACT_FROM') || 'Kostar ingenting <onboarding@resend.dev>');
   if (!apiKey || !to) {
     return res.status(503).json({ error: 'Kontaktformuläret är inte igång just nu. Försök igen senare.' });
   }
@@ -48,11 +53,12 @@ export default async function handler(req, res) {
   }).catch(() => null);
 
   if (!r?.ok) {
-    console.error('Resend misslyckades:', r?.status, await r?.text().catch(() => ''));
-    // Resends statuskod (inte felmeddelandet, som kan innehålla e-postadresser) hjälper vid felsökning.
+    const detail = r ? await r.json().catch(() => ({})) : {};
+    console.error('Resend misslyckades:', r?.status, detail);
+    // Resends statuskod och feltyp (inte felmeddelandet, som kan innehålla e-postadresser) hjälper vid felsökning.
     return res
       .status(502)
-      .json({ error: 'Meddelandet kunde inte skickas. Försök igen om en stund.', code: r?.status ?? 'timeout' });
+      .json({ error: 'Meddelandet kunde inte skickas. Försök igen om en stund.', code: r?.status ?? 'timeout', reason: detail.name });
   }
   return res.status(200).json({ ok: true });
 }
