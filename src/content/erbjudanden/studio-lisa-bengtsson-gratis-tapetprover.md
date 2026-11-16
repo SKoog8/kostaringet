@@ -1,5 +1,6 @@
 ---
 title: Gratis tapetprover från Studio Lisa Bengtsson
+seoTitle: "Studio Lisa Bengtsson: gratis tapetprover"
 description: Studio Lisa Bengtsson erbjuder gratis tapetprover på alla sina mönster, upp till tio prover per beställning. Se färger och mönster på riktigt innan du köper.
 brand: Studio Lisa Bengtsson
 category: hem

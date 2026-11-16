@@ -1,5 +1,6 @@
 ---
 title: Gratis foderprov till hunden från AlgGuttens Hundmat
+seoTitle: "AlgGutten: gratis foderprov till hunden"
 description: AlgGuttens Hundmat bjuder på en påse hundfoder på 100 g. Välj bland fem sorter, till exempel lamm, junior eller senior. Max en påse per sort, frakt tillkommer.
 brand: AlgGuttens Hundmat
 category: djur

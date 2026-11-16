@@ -1,5 +1,6 @@
 ---
 title: Gratis doftprov på Lancôme La vie est belle L'Elixir
+seoTitle: "Lancôme: gratis doftprov La vie est belle"
 description: Lancôme skickar ett gratis doftprov på nya La vie est belle L'Elixir, en blomsterdoft med viol, hallon och kakao. Beställs direkt på lancome.se.
 brand: Lancôme
 category: skonhet

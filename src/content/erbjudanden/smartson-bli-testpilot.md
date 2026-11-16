@@ -1,5 +1,6 @@
 ---
 title: Bli testpilot hos Smartson och testa produkter gratis
+seoTitle: "Smartson: bli testpilot"
 description: Hos Smartson kan du ansöka om att testa nya produkter, just nu bland annat dammsugare och köksapparater från Wilfa. Blir du utvald får du testa gratis.
 brand: Smartson
 category: ovrigt

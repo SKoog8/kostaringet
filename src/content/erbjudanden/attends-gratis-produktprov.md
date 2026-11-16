@@ -1,5 +1,6 @@
 ---
 title: Gratis produktprov på Attends inkontinensskydd
+seoTitle: "Attends: gratis prov på inkontinensskydd"
 description: Attends låter dig beställa gratis produktprover på inkontinensskydd, så att du kan hitta rätt storlek och absorptionsnivå innan du köper.
 brand: Attends
 category: halsa

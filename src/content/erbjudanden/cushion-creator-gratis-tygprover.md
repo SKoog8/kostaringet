@@ -1,6 +1,6 @@
 ---
 title: Gratis tygprover från Cushion Creator – tyger till dynor och kuddar
-seoTitle: "Gratis tygprover från Cushion Creator"
+seoTitle: "Cushion Creator: gratis tygprover"
 description: Cushion Creator, som syr dynor och kuddar på mått, skickar tygprover gratis. Bra för att se färgen hemma innan du beställer dynor till soffa, altan eller båt.
 brand: Cushion Creator
 category: hem

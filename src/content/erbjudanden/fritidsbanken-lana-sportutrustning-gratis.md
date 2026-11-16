@@ -1,5 +1,6 @@
 ---
 title: Låna sport- och friluftsutrustning gratis på Fritidsbanken
+seoTitle: "Fritidsbanken: låna sportutrustning gratis"
 description: På Fritidsbanken lånar du sport- och friluftsutrustning gratis i 14 dagar. Alla får låna, och du kan se vad som finns i lager på webben.
 brand: Fritidsbanken
 category: ovrigt

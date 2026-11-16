@@ -1,5 +1,6 @@
 ---
 title: Hämta en gratis reflex hos Länstrafiken Örebro
+seoTitle: "Länstrafiken Örebro: gratis reflex"
 description: Länstrafiken Örebro delar ut reflexer under höstens trafiksäkerhetskampanj. Hämta en gratis hos kundservice på resecentrum i Örebro.
 brand: Länstrafiken Örebro
 category: ovrigt

@@ -1,5 +1,6 @@
 ---
 title: Gratis prov på TENA-skydd för urinläckage
+seoTitle: "TENA: gratis prov på skydd för urinläckage"
 description: TENA skickar gratis varuprover på bindor och trosskydd för urinläckage, både för kvinnor och män. Ett prov per person var sjätte månad.
 brand: TENA
 category: halsa

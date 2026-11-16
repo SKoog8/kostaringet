@@ -1,5 +1,6 @@
 ---
 title: Gratis paket Always Ultra dagbindor – kupong via sms
+seoTitle: "Always: gratis paket dagbindor med sms-kupong"
 description: Always skickar en sms-kupong som täcker hela priset för ett paket Ultra-dagbindor. Löses in på ICA, Coop, Hemköp, Willys och City Gross. Gäller i november.
 brand: Always
 category: skonhet

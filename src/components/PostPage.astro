@@ -37,7 +37,7 @@ const articleLd = {
   inLanguage: 'sv-SE',
   datePublished: data.published.toISOString(),
   dateModified: (data.updated ?? data.published).toISOString(),
-  author: { '@type': 'Organization', name: site.name, url: site.url },
+  author: { '@type': 'Person', name: 'Martin', url: new URL('/om/', site.url).href },
   publisher: { '@type': 'Organization', name: site.name, url: site.url },
   mainEntityOfPage: new URL(postPath(post), site.url).href,
 };

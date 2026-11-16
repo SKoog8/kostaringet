@@ -60,6 +60,7 @@ En fil per erbjudande i `src/content/erbjudanden/<slug>.md`. Följ formatet i de
 ```markdown
 ---
 title: Gratis … från Varumärke          # max ca 70 tecken, börjar gärna med "Gratis"
+seoTitle: "Varumärke: gratis …"          # högst 55 tecken, varumärket först (folk söker "varumärke gratis prov")
 description: 120–160 tecken som visas i Google.
 brand: Varumärke
 category: foraldrar | skonhet | mat-dryck | halsa | hem | djur | tjanster | ovrigt
@@ -71,6 +72,8 @@ shipping: 0                              # kronor, eller tillkommer
 published: ÅÅÅÅ-MM-DD
 checked: ÅÅÅÅ-MM-DD
 expires: ÅÅÅÅ-MM-DD                      # bara om det finns ett slutdatum
+themes:                                  # bara om det passar en temasida, se steg 5b
+  - fodelsedag
 ---
 
 En inledande mening om vad man får.
@@ -109,7 +112,24 @@ Innehåll, 250–500 ord:
 - Ett stycke per erbjudande (`##`-rubrik per erbjudande) med vad man får, vad det kostar och vad man ska tänka på. Länka till erbjudandets sida på sajten, `/gratis/<slug>/`.
 - Avsluta gärna med ett praktiskt tips som hör ihop med dagens fynd.
 
-Har dagen inte fått något inlägg när kvällskörningen är klar: skriv en guide med `kind: guide` om ett ämne som inte redan finns, till exempel gratis babyboxar året runt, gratis provperioder på streaming, gratis till skolbarn, gratis hudvårdsprover, säsongens gratisprover eller hur man säger upp provperioder. Länka till befintliga erbjudanden.
+Har dagen inte fått något inlägg när kvällskörningen är klar: skriv eller uppdatera en guide (`kind: guide`).
+
+**Guider är tidlösa och ska inte konkurrera med varandra.**
+
+- Guider ligger på `/guide/<urlSlug>/`. Ge varje ny guide `urlSlug:` (kort, utan årtal och datum, t.ex. `gratis-hudvardsprover`). Filnamnet kan fortfarande börja med datum.
+- **Kolla först om det redan finns en guide eller sida om ämnet** (`/guide/`, `/nyblivna-foraldrar/`, `/jul/`, `/gratis-pa-fodelsedagen/`, kategorisidorna). Finns det: uppdatera den befintliga texten och sätt `updated:` till dagens datum i stället för att skriva en ny. Två sidor om samma sak gör att ingen av dem rankar.
+- Babyboxar och startpaket hör hemma på `/nyblivna-foraldrar/`. Skriv ingen separat guide om det.
+- Ämnen som saknas: gratis hudvårdsprover, gratis parfymprover, gratis för studenter, gratis för pensionärer, gratis till skolbarn.
+- Länka till befintliga erbjudanden och till närliggande guider och temasidor. Dagens inlägg ska också länka till en guide eller temasida när det passar.
+
+### 5b. Temasidor (en gång i veckan, söndagens kvällskörning)
+
+Temasidor samlar erbjudanden kring något folk söker på, till exempel `/gratis-pa-fodelsedagen/` (byggd från `src/pages/gratis-pa-fodelsedagen.astro`). Erbjudanden hamnar på en temasida via fältet `themes`.
+
+- Söndagens kvällskörning kontrollerar en temasida: finns det nya erbjudanden att tagga, gamla som ska bort, eller fakta som ändrats?
+- Saknas en temasida som säsongen kräver, bygg den efter samma mönster som födelsedagssidan (ny `themes`-nyckel i `src/content.config.ts`, egen sida, minst 600 ord, vanliga frågor). Adressen ska vara utan årtal, årtalet står i titeln.
+- Säsongskalender: **jul** (finns, uppdatera i november), **halloween** (bygg i början av oktober), **sommarlov** (bygg i början av juni), **skolstart** (bygg i början av augusti). **Födelsedag** gäller året runt.
+- Publicera aldrig ett erbjudande på en temasida som inte är kontrollerat på företagets egen sida. Rabatter och erbjudanden som kräver köp hör inte hemma där.
 
 ### Skrivregler
 
@@ -135,7 +155,8 @@ Kontrollera de fem aktiva erbjudanden som har äldst `checked`-datum:
 2. `npm run build` måste gå igenom utan fel. Rätta det som är fel innan du går vidare.
 3. Committa med meddelandet `Dagens fynd ÅÅÅÅ-MM-DD (morgon|lunch|kväll)` (eller `Guide ÅÅÅÅ-MM-DD (kväll)`). Finns inget nytt: committa inte.
 4. `git push origin main`. Vercel publicerar automatiskt (andra grenar blir bara förhandsversioner).
-5. Skapa ingen pull request.
+5. Vänta tills sidan är ute (någon minut), kör sedan `npm run indexnow`. Det talar om för Bing att dagens nya och ändrade sidor finns. Misslyckas det, nämn det i sammanfattningen men gör inget mer.
+6. Skapa ingen pull request.
 
 ## 8. Rapportera
 

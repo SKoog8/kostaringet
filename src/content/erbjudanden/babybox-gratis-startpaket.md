@@ -1,5 +1,6 @@
 ---
 title: Gratis BabyBox med varuprover till dig som väntar barn
+seoTitle: "BabyBox: gratis startpaket till gravida"
 description: BabyBox är ett gratis startpaket med varuprover, produkter och erbjudanden för gravida. Hämta gratis i en Lekia- eller Babya-butik eller få den hemskickad mot avgift.
 brand: BabyBox
 category: foraldrar

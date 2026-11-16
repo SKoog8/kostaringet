@@ -1,6 +1,6 @@
 ---
 title: Gratis golv- och kakelprover från Golvpoolen – upp till fem prover fraktfritt
-seoTitle: "Gratis golv- och kakelprover från Golvpoolen"
+seoTitle: "Golvpoolen: gratis golv- och kakelprover"
 description: Golvpoolen skickar upp till fem varuprover på golv, kakel och klinker hem till dig, gratis och utan fraktkostnad. Se och känn på materialet innan du köper.
 brand: Golvpoolen
 category: hem

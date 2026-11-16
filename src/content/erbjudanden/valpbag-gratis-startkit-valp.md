@@ -1,5 +1,6 @@
 ---
 title: Gratis ValpBag till dig som har fått valp
+seoTitle: "ValpBag: gratis startkit till din valp"
 description: ValpBag är ett gratis startkit för nya hundägare med produkter, varuprover och erbjudanden. Gäller valpar under sex månader. Du betalar 59 kr i frakt.
 brand: ValpBag
 category: djur

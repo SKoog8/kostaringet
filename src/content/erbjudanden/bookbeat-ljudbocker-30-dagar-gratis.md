@@ -1,5 +1,6 @@
 ---
 title: Lyssna på ljudböcker gratis i 30 dagar med BookBeat
+seoTitle: "BookBeat gratis i 30 dagar – ljudböcker"
 illustration: ljudbok
 description: BookBeat ger nya användare 30 dagars gratis provperiod med 20 timmars lyssning och läsning. Efter provperioden kostar abonnemanget från 99 kr per månad.
 brand: BookBeat

@@ -1,5 +1,6 @@
 ---
 title: Gratis varuprover på akustikpaneler från IndoorWood
+seoTitle: "IndoorWood: gratis prover på akustikpaneler"
 description: IndoorWood skickar upp till tre varuprover på sina akustikpaneler och träprodukter gratis. Du betalar bara frakten på 69 kr.
 brand: IndoorWood
 category: hem

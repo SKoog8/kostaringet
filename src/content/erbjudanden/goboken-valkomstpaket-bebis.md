@@ -1,5 +1,6 @@
 ---
 title: Gratis välkomstpaket till bebis från Goboken
+seoTitle: "Goboken: gratis välkomstpaket till bebis"
 illustration: bok
 description: Gobokens gratis välkomstpaket till bebis har just nu jultema, med en julbok, sångkort och en haklapp. Paketet är gratis, frakten kostar 79 kr.
 brand: Goboken

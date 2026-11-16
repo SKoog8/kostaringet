@@ -47,6 +47,8 @@ const erbjudanden = defineCollection({
     expires: z.coerce.date().optional(),
     status: z.enum(['aktiv', 'avslutad']).default('aktiv'),
     featured: z.boolean().default(false),
+    /** Theme pages the offer belongs on, e.g. fodelsedag for /gratis-pa-fodelsedagen/. */
+    themes: z.array(z.enum(['fodelsedag', 'student', 'pensionar'])).default([]),
     /** Bot-found offers start as drafts and are published when reviewed. */
     draft: z.boolean().default(false),
     /** Where the bot found the tip. Not shown publicly. */

@@ -117,6 +117,9 @@ export const offerTypes = {
 } as const;
 export type OfferType = keyof typeof offerTypes;
 
+/** Links to our own social media accounts (Facebook, Instagram …). Shown in structured data as sameAs. */
+export const socialLinks: string[] = [];
+
 export const nav = [
   { href: '/', label: 'Hem' },
   { href: '/gratis/', label: 'Alla erbjudanden' },

@@ -1,5 +1,6 @@
 ---
 title: Testa och behåll en Bosch-robotdammsugare via Buzzador
+seoTitle: "Bosch robotdammsugare gratis via Buzzador"
 description: Buzzador söker kreatörer som vill testa Boschs robotdammsugare Spotless. Blir du utvald och gör uppdraget får du behålla den. Sista ansökningsdag är nära.
 brand: Bosch via Buzzador
 category: hem

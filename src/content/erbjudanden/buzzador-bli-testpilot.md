@@ -1,5 +1,6 @@
 ---
 title: Bli testpilot hos Buzzador och få produkter gratis
+seoTitle: "Buzzador: bli testpilot och testa produkter gratis"
 description: Buzzador är en svensk testpanel där medlemmar söker till kampanjer och får prova produkter gratis mot att de delar sina åsikter. Medlemskapet är gratis.
 brand: Buzzador
 category: ovrigt

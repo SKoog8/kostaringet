@@ -1,5 +1,6 @@
 ---
 title: Gravidpaketet från Allt för föräldrar
+seoTitle: "Allt för föräldrar: gratis gravidpaket"
 illustration: nappflaska
 description: Allt för föräldrar erbjöd ett gravidpaket med värdecheckar, babystrumpor och babyboken Ellis. Erbjudandet finns inte längre kvar.
 brand: Allt för föräldrar

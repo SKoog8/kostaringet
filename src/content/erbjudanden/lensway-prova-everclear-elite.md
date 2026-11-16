@@ -1,5 +1,6 @@
 ---
 title: Prova everclear ELITE-linser gratis hos Lensway
+seoTitle: "Lensway: prova everclear ELITE gratis"
 description: Lensway låter dig prova endagslinserna everclear ELITE kostnadsfritt. Du får två femförpackningar och betalar bara frakten med koden TRYELITE.
 brand: Lensway
 category: halsa

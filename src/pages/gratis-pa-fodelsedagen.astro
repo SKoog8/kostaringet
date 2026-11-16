@@ -1,0 +1,139 @@
+---
+// Theme page: offers tagged with themes: [fodelsedag].
+import Base from '../layouts/Base.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import OfferGrid from '../components/OfferGrid.astro';
+import Illustration from '../components/Illustration.astro';
+import { getOffers, isActive, formatDate, latest } from '../lib/offers';
+
+const year = new Date().getFullYear();
+const offers = (await getOffers()).filter((o) => o.data.themes.includes('fodelsedag') && isActive(o));
+const checked = offers.length
+  ? new Date(Math.max(...offers.map((o) => (o.data.checked ?? latest(o)).getTime())))
+  : new Date();
+
+const faq = [
+  {
+    q: 'Hur får man saker gratis på födelsedagen?',
+    a: 'Gå med i kundklubbar och appar som ger en födelsedagsgåva, och fyll i ditt födelsedatum i profilen. Gåvan kommer oftast som en kupong i appen eller i ett mejl, och du hämtar den i butik eller på restaurang.',
+  },
+  {
+    q: 'Hur långt innan födelsedagen ska jag gå med?',
+    a: 'Gå med minst några veckor innan, så att gåvan säkert hinner komma. Kontrollera också att ditt födelsedatum står i profilen.',
+  },
+  {
+    q: 'Behöver jag köpa något?',
+    a: 'Nej, inte för att få gåvorna på den här sidan. Vissa används på plats, till exempel på en restaurang eller i en butik. Många klubbar ger i stället en rabatt på födelsedagen. De tar vi inte med, eftersom du måste handla för att få ut något.',
+  },
+  {
+    q: 'Kan barn och husdjur också få något?',
+    a: 'Ja. Hos OKQ8 finns ett medlemskap för dig under 18 år, och Arken Zoo ger en present till upp till tre av dina djur på deras födelsedag.',
+  },
+];
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faq.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+};
+---
+
+<Base
+  title={`Gratis på födelsedagen ${year} – fika, presenter och mer`}
+  description={`Här får du något gratis när du fyller år ${year}: fika, presenter och gåvor till husdjuret. Alla erbjudanden är kontrollerade hos företagen, utan köp.`}
+  jsonLd={faqLd}
+>
+  <div class="wrap page-head">
+    <div class="page-head__text">
+      <Breadcrumbs items={[{ label: 'Gratis på födelsedagen', href: '/gratis-pa-fodelsedagen/' }]} />
+      <p class="eyebrow">Tema</p>
+      <h1>Gratis på födelsedagen.</h1>
+      <p class="lead">
+        Kundklubbar och appar som bjuder på något när du fyller år, utan att du behöver köpa något. Alla är
+        kontrollerade hos företagen, senast {formatDate(checked)}.
+      </p>
+    </div>
+    <Illustration name="ovrigt" size="clamp(110px, 18vw, 170px)" />
+  </div>
+
+  <div class="wrap">
+    <OfferGrid offers={offers} adAfter={0} />
+
+    <article class="prose guide">
+      <h2>Så får du ut mest av födelsedagen</h2>
+      <p>
+        Nästan alla gåvor på födelsedagen kräver att du är medlem i en kundklubb. Medlemskapen är gratis, men du lämnar
+        dina kontaktuppgifter och får erbjudanden från företaget. Det kan vara värt det om du ändå handlar där.
+      </p>
+      <ol>
+        <li><strong>Gå med i god tid.</strong> Bli medlem några veckor innan du fyller år, så att gåvan hinner komma.</li>
+        <li><strong>Fyll i rätt födelsedatum.</strong> Gåvan kommer bara om födelsedagen står i din profil.</li>
+        <li><strong>Tacka ja till utskick där det krävs.</strong> Vissa skickar gåvan som mejl, till exempel Twilfit.</li>
+        <li><strong>Kolla hur länge gåvan gäller.</strong> Vissa gäller bara en vecka, andra några veckor runt födelsedagen.</li>
+        <li><strong>Använd en separat mejladress</strong> för klubbarna, så slipper du reklam i din vanliga inkorg.</li>
+      </ol>
+
+      <h2>Det här tar vi inte med</h2>
+      <p>
+        Många klubbar ger en rabatt i stället för en gåva på födelsedagen. Det är inte gratis, eftersom du måste köpa
+        något för att få ut rabatten. Därför listar vi bara gåvor som du får utan köp. Ser du en födelsedagsgåva som
+        saknas här får du gärna <a href="/tipsa/">tipsa oss</a>.
+      </p>
+    </article>
+
+    <section class="faq prose">
+      <h2>Vanliga frågor.</h2>
+      <dl>
+        {
+          faq.map((f) => (
+            <div>
+              <dt>{f.q}</dt>
+              <dd>{f.a}</dd>
+            </div>
+          ))
+        }
+      </dl>
+    </section>
+  </div>
+</Base>
+
+<style>
+  .page-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px 48px;
+    padding-block: clamp(32px, 6vw, 72px) 32px;
+  }
+  .page-head__text {
+    display: grid;
+    gap: 16px;
+    max-width: 48rem;
+  }
+  @media (max-width: 640px) {
+    .page-head {
+      flex-direction: column-reverse;
+      align-items: flex-start;
+    }
+  }
+  .guide,
+  .faq {
+    max-width: 46rem;
+    margin-top: 64px;
+  }
+  dl {
+    margin: 0;
+    border-top: 1px solid var(--line);
+  }
+  dl > div {
+    padding-block: 18px;
+    border-bottom: 1px solid var(--line);
+  }
+  dt {
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  dd {
+    margin: 0;
+    color: var(--ink-2);
+  }
+</style>

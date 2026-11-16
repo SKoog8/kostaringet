@@ -1,6 +1,6 @@
 ---
 title: Gratis varuprover på stomipåsar och stomitillbehör från M Care
-seoTitle: "Gratis varuprover på stomiprodukter från M Care"
+seoTitle: "M Care: gratis varuprover på stomiprodukter"
 description: M Care skickar kostnadsfria varuprover på stomipåsar, hudskydd och andra tillbehör, och ett Träna hemma-kit för dig som ska opereras.
 brand: M Care
 category: halsa

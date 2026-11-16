@@ -1,6 +1,6 @@
 ---
 title: Gratis adoptionskit från Arken Zoo när du adopterar en katt
-seoTitle: "Gratis adoptionskit för katt från Arken Zoo"
+seoTitle: "Arken Zoo: gratis adoptionskit för katt"
 illustration: katt
 description: Adopterar du en katt från ett katthem får du ett gratis startkit hos Arken Zoo med kattsand, torrfoder, våtfoder och en leksak, värt upp till 831 kr.
 brand: Arken Zoo

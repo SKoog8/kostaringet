@@ -20,9 +20,12 @@ const active = isActive(offer);
 const link = outbound(offer);
 const category = categoryBySlug[data.category];
 
-const related = (await getOffers(data.category))
-  .filter((o) => o.id !== offer.id && isActive(o))
-  .slice(0, 3);
+// Similar active offers: same category and type first, then same category, then same type elsewhere.
+const score = (o: Offer) => (o.data.category === data.category ? 2 : 0) + (o.data.type === data.type ? 1 : 0);
+const related = (await getOffers())
+  .filter((o) => o.id !== offer.id && isActive(o) && score(o) > 0)
+  .sort((a, b) => score(b) - score(a) || latest(b).getTime() - latest(a).getTime())
+  .slice(0, active ? 3 : 6);
 
 const cost =
   data.shipping === 'tillkommer'
@@ -105,7 +108,8 @@ const ogImage = existsSync(`public/og/${offer.id}.png`) ? `/og/${offer.id}.png` 
         <h1>{data.title}</h1>
         <p class="lead">{data.description}</p>
         <p class="checked">
-          Senast kontrollerat på företagets egen sida <time datetime={checkedOn.toISOString()}>{formatDate(checkedOn)}</time>.
+          Kontrollerat av Martin på företagets egen sida <time datetime={checkedOn.toISOString()}>{formatDate(checkedOn)}</time>.
+          <a href="/sa-kontrollerar-vi/">Så kontrollerar vi</a>
         </p>
         {
           active && (
@@ -120,9 +124,24 @@ const ogImage = existsSync(`public/og/${offer.id}.png`) ? `/og/${offer.id}.png` 
 
         {
           !active && (
-            <p class="notice" role="status">
-              Det här erbjudandet har avslutats. Se <a href={category.path}>aktuella erbjudanden inom {category.name.toLowerCase()}</a>.
-            </p>
+            <div class="notice" role="status">
+              <p>
+                <strong>Erbjudandet är slut.</strong> När vi kontrollerade det {formatDate(latest(offer))} fanns det inte
+                längre kvar. Kommer det tillbaka uppdaterar vi sidan.
+              </p>
+              {related.length > 0 && (
+                <p>
+                  Gäller just nu i stället:{' '}
+                  {related.slice(0, 3).map((o, i) => (
+                    <>
+                      {i > 0 && (i === Math.min(related.length, 3) - 1 ? ' och ' : ', ')}
+                      <a href={offerPath(o)}>{o.data.brand}</a>
+                    </>
+                  ))}
+                  .
+                </p>
+              )}
+            </div>
           )
         }
 
@@ -193,7 +212,7 @@ const ogImage = existsSync(`public/og/${offer.id}.png`) ? `/og/${offer.id}.png` 
       related.length > 0 && (
         <section class="related">
           <div class="section-head">
-            <h2>Mer inom {category.name.toLowerCase()}.</h2>
+            <h2>{active ? 'Liknande erbjudanden.' : 'Gäller just nu i stället.'}</h2>
             <a class="more" href={category.path}>
               Visa alla
             </a>
@@ -245,6 +264,9 @@ const ogImage = existsSync(`public/og/${offer.id}.png`) ? `/og/${offer.id}.png` 
   }
   .main h1 {
     font-size: clamp(2rem, 4.6vw, 3.25rem);
+  }
+  .notice p + p {
+    margin-top: 8px;
   }
   .notice {
     padding: 14px 18px;
