@@ -1,5 +1,6 @@
 ---
 title: Gratis böcker och hembesök från biblioteket med Bokstart i Göteborg
+seoTitle: "Gratis böcker och hembesök med Bokstart Göteborg"
 description: Förstagångsföräldrar i vissa stadsdelar i Göteborg får via BVC erbjudande om Bokstart, med hembesök av bibliotekspersonal och böcker som barnet får behålla.
 brand: Bokstart Göteborg
 category: foraldrar

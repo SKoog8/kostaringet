@@ -1,6 +1,6 @@
 ---
 import ListingPage from '../../components/ListingPage.astro';
-import { getOffers } from '../../lib/offers';
+import { getOffers, isActive } from '../../lib/offers';
 import { categories, type Category } from '../../site.config';
 
 export function getStaticPaths() {
@@ -12,6 +12,8 @@ export function getStaticPaths() {
 
 const { category } = Astro.props as { category: Category };
 const offers = await getOffers(category.slug);
+// Empty categories are thin pages: keep them out of Google (and the sitemap) until they have offers.
+const empty = !offers.some((o) => isActive(o));
 ---
 
 <ListingPage
@@ -21,6 +23,7 @@ const offers = await getOffers(category.slug);
   intro={category.intro}
   offers={offers}
   category={category.slug}
+  noindex={empty}
   crumbs={[
     { label: 'Alla erbjudanden', href: '/gratis/' },
     { label: category.name, href: category.path },

@@ -1,5 +1,6 @@
 ---
 title: Gratis provperioder på streaming, ljudböcker och tidningar – så gör du
+seoTitle: "Gratis provperioder på streaming och ljudböcker"
 description: Viaplay, Storytel, Podme, ljudboksappar och tidningar för studenter. Så får du ut mest av gratis provperioder och säger upp innan det börjar kosta.
 published: 2026-11-04
 updated: 2026-11-05

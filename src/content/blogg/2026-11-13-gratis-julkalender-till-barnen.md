@@ -1,5 +1,6 @@
 ---
 title: Gratis julkalender till barnen – fem sätt som inte kostar något
+seoTitle: "Gratis julkalender till barnen – fem sätt"
 description: "En julkalender behöver inte kosta 300 kronor. Så ordnar du en gratis adventskalender med biblioteksböcker, SVT:s och Sveriges Radios kalendrar och lite pyssel."
 published: 2026-11-13
 kind: guide

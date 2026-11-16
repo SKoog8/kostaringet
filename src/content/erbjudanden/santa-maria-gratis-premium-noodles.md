@@ -1,5 +1,6 @@
 ---
 title: Gratis förpackning Santa Maria Premium Noodles – kupong via sms
+seoTitle: "Gratis Santa Maria Premium Noodles via sms"
 description: Santa Maria delar ut sms-kuponger på en gratis förpackning Premium Noodles. Löses in på ICA, Hemköp, Willys och Coop. Kampanjen pågår till 12 december.
 brand: Santa Maria
 category: mat-dryck

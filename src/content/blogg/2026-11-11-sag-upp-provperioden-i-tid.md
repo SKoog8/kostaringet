@@ -1,5 +1,6 @@
 ---
 title: Så säger du upp en gratis provperiod i tid – och slipper betala
+seoTitle: "Så säger du upp en gratis provperiod i tid"
 description: "Gratis provperioder på streaming och ljudböcker blir betalda om du glömmer att säga upp dem. Så håller du koll, och vilka provperioder som finns just nu."
 published: 2026-11-11
 kind: guide

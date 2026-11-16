@@ -1,5 +1,6 @@
 ---
 title: Tre gratis gåvoböcker till alla barn i Örebro län via Bokstart
+seoTitle: "Gratis gåvoböcker till barn i Örebro län"
 description: Alla barn i Örebro län får en gåvobok från BVC tre gånger, som nyfödd, vid 8 månader och vid 2,5 år. Biblioteken delar också ut böcker vid 18 månader.
 brand: Bokstart Örebro län
 category: foraldrar

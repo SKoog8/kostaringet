@@ -18,6 +18,8 @@ const erbjudanden = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/erbjudanden' }),
   schema: z.object({
     title: z.string(),
+    /** Shorter title for Google (max ~55 characters). Falls back to title. */
+    seoTitle: z.string().optional(),
     /** Meta description, ideally 120–160 characters. */
     description: z.string(),
     brand: z.string(),
@@ -53,6 +55,8 @@ const blogg = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/blogg' }),
   schema: z.object({
     title: z.string(),
+    /** Shorter title for Google (max ~55 characters). Falls back to title. */
+    seoTitle: z.string().optional(),
     description: z.string(),
     published: z.coerce.date(),
     updated: z.coerce.date().optional(),

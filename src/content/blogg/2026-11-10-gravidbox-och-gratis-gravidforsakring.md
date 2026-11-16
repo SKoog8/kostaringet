@@ -1,5 +1,6 @@
 ---
 title: Gratis gravidbox från One Million Babies och gratis gravidförsäkring från ICA
+seoTitle: "Gratis gravidbox och gratis gravidförsäkring"
 description: "Dagens fynd 10 november: ett gratis välkomstpaket till gravida via appen One Million Babies, och ICA Försäkrings kostnadsfria gravidförsäkring Gravid Fri."
 published: 2026-11-10
 kind: dagens

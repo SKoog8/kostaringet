@@ -1,4 +1,5 @@
 ---
+import { existsSync } from 'node:fs';
 import { render, type CollectionEntry } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
@@ -43,10 +44,13 @@ const articleLd = {
   publisher: { '@type': 'Organization', name: site.name, url: site.url },
   mainEntityOfPage: new URL(postPath(post), site.url).href,
 };
+// Own share image from `npm run og`, otherwise the site default.
+const ogImage = existsSync(`public/og/${post.id}.png`) ? `/og/${post.id}.png` : undefined;
 ---
 
 <Base
-  title={data.title}
+  title={data.seoTitle ?? data.title}
+  image={ogImage}
   description={data.description}
   type="article"
   published={data.published}

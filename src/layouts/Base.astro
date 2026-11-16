@@ -9,6 +9,8 @@ interface Props {
   description: string;
   /** Set to false to use the title as-is without the site name suffix. */
   suffix?: boolean;
+  /** Set to false to leave out the canonical link (e.g. on the 404 page). */
+  canonical?: boolean;
   image?: string;
   type?: 'website' | 'article';
   noindex?: boolean;
@@ -21,6 +23,7 @@ const {
   title,
   description,
   suffix = true,
+  canonical: withCanonical = true,
   image = '/og.png',
   type = 'website',
   noindex = false,
@@ -29,7 +32,9 @@ const {
   modified,
 } = Astro.props;
 
-const fullTitle = suffix ? `${title} | ${site.domain}` : title;
+// Google cuts titles at about 60 characters. Add the brand only when it fits.
+const BRAND = ' | Kostaringet';
+const fullTitle = suffix && title.length + BRAND.length <= 60 ? `${title}${BRAND}` : title;
 const canonical = new URL(Astro.url.pathname, site.url).href;
 const ogImage = new URL(image, site.url).href;
 
@@ -50,7 +55,7 @@ const ld = [organization, ...(Array.isArray(jsonLd) ? jsonLd : jsonLd ? [jsonLd]
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
-    <link rel="canonical" href={canonical} />
+    {withCanonical && <link rel="canonical" href={canonical} />}
     {noindex && <meta name="robots" content="noindex, follow" />}
     {!noindex && <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />}
 
@@ -59,7 +64,7 @@ const ld = [organization, ...(Array.isArray(jsonLd) ? jsonLd : jsonLd ? [jsonLd]
     <meta property="og:type" content={type} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:url" content={canonical} />
+    {withCanonical && <meta property="og:url" content={canonical} />}
     <meta property="og:image" content={ogImage} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />

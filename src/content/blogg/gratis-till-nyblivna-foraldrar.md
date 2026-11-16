@@ -1,5 +1,6 @@
 ---
 title: Gratis saker till gravida och nyblivna föräldrar – komplett guide
+seoTitle: "Gratis saker till gravida och nyblivna föräldrar"
 description: Babyboxar, blöjklubbar och välkomstpaket. Så får du ut mest av alla gratis paket till bebis – och undviker prenumerationerna du inte ville ha.
 published: 2026-10-09
 category: foraldrar

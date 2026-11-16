@@ -1,5 +1,6 @@
 ---
 title: Gratis tygprover från Soferia – upp till fem prover hem i brevlådan
+seoTitle: "Gratis tygprover från Soferia"
 description: Soferia, som syr överdrag till IKEA-möbler, skickar upp till fem tygprover gratis med vanligt brev. Känn på tyget hemma innan du väljer ny klädsel.
 brand: Soferia
 category: hem

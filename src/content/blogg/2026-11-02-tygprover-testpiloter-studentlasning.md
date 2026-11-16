@@ -1,5 +1,6 @@
 ---
 title: Gratis tygprover, produkttester och Aftonbladet Plus för studenter
+seoTitle: "Gratis tygprover och Aftonbladet Plus för studenter"
 description: "Dagens fynd 2 november – gratis tygprover från Soferia, produkttester hos Smartson och fem månader Aftonbladet Plus för studenter. Plus: Bokus Play i 30 dagar."
 published: 2026-11-02
 updated: 2026-11-05

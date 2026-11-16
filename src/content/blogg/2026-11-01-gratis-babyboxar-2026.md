@@ -1,5 +1,6 @@
 ---
 title: Gratis babyboxar 2026 – alla startpaket för gravida och nyblivna föräldrar
+seoTitle: "Gratis babyboxar 2026 – alla startpaket"
 description: BabyBox, BabySam, Libero, BabyBag och Goboken. Vad som ingår i varje gratis babypaket, vad frakten kostar och när du ska beställa. Kontrollerat 1 november 2026.
 published: 2026-11-01
 kind: guide

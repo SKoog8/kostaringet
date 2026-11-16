@@ -1,5 +1,6 @@
 ---
 title: Gratis gravidförsäkring från ICA Försäkring – Gravid Fri
+seoTitle: "Gratis gravidförsäkring från ICA – Gravid Fri"
 description: ICA Försäkring har en gratis gravidförsäkring, Gravid Fri, som ger grundskydd för den gravida, bebisen och partnern från vecka 22 tills barnet är sex månader.
 brand: ICA Försäkring
 category: foraldrar

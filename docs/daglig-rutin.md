@@ -117,6 +117,7 @@ Har dagen inte fått något inlägg när kvällskörningen är klar: skriv en gu
 - Saklig ton, som en kunnig vän. Inga utropstecken, inga emojis, inga säljiga ord som "fantastisk", "missa inte" eller "passa på".
 - Skriv aldrig något du inte har sett på företagets sida. Är du osäker på en detalj, utelämna den.
 - Titlar ska vara konkreta och sökbara: vad, från vem, och att det är gratis.
+- Google visar ungefär 60 tecken av en titel. Blir `title` längre än 55 tecken: lägg till `seoTitle` med en kortare variant (högst 55 tecken) i både erbjudanden och inlägg.
 
 ## 6. Städa bland gamla erbjudanden
 
@@ -128,10 +129,11 @@ Kontrollera de fem aktiva erbjudanden som har äldst `checked`-datum:
 
 ## 7. Bygg, committa och pusha
 
-1. `npm run build` måste gå igenom utan fel. Rätta det som är fel innan du går vidare.
-2. Committa med meddelandet `Dagens fynd ÅÅÅÅ-MM-DD (morgon|lunch|kväll)` (eller `Guide ÅÅÅÅ-MM-DD (kväll)`). Finns inget nytt: committa inte.
-3. `git push origin main`. Vercel publicerar automatiskt (andra grenar blir bara förhandsversioner).
-4. Skapa ingen pull request.
+1. Kör `npm run og`. Den skapar en delningsbild (`public/og/<slug>.png`) för varje nytt erbjudande och inlägg. Befintliga bilder lämnas orörda. Committa de nya bilderna.
+2. `npm run build` måste gå igenom utan fel. Rätta det som är fel innan du går vidare.
+3. Committa med meddelandet `Dagens fynd ÅÅÅÅ-MM-DD (morgon|lunch|kväll)` (eller `Guide ÅÅÅÅ-MM-DD (kväll)`). Finns inget nytt: committa inte.
+4. `git push origin main`. Vercel publicerar automatiskt (andra grenar blir bara förhandsversioner).
+5. Skapa ingen pull request.
 
 ## 8. Rapportera
 

@@ -1,5 +1,6 @@
 ---
 title: Så får du gratisprover hemskickade – och undviker fällorna
+seoTitle: "Så får du gratisprover hemskickade"
 description: Var gratisproverna finns, hur du hinner före när upplagan tar slut och vad du ska se upp med. En guide till varuprover i Sverige.
 published: 2026-10-09
 ---

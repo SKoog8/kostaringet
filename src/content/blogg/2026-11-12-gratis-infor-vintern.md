@@ -1,5 +1,6 @@
 ---
 title: Gratis inför vintern – låna sportutrustning på Fritidsbanken och få en reflex
+seoTitle: "Låna sportutrustning gratis inför vintern"
 description: "Du behöver inte köpa ny utrustning för att testa en vintersport. Hos Fritidsbanken lånar du sport- och friluftsutrustning gratis i 14 dagar. Plus: gratis reflexer."
 published: 2026-11-12
 kind: guide

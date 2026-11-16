@@ -1,4 +1,5 @@
 ---
+import { existsSync } from 'node:fs';
 import { render } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
@@ -29,6 +30,19 @@ const cost =
     : data.shipping > 0
       ? `Gratis, frakt ${data.shipping} kr`
       : '0 kr';
+const checkedOn = data.checked ?? latest(offer);
+const terms: string[] = [
+  data.type === 'provperiod'
+    ? 'Gratis under provperioden.'
+    : cost === '0 kr'
+      ? 'Kostar ingenting, inte heller frakt.'
+      : `${cost}.`,
+  ...data.requirements.map((r) => (/[.!?]$/.test(r) ? r : `${r}.`)),
+  ...(data.type === 'provperiod'
+    ? ['Provperioden blir en betald prenumeration om du inte säger upp den innan den tar slut.']
+    : []),
+  data.expires ? `Gäller till och med ${formatDate(data.expires)}.` : 'Inget slutdatum angivet.',
+];
 const facts: [string, string][] = [
   ['Typ', offerTypes[data.type]],
   ['Kostnad', cost],
@@ -37,7 +51,8 @@ const facts: [string, string][] = [
   ['Senast kontrollerad', formatDate(data.checked ?? latest(offer))],
 ];
 
-const productLd = {
+// Free trials turn into paid subscriptions, so they are not marked up as free products.
+const productLd = data.type === 'provperiod' ? undefined : {
   '@context': 'https://schema.org',
   '@type': 'Product',
   name: data.title,
@@ -61,10 +76,13 @@ const productLd = {
     }),
   },
 };
+// Own share image from `npm run og`, otherwise the site default.
+const ogImage = existsSync(`public/og/${offer.id}.png`) ? `/og/${offer.id}.png` : undefined;
 ---
 
 <Base
-  title={data.title}
+  title={data.seoTitle ?? data.title}
+  image={ogImage}
   description={data.description}
   type="article"
   published={data.published}
@@ -86,6 +104,9 @@ const productLd = {
         <p class="eyebrow">{data.brand} · {category.name}</p>
         <h1>{data.title}</h1>
         <p class="lead">{data.description}</p>
+        <p class="checked">
+          Senast kontrollerat på företagets egen sida <time datetime={checkedOn.toISOString()}>{formatDate(checkedOn)}</time>.
+        </p>
         {
           active && (
             <p class="mobile-cta">
@@ -104,6 +125,15 @@ const productLd = {
             </p>
           )
         }
+
+        <section class="terms" aria-labelledby="villkor">
+          <h2 id="villkor">Villkor i korthet</h2>
+          <ul>
+            {terms.map((t) => (
+              <li>{t}</li>
+            ))}
+          </ul>
+        </section>
 
         <div class="prose">
           <Content />
@@ -176,6 +206,28 @@ const productLd = {
 </Base>
 
 <style>
+  .checked {
+    font-size: 0.9rem;
+    color: var(--muted);
+  }
+  .terms {
+    margin-block: 8px 24px;
+    padding: 18px 20px;
+    border: 1px solid var(--line-strong);
+    border-radius: var(--radius);
+    background: var(--surface);
+  }
+  .terms h2 {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+  }
+  .terms ul {
+    margin: 0;
+    padding-left: 1.1em;
+    display: grid;
+    gap: 4px;
+    color: var(--ink-2);
+  }
   .head {
     padding-top: 28px;
   }

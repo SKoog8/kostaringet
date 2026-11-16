@@ -1,5 +1,6 @@
 ---
 title: Testa en Bosch-robotdammsugare gratis och beställ prover på akustikpaneler
+seoTitle: "Testa en Bosch-robotdammsugare gratis"
 description: "Dagens fynd 3 november – en robotdammsugare från Bosch att testa och behålla via Buzzador, och gratis varuprover på akustikpaneler från IndoorWood."
 published: 2026-11-03
 kind: dagens

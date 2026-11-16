@@ -15,14 +15,16 @@ interface Props {
   offers: Offer[];
   crumbs: { label: string; href: string }[];
   category?: CategorySlug;
+  /** Hide the page from search engines (e.g. a category without active offers). */
+  noindex?: boolean;
 }
 
-const { title, metaTitle, description, intro, offers, crumbs, category } = Astro.props;
+const { title, metaTitle, description, intro, offers, crumbs, category, noindex = false } = Astro.props;
 const active = offers.filter((o) => isActive(o));
 const ended = offers.filter((o) => !isActive(o));
 ---
 
-<Base title={metaTitle} description={description}>
+<Base title={metaTitle} description={description} noindex={noindex}>
   <div class="wrap page-head">
     <Breadcrumbs items={crumbs} />
     <h1>{title}</h1>

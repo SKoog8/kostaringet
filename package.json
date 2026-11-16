@@ -9,7 +9,8 @@
     "check": "astro check",
     "bot": "node bot/run.mjs",
     "bot:dry": "node bot/run.mjs --dry-run",
-    "bot:expire": "node bot/expire.mjs"
+    "bot:expire": "node bot/expire.mjs",
+    "og": "NODE_PATH=$(npm root -g) node scripts/og.mjs"
   },
   "repository": {
     "type": "git",

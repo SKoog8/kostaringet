@@ -29,15 +29,16 @@ const websiteLd = {
 ---
 
 <Base
-  title="Gratisprover och saker du kan beställa gratis – kostaringet.se"
+  title="Gratisprover och gratiserbjudanden i Sverige | Kostaringet"
   suffix={false}
   description={site.description}
   jsonLd={websiteLd}
 >
   <section class="intro">
     <div class="wrap intro__inner">
-      <h1>Saker som kostar ingenting.</h1>
+      <h1>Gratisprover och saker du kan beställa gratis i Sverige</h1>
       <p class="intro__lead">
+        <strong class="intro__tag">Saker som kostar ingenting.</strong>
         Varje dag letar vi upp gratisprover, startpaket och provperioder i Sverige – och skriver tydligt vad som krävs.
         Just nu <a href="/gratis/">{active.length} aktiva erbjudanden</a>.
       </p>
@@ -187,9 +188,17 @@ const websiteLd = {
     align-items: end;
   }
   .intro h1 {
-    font-size: clamp(2.4rem, 6vw, 4.6rem);
-    letter-spacing: -0.045em;
-    line-height: 0.98;
+    font-size: clamp(2rem, 4.6vw, 3.6rem);
+    letter-spacing: -0.04em;
+    line-height: 1.02;
+  }
+  .intro__tag {
+    display: block;
+    color: var(--ink);
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin-bottom: 6px;
   }
   .intro__lead {
     color: var(--ink-2);

@@ -1,5 +1,6 @@
 ---
 title: Gratis till katten – adoptionskit, kattungepaket och foderprover
+seoTitle: "Gratis till katten – adoptionskit och foderprover"
 description: Har du skaffat katt? Så får du ett gratis startkit vid adoption, kattungepaket via uppfödaren och foderprover. Plus vad du ska tänka på innan du tackar ja.
 published: 2026-11-07
 kind: guide
