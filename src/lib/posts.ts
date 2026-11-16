@@ -1,4 +1,6 @@
 import { getCollection, type CollectionEntry } from 'astro:content';
+import { illustrationFor, type IllustrationName } from './illustrations';
+import type { Offer } from './offers';
 
 export type Post = CollectionEntry<'blogg'>;
 
@@ -11,3 +13,10 @@ export async function getPosts(kind?: Post['data']['kind']): Promise<Post[]> {
 }
 
 export const postPath = (post: Post) => `/blogg/${post.id}/`;
+
+/** Drawing and colour category for a post: its own choice, its category, or the first offer's category. */
+export function postIllustration(post: Post, offers: Offer[]): { name: IllustrationName; cat: string } {
+  const first = post.data.offers.map((slug) => offers.find((o) => o.id === slug)).find(Boolean);
+  const cat = post.data.category ?? first?.data.category ?? 'ovrigt';
+  return { name: post.data.illustration ?? illustrationFor(cat), cat };
+}

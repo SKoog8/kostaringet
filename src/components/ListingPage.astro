@@ -4,6 +4,7 @@ import Base from '../layouts/Base.astro';
 import Breadcrumbs from './Breadcrumbs.astro';
 import CategoryList from './CategoryList.astro';
 import OfferGrid from './OfferGrid.astro';
+import Illustration from './Illustration.astro';
 import { isActive, type Offer } from '../lib/offers';
 import type { CategorySlug } from '../site.config';
 
@@ -26,10 +27,13 @@ const ended = offers.filter((o) => !isActive(o));
 
 <Base title={metaTitle} description={description} noindex={noindex}>
   <div class="wrap page-head">
-    <Breadcrumbs items={crumbs} />
-    <h1>{title}</h1>
-    <p class="lead">{intro}</p>
-    <p class="count">{active.length} aktiva erbjudanden</p>
+    <div class="page-head__text">
+      <Breadcrumbs items={crumbs} />
+      <h1>{title}</h1>
+      <p class="lead">{intro}</p>
+      <p class="count">{active.length} aktiva erbjudanden</p>
+    </div>
+    {category ? <Illustration cat={category} size="clamp(110px, 18vw, 180px)" /> : <Illustration name="hero" size="clamp(180px, 26vw, 300px)" />}
   </div>
 
   <div class="wrap">
@@ -54,9 +58,22 @@ const ended = offers.filter((o) => !isActive(o));
 
 <style>
   .page-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px 48px;
+    padding-block: clamp(32px, 6vw, 72px) 32px;
+  }
+  .page-head__text {
     display: grid;
     gap: 18px;
-    padding-block: clamp(32px, 6vw, 72px) 32px;
+    max-width: 48rem;
+  }
+  @media (max-width: 640px) {
+    .page-head {
+      flex-direction: column-reverse;
+      align-items: flex-start;
+    }
   }
   .count {
     font-weight: 600;

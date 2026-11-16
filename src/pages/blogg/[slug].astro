@@ -6,8 +6,9 @@ import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import AdSlot from '../../components/AdSlot.astro';
 import ProductBox from '../../components/ProductBox.astro';
 import OfferGrid from '../../components/OfferGrid.astro';
+import Illustration from '../../components/Illustration.astro';
 import { formatDate, getOffers, isActive } from '../../lib/offers';
-import { getPosts, kindLabel, postPath } from '../../lib/posts';
+import { getPosts, kindLabel, postIllustration, postPath } from '../../lib/posts';
 import { categoryBySlug, site } from '../../site.config';
 
 export async function getStaticPaths() {
@@ -65,6 +66,7 @@ const ogImage = existsSync(`public/og/${post.id}.png`) ? `/og/${post.id}.png` : 
       ]}
     />
     <header>
+      <Illustration {...postIllustration(post, allOffers)} size="clamp(88px, 14vw, 120px)" />
       <p class="eyebrow">{kindLabel[data.kind]}</p>
       <h1>{data.title}</h1>
       <p class="lead">{data.description}</p>

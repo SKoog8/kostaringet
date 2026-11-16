@@ -1,0 +1,21 @@
+---
+// Inline SVG illustration from src/illustrations/. Colours come from CSS (see .il in global.css),
+// so they follow the category (data-cat) and light/dark theme.
+import { illustrationFor, type IllustrationName } from '../lib/illustrations';
+
+interface Props {
+  name?: IllustrationName;
+  /** Category slug: sets the colours, and the drawing when no name is given. */
+  cat?: string;
+  size?: number | string;
+  class?: string;
+}
+
+const svgs = import.meta.glob<string>('../illustrations/*.svg', { query: '?raw', import: 'default', eager: true });
+const { name, cat, size = 96, class: className } = Astro.props;
+const key = name ?? illustrationFor(cat);
+const svg = svgs[`../illustrations/${key}.svg`] ?? svgs['../illustrations/ovrigt.svg'];
+const width = typeof size === 'number' ? `${size}px` : size;
+---
+
+<span class:list={['il', className]} data-cat={cat} style={`width:${width}`} set:html={svg} />

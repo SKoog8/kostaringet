@@ -3,6 +3,7 @@
 import Base from '../layouts/Base.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import OfferGrid from '../components/OfferGrid.astro';
+import Illustration from '../components/Illustration.astro';
 import { getOffers, isActive } from '../lib/offers';
 
 const year = 2026;
@@ -47,6 +48,7 @@ const faqLd = {
   jsonLd={faqLd}
 >
   <div class="wrap"><div class="page-head">
+    <Illustration name="jul" size="clamp(96px, 14vw, 130px)" />
     <Breadcrumbs items={[{ label: `Gratis till jul ${year}`, href: '/jul/' }]} />
     <p class="eyebrow">Säsong</p>
     <h1>Gratis till jul {year}.</h1>

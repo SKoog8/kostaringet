@@ -2,8 +2,9 @@
 import Base from '../layouts/Base.astro';
 import OfferGrid from '../components/OfferGrid.astro';
 import CategoryList from '../components/CategoryList.astro';
+import Illustration from '../components/Illustration.astro';
 import { getOffers, isActive, offerPath, formatDate, formatShort, latest } from '../lib/offers';
-import { getPosts, kindLabel, postPath } from '../lib/posts';
+import { getPosts, kindLabel, postIllustration, postPath } from '../lib/posts';
 import { offerTypes, site } from '../site.config';
 
 const offers = await getOffers();
@@ -36,12 +37,15 @@ const websiteLd = {
 >
   <section class="intro">
     <div class="wrap intro__inner">
+      <div class="intro__text">
       <h1>Gratisprover och saker du kan beställa gratis i Sverige</h1>
       <p class="intro__lead">
         <strong class="intro__tag">Saker som kostar ingenting.</strong>
         Varje dag letar vi upp gratisprover, startpaket och provperioder i Sverige – och skriver tydligt vad som krävs.
         Just nu <a href="/gratis/">{active.length} aktiva erbjudanden</a>.
       </p>
+      </div>
+      <Illustration name="hero" class="intro__art" size="100%" />
     </div>
   </section>
 
@@ -49,6 +53,7 @@ const websiteLd = {
     {
       lead && (
         <article class="lead">
+          <Illustration {...postIllustration(lead, offers)} size={84} />
           <p class="eyebrow">
             {kindLabel[lead.data.kind]} · <time datetime={lead.data.published.toISOString()}>{formatDate(lead.data.published)}</time>
           </p>
@@ -81,6 +86,7 @@ const websiteLd = {
             recent.map((p) => (
               <li>
                 <a href={postPath(p)}>
+                  <Illustration {...postIllustration(p, offers)} size={56} class="post-list__il" />
                   <span class="post-list__meta">
                     {kindLabel[p.data.kind]} · <time datetime={p.data.published.toISOString()}>{formatDate(p.data.published)}</time>
                   </span>
@@ -183,9 +189,17 @@ const websiteLd = {
   }
   .intro__inner {
     display: grid;
-    grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
-    gap: 16px 48px;
-    align-items: end;
+    grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+    gap: 24px 48px;
+    align-items: center;
+  }
+  .intro__text {
+    display: grid;
+    gap: 20px;
+  }
+  .intro__inner :global(.intro__art) {
+    max-width: 380px;
+    justify-self: end;
   }
   .intro h1 {
     font-size: clamp(2rem, 4.6vw, 3.6rem);
@@ -212,6 +226,11 @@ const websiteLd = {
   @media (max-width: 760px) {
     .intro__inner {
       grid-template-columns: 1fr;
+    }
+    .intro__inner :global(.intro__art) {
+      max-width: 260px;
+      justify-self: start;
+      order: -1;
     }
   }
 
@@ -278,10 +297,17 @@ const websiteLd = {
   }
   .post-list a {
     display: grid;
-    gap: 6px;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 6px 18px;
     padding-block: 22px;
     border-bottom: 1px solid var(--line);
     text-decoration: none;
+  }
+  .post-list a > :global(.post-list__il) {
+    grid-row: span 3;
+  }
+  .post-list a > :not(.post-list__il) {
+    grid-column: 2;
   }
   .post-list__meta {
     font-size: 0.85rem;

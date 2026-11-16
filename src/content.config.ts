@@ -1,5 +1,6 @@
 import { defineCollection, z } from 'astro:content';
 import { glob } from 'astro/loaders';
+import { illustrationNames } from './lib/illustrations';
 
 const categorySlugs = [
   'foraldrar',
@@ -57,6 +58,8 @@ const blogg = defineCollection({
     title: z.string(),
     /** Shorter title for Google (max ~55 characters). Falls back to title. */
     seoTitle: z.string().optional(),
+    /** Drawing from src/illustrations/. Defaults to the post's category. */
+    illustration: z.enum(illustrationNames).optional(),
     description: z.string(),
     published: z.coerce.date(),
     updated: z.coerce.date().optional(),

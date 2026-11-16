@@ -118,6 +118,7 @@ Har dagen inte fått något inlägg när kvällskörningen är klar: skriv en gu
 - Skriv aldrig något du inte har sett på företagets sida. Är du osäker på en detalj, utelämna den.
 - Titlar ska vara konkreta och sökbara: vad, från vem, och att det är gratis.
 - Google visar ungefär 60 tecken av en titel. Blir `title` längre än 55 tecken: lägg till `seoTitle` med en kortare variant (högst 55 tecken) i både erbjudanden och inlägg.
+- Inlägg får automatiskt kategorins illustration. Passar en annan bättre i en guide, sätt `illustration:` till en av `kalender`, `vinter`, `bok` eller `jul` (alla finns i `src/illustrations/`). Använd aldrig företagens logotyper eller produktbilder.
 
 ## 6. Städa bland gamla erbjudanden
 

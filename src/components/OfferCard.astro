@@ -1,5 +1,6 @@
 ---
 import { offerTypes } from '../site.config';
+import Illustration from './Illustration.astro';
 import { isActive, offerPath, formatShort, latest, type Offer } from '../lib/offers';
 
 interface Props {
@@ -10,7 +11,6 @@ interface Props {
 const { offer, headingLevel: H = 'h3' } = Astro.props;
 const { data } = offer;
 const active = isActive(offer);
-const initial = data.brand.trim().charAt(0).toUpperCase();
 const shippingNote =
   data.shipping === 'tillkommer' ? 'Frakt tillkommer' : data.shipping > 0 ? `Frakt ${data.shipping} kr` : null;
 const note = shippingNote ?? data.requirements[0] ?? 'Inga krav';
@@ -18,7 +18,7 @@ const note = shippingNote ?? data.requirements[0] ?? 'Inga krav';
 
 <article class:list={['card', { 'card--ended': !active }]} data-category={data.category}>
   <div class="card__top">
-    <span class="card__mono" data-cat={data.category} aria-hidden="true">{initial}</span>
+    <Illustration cat={data.category} size={44} class="card__il" />
     <span class="card__brand">{data.brand}</span>
     {active ? <span class="tag">{offerTypes[data.type]}</span> : <span class="tag tag--muted">Avslutat</span>}
   </div>
@@ -53,34 +53,6 @@ const note = shippingNote ?? data.requirements[0] ?? 'Inga krav';
     display: flex;
     align-items: center;
     gap: 10px;
-  }
-  .card__mono {
-    display: grid;
-    place-items: center;
-    width: 36px;
-    height: 36px;
-    border-radius: 10px;
-    font-weight: 800;
-    font-size: 1rem;
-    background: var(--accent-soft);
-    color: var(--accent);
-    flex: none;
-  }
-  .card__mono[data-cat='foraldrar'] {
-    background: var(--cat-foraldrar-bg);
-    color: var(--cat-foraldrar-fg);
-  }
-  .card__mono[data-cat='skonhet'] {
-    background: var(--cat-skonhet-bg);
-    color: var(--cat-skonhet-fg);
-  }
-  .card__mono[data-cat='mat-dryck'] {
-    background: var(--cat-mat-bg);
-    color: var(--cat-mat-fg);
-  }
-  .card__mono[data-cat='tjanster'] {
-    background: var(--cat-tjanster-bg);
-    color: var(--cat-tjanster-fg);
   }
   .card__brand {
     font-weight: 650;
@@ -136,6 +108,10 @@ const note = shippingNote ?? data.requirements[0] ?? 'Inga krav';
   }
   .card--ended {
     background: transparent;
+  }
+  .card--ended :global(.card__il) {
+    filter: grayscale(1);
+    opacity: 0.6;
   }
   .card--ended .card__title,
   .card--ended .card__desc {

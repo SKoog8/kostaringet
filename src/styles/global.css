@@ -22,6 +22,12 @@
   --cat-mat-fg: #7a5d0e;
   --cat-tjanster-bg: #dfe6f1;
   --cat-tjanster-fg: #2f4f7f;
+  --cat-halsa-bg: #d8ebe8;
+  --cat-halsa-fg: #22675f;
+  --cat-hem-bg: #e5e1f0;
+  --cat-hem-fg: #4f427f;
+  --cat-djur-bg: #ece2d3;
+  --cat-djur-fg: #6b4a24;
 
   --font-sans: 'Hanken Grotesk Variable', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
   --font-serif: 'Newsreader Variable', Georgia, 'Times New Roman', serif;
@@ -56,6 +62,12 @@
     --cat-mat-fg: #e2c66f;
     --cat-tjanster-bg: #222c3a;
     --cat-tjanster-fg: #a9c1e6;
+    --cat-halsa-bg: #1d332f;
+    --cat-halsa-fg: #8fd0c4;
+    --cat-hem-bg: #29253a;
+    --cat-hem-fg: #bcb0e6;
+    --cat-djur-bg: #33291c;
+    --cat-djur-fg: #ddb98a;
     color-scheme: dark;
   }
 }
@@ -81,6 +93,12 @@
   --cat-mat-fg: #e2c66f;
   --cat-tjanster-bg: #222c3a;
   --cat-tjanster-fg: #a9c1e6;
+  --cat-halsa-bg: #1d332f;
+  --cat-halsa-fg: #8fd0c4;
+  --cat-hem-bg: #29253a;
+  --cat-hem-fg: #bcb0e6;
+  --cat-djur-bg: #33291c;
+  --cat-djur-fg: #ddb98a;
   color-scheme: dark;
 }
 
@@ -339,3 +357,38 @@ p {
   text-transform: uppercase;
   border-bottom-color: var(--line-strong);
 }
+
+/* Illustrations (src/illustrations/*.svg). Colours follow the category and the theme. */
+.il {
+  --il-tint: var(--accent-soft);
+  --il-fg: var(--accent);
+  display: inline-block;
+  line-height: 0;
+  flex: none;
+}
+.il svg {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+.il svg * {
+  fill: none;
+  stroke: var(--ink);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.il svg .n { stroke: none; }
+.il svg .t { fill: var(--il-tint); }
+.il svg .w { fill: var(--surface); }
+.il svg .a { fill: var(--il-fg); }
+.il svg .m { fill: var(--mark); }
+.il svg .k { fill: var(--ink); }
+.il svg .lbl { fill: var(--accent-ink); font: 800 13px var(--font-sans); }
+[data-cat='foraldrar'] { --il-tint: var(--cat-foraldrar-bg); --il-fg: var(--cat-foraldrar-fg); }
+[data-cat='skonhet'] { --il-tint: var(--cat-skonhet-bg); --il-fg: var(--cat-skonhet-fg); }
+[data-cat='mat-dryck'] { --il-tint: var(--cat-mat-bg); --il-fg: var(--cat-mat-fg); }
+[data-cat='halsa'] { --il-tint: var(--cat-halsa-bg); --il-fg: var(--cat-halsa-fg); }
+[data-cat='hem'] { --il-tint: var(--cat-hem-bg); --il-fg: var(--cat-hem-fg); }
+[data-cat='djur'] { --il-tint: var(--cat-djur-bg); --il-fg: var(--cat-djur-fg); }
+[data-cat='tjanster'] { --il-tint: var(--cat-tjanster-bg); --il-fg: var(--cat-tjanster-fg); }
