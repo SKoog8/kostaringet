@@ -21,6 +21,8 @@ const erbjudanden = defineCollection({
     title: z.string(),
     /** Shorter title for Google (max ~55 characters). Falls back to title. */
     seoTitle: z.string().optional(),
+    /** Drawing from src/illustrations/. Defaults by type (provperiod, startpaket) or category. */
+    illustration: z.enum(illustrationNames).optional(),
     /** Meta description, ideally 120–160 characters. */
     description: z.string(),
     brand: z.string(),

@@ -1,5 +1,6 @@
 ---
 title: Viaplay, Storytel och Podme gratis i 30 dagar med Trippel
+illustration: tjanster
 description: Trippel samlar Viaplay, Storytel och Podme i ett paket, och nya kunder kan prova alla tre gratis i 30 dagar. Därefter blir det ett betalt abonnemang.
 brand: Trippel
 category: tjanster

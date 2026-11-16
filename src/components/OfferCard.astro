@@ -1,6 +1,7 @@
 ---
 import { offerTypes } from '../site.config';
 import Illustration from './Illustration.astro';
+import { offerIllustrationName } from '../lib/illustrations';
 import { isActive, offerPath, formatShort, latest, type Offer } from '../lib/offers';
 
 interface Props {
@@ -18,7 +19,7 @@ const note = shippingNote ?? data.requirements[0] ?? 'Inga krav';
 
 <article class:list={['card', { 'card--ended': !active }]} data-category={data.category}>
   <div class="card__top">
-    <Illustration cat={data.category} size={44} class="card__il" />
+    <Illustration name={offerIllustrationName(data)} cat={data.category} size={44} class="card__il" />
     <span class="card__brand">{data.brand}</span>
     {active ? <span class="tag">{offerTypes[data.type]}</span> : <span class="tag tag--muted">Avslutat</span>}
   </div>

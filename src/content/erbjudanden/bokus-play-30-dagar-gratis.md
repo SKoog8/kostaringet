@@ -1,5 +1,6 @@
 ---
 title: Bokus Play gratis i 30 dagar
+illustration: ljudbok
 description: Bokus Play har 30 dagars gratis provperiod för nya användare, med upp till 30 timmars lyssning och läsning. Därefter från 79 kr i månaden.
 brand: Bokus Play
 category: tjanster

@@ -1,5 +1,6 @@
 ---
 title: Gratis välkomstpaket till gravida från One Million Babies
+illustration: nappflaska
 description: Gravidappen One Million Babies skickar ett gratis välkomstpaket med badtermometer, napphållare, amningsinlägg, salvprov och våtservetter. Beställs i appen.
 brand: One Million Babies
 category: foraldrar

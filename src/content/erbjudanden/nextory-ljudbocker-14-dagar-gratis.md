@@ -1,5 +1,6 @@
 ---
 title: Prova Nextory gratis i 14 dagar
+illustration: ljudbok
 description: Nextory har 14 dagars gratis provperiod på ljudböcker och e-böcker för nya användare. Prenumerationen fortsätter automatiskt om du inte säger upp den.
 brand: Nextory
 category: tjanster

@@ -1,5 +1,6 @@
 ---
 title: Aftonbladet Plus gratis i 5 månader för studenter
+illustration: tidning
 description: Studenter kan läsa Aftonbladet Plus för 0 kr i fem månader via Mecenat. Gäller nya kunder. Därefter fortsätter prenumerationen för 79 kr i månaden.
 brand: Aftonbladet
 category: tjanster

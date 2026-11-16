@@ -1,5 +1,6 @@
 ---
 title: Gratis babypaket från BabySam med presentkort på 150 kr
+illustration: nalle
 description: BabySam ger gravida och nyblivna föräldrar ett gratis babypaket med produkter, prover och ett presentkort på 150 kr. Hämtas i närmaste BabySam-butik.
 brand: BabySam
 category: foraldrar

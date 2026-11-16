@@ -1,5 +1,6 @@
 ---
 title: Gratis BabyBag med varuprover – delas ut på BB och MVC
+illustration: vaska
 description: BabyBag är en gratis väska med produkter, varuprover och information till blivande och nyblivna föräldrar. Den delas ut på BB, förlossningar och MVC i hela Sverige.
 brand: BabyBag
 category: foraldrar

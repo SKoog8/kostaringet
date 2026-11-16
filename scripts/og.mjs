@@ -50,7 +50,10 @@ for (const [dir, kind] of [['erbjudanden', 'offer'], ['blogg', 'post']]) {
         : field(src, 'kind') === 'guide' ? 'Guide' : 'Dagens gratisfynd';
     const firstOffer = (src.match(/^offers:\s*\n\s*-\s*(\S+)/m) || [])[1];
     const cat = field(src, 'category') || offerCat[firstOffer] || 'ovrigt';
-    const art = (kind === 'post' && field(src, 'illustration')) || cat;
+    // Same choice as offerIllustrationName() in src/lib/illustrations.ts.
+    const type = field(src, 'type');
+    const typeArt = kind === 'offer' && (type === 'provperiod' ? 'timglas' : type === 'startpaket' ? (cat === 'djur' ? 'valp' : 'babybox') : '');
+    const art = field(src, 'illustration') || typeArt || cat;
     const pill = field(src, 'type') === 'provperiod' ? 'Gratis att prova' : 'Kostar ingenting';
     items.push({ slug, title: field(src, 'title'), eyebrow, pill, cat, art });
   }
