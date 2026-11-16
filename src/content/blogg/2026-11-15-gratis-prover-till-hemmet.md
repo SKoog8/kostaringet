@@ -1,5 +1,6 @@
 ---
 title: Gratis prover till hemmet – tyg, tapet och akustikpaneler
+urlSlug: gratis-prover-till-hemmet
 description: "Innan du köper ny soffklädsel, tapet eller väggpaneler: beställ gratis prover hem. Här är fyra företag som skickar prover och vad frakten kostar."
 published: 2026-11-15
 kind: guide

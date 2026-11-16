@@ -1,5 +1,6 @@
 ---
 title: Så säger du upp en gratis provperiod i tid – och slipper betala
+urlSlug: sag-upp-provperiod
 seoTitle: "Så säger du upp en gratis provperiod i tid"
 illustration: kalender
 description: "Gratis provperioder på streaming och ljudböcker blir betalda om du glömmer att säga upp dem. Så håller du koll, och vilka provperioder som finns just nu."

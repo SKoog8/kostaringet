@@ -1,5 +1,6 @@
 ---
 title: Gratisprover utan spam – så skyddar du dina uppgifter
+urlSlug: skydda-dina-uppgifter
 description: "Gratisprover kostar ofta din mejladress och ditt samtycke till reklam. Så beställer du smart, slipper nyhetsbrev du inte vill ha och tar tillbaka dina uppgifter."
 published: 2026-11-14
 kind: guide
@@ -30,7 +31,7 @@ För att skicka ett prov behöver företaget ditt namn och din adress. Allt anna
 
 Personnummer ska du nästan aldrig behöva lämna för ett gratisprov. Undantaget är vissa försäkringar och liknande tjänster, där det finns ett tydligt skäl.
 
-Ett gratisprov ska heller aldrig kräva kortuppgifter, om du inte själv har valt att betala frakt eller tackar ja till en provperiod som blir betald. Läs mer om det i [Så säger du upp en gratis provperiod i tid](/blogg/2026-11-11-sag-upp-provperioden-i-tid/).
+Ett gratisprov ska heller aldrig kräva kortuppgifter, om du inte själv har valt att betala frakt eller tackar ja till en provperiod som blir betald. Läs mer om det i [Så säger du upp en gratis provperiod i tid](/guide/sag-upp-provperiod/).
 
 ## Så slutar du få utskick
 

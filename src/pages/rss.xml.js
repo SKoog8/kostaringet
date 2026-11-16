@@ -1,9 +1,10 @@
 import rss from '@astrojs/rss';
 import { getCollection } from 'astro:content';
+import { getPosts, postPath } from '../lib/posts';
 import { site } from '../site.config';
 
 export async function GET(context) {
-  const posts = await getCollection('blogg', (p) => !p.data.draft);
+  const posts = await getPosts();
   const offers = await getCollection('erbjudanden', (o) => !o.data.draft && o.data.status === 'aktiv');
 
   const items = [
@@ -11,7 +12,7 @@ export async function GET(context) {
       title: p.data.title,
       description: p.data.description,
       pubDate: p.data.published,
-      link: `/blogg/${p.id}/`,
+      link: postPath(p),
     })),
     ...offers.map((o) => ({
       title: o.data.title,

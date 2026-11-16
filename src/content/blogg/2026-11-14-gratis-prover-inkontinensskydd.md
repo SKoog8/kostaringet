@@ -1,5 +1,6 @@
 ---
 title: Gratis prover på inkontinensskydd – så beställer du diskret hem
+urlSlug: gratis-prover-inkontinensskydd
 seoTitle: "Gratis prover på inkontinensskydd"
 description: "TENA och Attends skickar gratis prover på inkontinensskydd. Så väljer du rätt skydd, så beställer du diskret och det här kan vården hjälpa till med."
 published: 2026-11-14

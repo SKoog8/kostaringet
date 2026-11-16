@@ -4,17 +4,17 @@ import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import { formatDate } from '../../lib/offers';
 import { getPosts, kindLabel, postPath } from '../../lib/posts';
 
-const posts = await getPosts();
+const posts = await getPosts('dagens');
 ---
 
 <Base
-  title="Blogg – dagens gratisfynd och guider"
-  description="Nya gratisprover, startpaket och provperioder varje dag, plus guider om hur du får ut mest av dem utan att råka betala."
+  title="Dagens fynd – nya gratisprover varje dag"
+  description="Nya gratisprover, startpaket och provperioder i Sverige, kontrollerade och publicerade varje dag."
 >
   <div class="wrap head">
-    <Breadcrumbs items={[{ label: 'Alla inlägg', href: '/blogg/' }]} />
-    <h1>Alla inlägg.</h1>
-    <p class="lead">Dagens fynd och guider om gratisprover och provperioder – utan att råka betala.</p>
+    <Breadcrumbs items={[{ label: 'Dagens fynd', href: '/blogg/' }]} />
+    <h1>Dagens fynd.</h1>
+    <p class="lead">Nya gratisprover, startpaket och provperioder, kontrollerade hos företagen samma dag. Längre texter om hur allt fungerar finns bland <a href="/guide/">guiderna</a>.</p>
   </div>
   <div class="wrap">
     <ul class="posts">

@@ -1,5 +1,6 @@
 ---
 title: Gratis julkalender till barnen – fem sätt som inte kostar något
+urlSlug: gratis-julkalender
 seoTitle: "Gratis julkalender till barnen – fem sätt"
 illustration: jul
 description: "En julkalender behöver inte kosta 300 kronor. Så ordnar du en gratis adventskalender med biblioteksböcker, SVT:s och Sveriges Radios kalendrar och lite pyssel."
@@ -20,7 +21,7 @@ Några saker att tänka på:
 - Fråga personalen. Många bibliotekarier hjälper gärna till att plocka ihop böcker med jultema eller för en viss ålder.
 - Böcker om jul brukar vara populära i december, så låna i god tid.
 
-Har ni små barn kan ni också få gratis böcker genom [Bokstart](/blogg/2026-11-06-gratis-bocker-till-sma-barn-bokstart/) i vissa kommuner.
+Har ni små barn kan ni också få gratis böcker genom [Bokstart](/guide/gratis-bocker-till-barn/) i vissa kommuner.
 
 ## 2. SVT:s julkalender
 

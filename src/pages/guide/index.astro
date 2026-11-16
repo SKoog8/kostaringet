@@ -1,0 +1,96 @@
+---
+import Base from '../../layouts/Base.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { formatDate } from '../../lib/offers';
+import { getPosts, kindLabel, postIllustration, postPath } from '../../lib/posts';
+import { getOffers } from '../../lib/offers';
+import Illustration from '../../components/Illustration.astro';
+
+const posts = await getPosts('guide');
+const offers = await getOffers();
+---
+
+<Base
+  title="Guider om gratisprover och provperioder"
+  description="Guider om hur du får gratisprover, babyboxar och provperioder i Sverige – och hur du slipper betala av misstag. Uppdateras löpande."
+>
+  <div class="wrap head">
+    <Breadcrumbs items={[{ label: 'Guider', href: '/guide/' }]} />
+    <h1>Guider.</h1>
+    <p class="lead">Så får du gratisprover, startpaket och provperioder – och slipper betala av misstag. Guiderna uppdateras när något ändras. Nya fynd varje dag hittar du bland <a href="/blogg/">dagens fynd</a>.</p>
+  </div>
+  <div class="wrap">
+    <ul class="posts">
+      {
+        posts.map((p) => (
+          <li>
+            <a href={postPath(p)}>
+              <Illustration {...postIllustration(p, offers)} size={64} class="posts__il" />
+              <span class="meta">
+                <span class:list={['kind', { 'kind--guide': p.data.kind === 'guide' }]}>{kindLabel[p.data.kind]}</span>
+                Uppdaterad <time datetime={(p.data.updated ?? p.data.published).toISOString()}>{formatDate(p.data.updated ?? p.data.published)}</time>
+              </span>
+              <h2>{p.data.title}</h2>
+              <p>{p.data.description}</p>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</Base>
+
+<style>
+  .head {
+    display: grid;
+    gap: 18px;
+    padding-block: clamp(32px, 6vw, 72px) 40px;
+  }
+  .posts {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid var(--line);
+  }
+  .posts a {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 8px 20px;
+    padding-block: 28px;
+    border-bottom: 1px solid var(--line);
+    text-decoration: none;
+  }
+  .posts a > :global(.posts__il) {
+    grid-row: span 3;
+  }
+  .posts a > :not(.posts__il) {
+    grid-column: 2;
+  }
+  .posts a:hover h2 {
+    color: var(--accent);
+  }
+  .meta {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    font-size: 0.86rem;
+    color: var(--muted);
+  }
+  .kind {
+    font-weight: 650;
+    color: var(--accent);
+  }
+  .kind--guide {
+    color: var(--ink-2);
+  }
+  h2 {
+    font-family: var(--font-serif);
+    font-weight: 600;
+    font-size: clamp(1.5rem, 2.8vw, 2rem);
+    letter-spacing: -0.01em;
+  }
+  .posts p {
+    color: var(--ink-2);
+    max-width: 44rem;
+  }
+</style>

@@ -1,5 +1,6 @@
 ---
 title: Ljudböcker gratis – jämför provperioderna och undvik att betala
+urlSlug: gratis-ljudbocker
 seoTitle: "Ljudböcker gratis – jämför provperioderna"
 illustration: bok
 description: BookBeat, Bokus Play och Nextory har gratis provperioder på ljudböcker. Så länge gäller de, vad som ingår och hur du säger upp i tid.

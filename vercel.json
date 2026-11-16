@@ -20,6 +20,186 @@
       "source": "/sitemap.xml",
       "destination": "/sitemap-index.xml",
       "permanent": true
+    },
+    {
+      "source": "/blogg/2026-11-04-gratis-provperioder-streaming/",
+      "destination": "/guide/gratis-streaming/",
+      "permanent": true
+    },
+    {
+      "source": "/blogg/2026-11-04-gratis-provperioder-streaming",
+      "destination": "/guide/gratis-streaming/",
+      "permanent": true
+    },
+    {
+      "source": "/blogg/2026-11-05-gratis-reflexer/",
+      "destination": "/guide/gratis-reflexer/",
+      "permanent": true
+    },
+    {
+      "source": "/blogg/2026-11-05-gratis-reflexer",
+      "destination": "/guide/gratis-reflexer/",
+      "permanent": true
+    },
+    {
+      "source": "/blogg/2026-11-06-gratis-bocker-till-sma-barn-bokstart/",
+      "destination": "/guide/gratis-bocker-till-barn/",
+      "permanent": true
+    },
+    {
+      "source": "/blogg/2026-11-06-gratis-bocker-till-sma-barn-bokstart",
+      "destination": "/guide/gratis-bocker-till-barn/",
+      "permanent": true
+    },
+    {
+      "source": "/blogg/2026-11-07-gratis-till-katten/",
+      "destination": "/guide/gratis-till-katt/",
+      "permanent": true
+    },
+    {
+      "source": "/blogg/2026-11-07-gratis-till-katten",
+      "destination": "/guide/gratis-till-katt/",
+      "permanent": true
+    },
+    {
+      "source": "/blogg/2026-11-09-gratis-med-sms-kupong/",
+      "destination": "/guide/gratis-med-sms-kupong/",
+      "permanent": true
+    },
+    {
+      "source": "/blogg/2026-11-09-gratis-med-sms-kupong",
+      "destination": "/guide/gratis-med-sms-kupong/",
+      "permanent": true
+    },
+    {
+      "source": "/blogg/2026-11-11-sag-upp-provperioden-i-tid/",
+      "destination": "/guide/sag-upp-provperiod/",
+      "permanent": true
+    },
+    {
+      "source": "/blogg/2026-11-11-sag-upp-provperioden-i-tid",
+      "destination": "/guide/sag-upp-provperiod/",
+      "permanent": true
+    },
+    {
+      "source": "/blogg/2026-11-12-gratis-infor-vintern/",
+      "destination": "/guide/gratis-infor-vintern/",
+      "permanent": true
+    },
+    {
+      "source": "/blogg/2026-11-12-gratis-infor-vintern",
+      "destination": "/guide/gratis-infor-vintern/",
+      "permanent": true
+    },
+    {
+      "source": "/blogg/2026-11-13-gratis-julkalender-till-barnen/",
+      "destination": "/guide/gratis-julkalender/",
+      "permanent": true
+    },
+    {
+      "source": "/blogg/2026-11-13-gratis-julkalender-till-barnen",
+      "destination": "/guide/gratis-julkalender/",
+      "permanent": true
+    },
+    {
+      "source": "/blogg/2026-11-14-gratis-prover-inkontinensskydd/",
+      "destination": "/guide/gratis-prover-inkontinensskydd/",
+      "permanent": true
+    },
+    {
+      "source": "/blogg/2026-11-14-gratis-prover-inkontinensskydd",
+      "destination": "/guide/gratis-prover-inkontinensskydd/",
+      "permanent": true
+    },
+    {
+      "source": "/blogg/2026-11-15-gratis-prover-till-hemmet/",
+      "destination": "/guide/gratis-prover-till-hemmet/",
+      "permanent": true
+    },
+    {
+      "source": "/blogg/2026-11-15-gratis-prover-till-hemmet",
+      "destination": "/guide/gratis-prover-till-hemmet/",
+      "permanent": true
+    },
+    {
+      "source": "/blogg/gratis-provperiod-ljudbocker/",
+      "destination": "/guide/gratis-ljudbocker/",
+      "permanent": true
+    },
+    {
+      "source": "/blogg/gratis-provperiod-ljudbocker",
+      "destination": "/guide/gratis-ljudbocker/",
+      "permanent": true
+    },
+    {
+      "source": "/blogg/gratis-till-valpen/",
+      "destination": "/guide/gratis-till-hund/",
+      "permanent": true
+    },
+    {
+      "source": "/blogg/gratis-till-valpen",
+      "destination": "/guide/gratis-till-hund/",
+      "permanent": true
+    },
+    {
+      "source": "/blogg/pottraning-sa-kommer-ni-igang/",
+      "destination": "/guide/pottraning/",
+      "permanent": true
+    },
+    {
+      "source": "/blogg/pottraning-sa-kommer-ni-igang",
+      "destination": "/guide/pottraning/",
+      "permanent": true
+    },
+    {
+      "source": "/blogg/prova-kontaktlinser-gratis/",
+      "destination": "/guide/prova-kontaktlinser-gratis/",
+      "permanent": true
+    },
+    {
+      "source": "/blogg/prova-kontaktlinser-gratis",
+      "destination": "/guide/prova-kontaktlinser-gratis/",
+      "permanent": true
+    },
+    {
+      "source": "/blogg/sa-far-du-gratisprover/",
+      "destination": "/guide/sa-far-du-gratisprover/",
+      "permanent": true
+    },
+    {
+      "source": "/blogg/sa-far-du-gratisprover",
+      "destination": "/guide/sa-far-du-gratisprover/",
+      "permanent": true
+    },
+    {
+      "source": "/blogg/skydda-dina-uppgifter-gratisprover/",
+      "destination": "/guide/skydda-dina-uppgifter/",
+      "permanent": true
+    },
+    {
+      "source": "/blogg/skydda-dina-uppgifter-gratisprover",
+      "destination": "/guide/skydda-dina-uppgifter/",
+      "permanent": true
+    },
+    {
+      "source": "/blogg/2026-11-01-gratis-babyboxar-2026/",
+      "destination": "/nyblivna-foraldrar/",
+      "permanent": true
+    },
+    {
+      "source": "/blogg/2026-11-01-gratis-babyboxar-2026",
+      "destination": "/nyblivna-foraldrar/",
+      "permanent": true
+    },
+    {
+      "source": "/blogg/gratis-till-nyblivna-foraldrar/",
+      "destination": "/nyblivna-foraldrar/",
+      "permanent": true
+    },
+    {
+      "source": "/blogg/gratis-till-nyblivna-foraldrar",
+      "destination": "/nyblivna-foraldrar/",
+      "permanent": true
     }
   ]
 }

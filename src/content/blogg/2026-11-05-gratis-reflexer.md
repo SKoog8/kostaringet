@@ -1,5 +1,6 @@
 ---
 title: Gratis reflexer – så får du tag på en i höstmörkret
+urlSlug: gratis-reflexer
 illustration: vinter
 description: Kommuner, kollektivtrafik och försäkringsbolag delar ut gratis reflexer varje höst. Här är var du kan hitta dem och hur du använder reflexen så att den syns.
 published: 2026-11-05

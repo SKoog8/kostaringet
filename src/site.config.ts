@@ -122,6 +122,7 @@ export const nav = [
   { href: '/gratis/', label: 'Alla erbjudanden' },
   { href: '/nyblivna-foraldrar/', label: 'Nyblivna föräldrar' },
   { href: '/kategori/tjanster/', label: 'Prova på' },
+  { href: '/guide/', label: 'Guider' },
   { href: '/jul/', label: 'Jul' },
   { href: '/om/', label: 'Om' },
 ];

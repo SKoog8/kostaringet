@@ -1,5 +1,6 @@
 ---
 title: Potträning – så kommer ni igång med pottan
+urlSlug: pottraning
 description: Hur vet man att barnet är redo, vad behöver man förbereda och hur hanterar man olyckor? En lugn guide till att sluta med blöjan, steg för steg.
 published: 2026-11-02
 kind: guide

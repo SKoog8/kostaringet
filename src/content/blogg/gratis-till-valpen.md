@@ -1,5 +1,6 @@
 ---
 title: Gratis till valpen – valppaket, startkit och foderprover
+urlSlug: gratis-till-hund
 description: Har du fått valp? Så får du gratis valppaket, startkit och foderprover, och vad som skiljer paket från uppfödaren och paket du beställer själv.
 published: 2026-10-09
 category: djur

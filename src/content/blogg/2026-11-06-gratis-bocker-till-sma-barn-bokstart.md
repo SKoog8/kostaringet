@@ -1,5 +1,6 @@
 ---
 title: Gratis böcker till små barn – så fungerar Bokstart och bibliotekens bokgåvor
+urlSlug: gratis-bocker-till-barn
 seoTitle: "Gratis böcker till små barn med Bokstart"
 illustration: bok
 description: Genom Bokstart får många barn gåvoböcker via BVC och biblioteket redan första levnadsåret. Så fungerar det, var det finns och hur du får böcker gratis till ditt barn.

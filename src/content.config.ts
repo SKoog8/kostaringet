@@ -60,6 +60,8 @@ const blogg = defineCollection({
     title: z.string(),
     /** Shorter title for Google (max ~55 characters). Falls back to title. */
     seoTitle: z.string().optional(),
+    /** Guides: the address under /guide/ (no date, so it can be updated year after year). */
+    urlSlug: z.string().regex(/^[a-z0-9-]+$/).optional(),
     /** Drawing from src/illustrations/. Defaults to the post's category. */
     illustration: z.enum(illustrationNames).optional(),
     description: z.string(),

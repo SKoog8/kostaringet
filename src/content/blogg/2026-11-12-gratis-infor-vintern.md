@@ -1,5 +1,6 @@
 ---
 title: Gratis inför vintern – låna sportutrustning på Fritidsbanken och få en reflex
+urlSlug: gratis-infor-vintern
 seoTitle: "Låna sportutrustning gratis inför vintern"
 illustration: vinter
 description: "Du behöver inte köpa ny utrustning för att testa en vintersport. Hos Fritidsbanken lånar du sport- och friluftsutrustning gratis i 14 dagar. Plus: gratis reflexer."
@@ -23,7 +24,7 @@ Ett bra sätt att använda Fritidsbanken är att testa en sport innan du köper 
 
 ## Syns du i mörkret?
 
-Med vintern kommer mörkret. Flera kommuner och trafikbolag delar ut gratis reflexer under hösten och vintern. I Örebro län kan du hämta en [gratis reflex hos Länstrafiken](/gratis/lanstrafiken-orebro-gratis-reflex/). Vi har samlat fler tips i guiden om [gratis reflexer](/blogg/2026-11-05-gratis-reflexer/).
+Med vintern kommer mörkret. Flera kommuner och trafikbolag delar ut gratis reflexer under hösten och vintern. I Örebro län kan du hämta en [gratis reflex hos Länstrafiken](/gratis/lanstrafiken-orebro-gratis-reflex/). Vi har samlat fler tips i guiden om [gratis reflexer](/guide/gratis-reflexer/).
 
 ## Tips: skänk det du inte använder
 

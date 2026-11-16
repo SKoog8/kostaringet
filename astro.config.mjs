@@ -24,18 +24,24 @@ const offers = read('./src/content/erbjudanden').map(({ id, src }) => {
   };
 });
 const posts = read('./src/content/blogg').map(({ id, src }) => ({
-  id,
+  // Same rule as postPath() in src/lib/posts.ts.
+  path:
+    field(src, 'kind') === 'dagens'
+      ? `/blogg/${id}/`
+      : `/guide/${field(src, 'urlSlug') ?? id.replace(/^\d{4}-\d{2}-\d{2}-/, '')}/`,
+  guide: field(src, 'kind') !== 'dagens',
   lastmod: newest(field(src, 'published'), field(src, 'updated')),
 }));
 
 const lastmod = new Map();
 for (const o of offers) lastmod.set(`/gratis/${o.id}/`, o.lastmod);
-for (const p of posts) lastmod.set(`/blogg/${p.id}/`, p.lastmod);
+for (const p of posts) lastmod.set(p.path, p.lastmod);
 const latestOffer = newest(...offers.map((o) => o.lastmod));
 const latestPost = newest(...posts.map((p) => p.lastmod));
 lastmod.set('/', newest(latestOffer, latestPost));
 lastmod.set('/gratis/', latestOffer);
-lastmod.set('/blogg/', latestPost);
+lastmod.set('/blogg/', newest(...posts.filter((p) => !p.guide).map((p) => p.lastmod)));
+lastmod.set('/guide/', newest(...posts.filter((p) => p.guide).map((p) => p.lastmod)));
 lastmod.set('/nyblivna-foraldrar/', newest(...offers.filter((o) => o.category === 'foraldrar').map((o) => o.lastmod)));
 const categorySlugs = [...new Set(offers.map((o) => o.category))];
 for (const c of categorySlugs) lastmod.set(`/kategori/${c}/`, newest(...offers.filter((o) => o.category === c).map((o) => o.lastmod)));

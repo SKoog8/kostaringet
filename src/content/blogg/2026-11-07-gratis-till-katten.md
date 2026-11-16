@@ -1,5 +1,6 @@
 ---
 title: Gratis till katten – adoptionskit, kattungepaket och foderprover
+urlSlug: gratis-till-katt
 seoTitle: "Gratis till katten – adoptionskit och foderprover"
 description: Har du skaffat katt? Så får du ett gratis startkit vid adoption, kattungepaket via uppfödaren och foderprover. Plus vad du ska tänka på innan du tackar ja.
 published: 2026-11-07
@@ -33,4 +34,4 @@ Vill du byta foder eller testa vad katten tycker om är foderprover ett bra sät
 
 ## Har du hund?
 
-Det finns motsvarande startpaket för valpar. Läs vår guide [Gratis till valpen](/blogg/gratis-till-valpen/), och se alla erbjudanden för husdjur under [Husdjur](/kategori/djur/).
+Det finns motsvarande startpaket för valpar. Läs vår guide [Gratis till valpen](/guide/gratis-till-hund/), och se alla erbjudanden för husdjur under [Husdjur](/kategori/djur/).

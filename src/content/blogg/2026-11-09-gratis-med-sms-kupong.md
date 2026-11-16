@@ -1,5 +1,6 @@
 ---
 title: Gratis varor med sms-kupong – så fungerar det och var du hittar dem
+urlSlug: gratis-med-sms-kupong
 seoTitle: "Gratis varor med sms-kupong – så fungerar det"
 description: "Allt fler märken delar ut gratisvaror via sms-kupong. Så fungerar kupongerna, vad du ska tänka på och vilka som går att hämta just nu."
 published: 2026-11-09

@@ -12,7 +12,10 @@ export async function getPosts(kind?: Post['data']['kind']): Promise<Post[]> {
   return posts.sort((a, b) => b.data.published.getTime() - a.data.published.getTime() || a.id.localeCompare(b.id));
 }
 
-export const postPath = (post: Post) => `/blogg/${post.id}/`;
+/** Guides live at /guide/<slug>/ (no date in the address), daily posts at /blogg/<id>/. */
+export const guideSlug = (post: Post) => post.data.urlSlug ?? post.id.replace(/^\d{4}-\d{2}-\d{2}-/, '');
+export const postPath = (post: Post) =>
+  post.data.kind === 'guide' ? `/guide/${guideSlug(post)}/` : `/blogg/${post.id}/`;
 
 /** Drawing and colour category for a post: its own choice, its category, or the first offer's category. */
 export function postIllustration(post: Post, offers: Offer[]): { name: IllustrationName; cat: string } {

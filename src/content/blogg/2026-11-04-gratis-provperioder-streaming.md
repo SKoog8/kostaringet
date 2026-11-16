@@ -1,5 +1,6 @@
 ---
 title: Gratis provperioder på streaming, ljudböcker och tidningar – så gör du
+urlSlug: gratis-streaming
 seoTitle: "Gratis provperioder på streaming och ljudböcker"
 illustration: kalender
 description: Viaplay, Storytel, Podme, ljudboksappar och tidningar för studenter. Så får du ut mest av gratis provperioder och säger upp innan det börjar kosta.
@@ -47,4 +48,4 @@ Provperioder gäller nästan alltid bara nya kunder. Har du haft tjänsten föru
 
 Studenter har ofta längre provperioder via appar som Mecenat. Just nu finns till exempel Aftonbladet Plus gratis i fem månader. Kolla studentrabatterna innan du startar en vanlig provperiod.
 
-Fler provperioder samlar vi under [Prova på](/kategori/tjanster/). Vill du jämföra ljudbokstjänsterna mer i detalj finns vår [guide till ljudböcker](/blogg/gratis-provperiod-ljudbocker/).
+Fler provperioder samlar vi under [Prova på](/kategori/tjanster/). Vill du jämföra ljudbokstjänsterna mer i detalj finns vår [guide till ljudböcker](/guide/gratis-ljudbocker/).

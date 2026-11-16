@@ -1,0 +1,12 @@
+---
+// Evergreen guides at /guide/<urlSlug>/, without a date in the address.
+import PostPage from '../../components/PostPage.astro';
+import { getPosts, guideSlug } from '../../lib/posts';
+
+export async function getStaticPaths() {
+  const posts = await getPosts('guide');
+  return posts.map((post) => ({ params: { slug: guideSlug(post) }, props: { post } }));
+}
+---
+
+<PostPage post={Astro.props.post} />

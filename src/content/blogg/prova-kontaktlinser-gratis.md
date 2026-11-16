@@ -1,5 +1,6 @@
 ---
 title: Prova kontaktlinser gratis – så fungerar provlinser
+urlSlug: prova-kontaktlinser-gratis
 description: Så får du prova kontaktlinser utan att betala för linserna, vad som brukar ingå och när du behöver en linsundersökning först.
 published: 2026-10-09
 category: halsa
