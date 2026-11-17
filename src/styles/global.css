@@ -1,19 +1,18 @@
-@import '@fontsource-variable/hanken-grotesk';
-@import '@fontsource-variable/newsreader';
+@import '@fontsource-variable/schibsted-grotesk';
 
 :root {
-  --paper: #f6f4ee;
+  --paper: #f3f4fb;
   --surface: #ffffff;
-  --ink: #1a1915;
-  --ink-2: #4a4740;
-  --muted: #77736a;
-  --line: #e2ddd1;
-  --line-strong: #cfc8b8;
-  --accent: #1d5c48;
+  --ink: #0e1330;
+  --ink-2: #3a4060;
+  --muted: #6b7090;
+  --line: #dcdff0;
+  --line-strong: #c3c8e6;
+  --accent: #2f45d9;
   --accent-ink: #ffffff;
-  --accent-soft: #e2ece6;
-  --mark: #f1d36b;
-  --ended: #a39e93;
+  --accent-soft: #e1e5ff;
+  --mark: #ff9ec4;
+  --ended: #a3a7bd;
   --cat-foraldrar-bg: #f6e3d6;
   --cat-foraldrar-fg: #8a4a22;
   --cat-skonhet-bg: #efe0ea;
@@ -29,11 +28,11 @@
   --cat-djur-bg: #ece2d3;
   --cat-djur-fg: #6b4a24;
 
-  --font-sans: 'Hanken Grotesk Variable', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
-  --font-serif: 'Newsreader Variable', Georgia, 'Times New Roman', serif;
+  --font-sans: 'Schibsted Grotesk Variable', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-serif: 'Schibsted Grotesk Variable', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
 
-  --radius: 14px;
-  --radius-sm: 8px;
+  --radius: 18px;
+  --radius-sm: 12px;
   --wrap: 1160px;
   --gutter: clamp(16px, 4vw, 32px);
 
@@ -42,18 +41,18 @@
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme='light']) {
-    --paper: #151513;
-    --surface: #1d1d1a;
-    --ink: #f1eee6;
-    --ink-2: #cdc8bc;
-    --muted: #9a958a;
-    --line: #2e2d29;
-    --line-strong: #44423c;
-    --accent: #7cc3a5;
-    --accent-ink: #0f2a20;
-    --accent-soft: #20332b;
-    --mark: #b89a33;
-    --ended: #6c6860;
+    --paper: #0e1124;
+    --surface: #161a33;
+    --ink: #eef0fa;
+    --ink-2: #c4c8e0;
+    --muted: #8d92b0;
+    --line: #262b4a;
+    --line-strong: #363c63;
+    --accent: #8c9bff;
+    --accent-ink: #0e1330;
+    --accent-soft: #1f2650;
+    --mark: #ff9ec4;
+    --ended: #5e6386;
     --cat-foraldrar-bg: #3a2a20;
     --cat-foraldrar-fg: #e9b591;
     --cat-skonhet-bg: #352532;
@@ -73,18 +72,18 @@
 }
 
 :root[data-theme='dark'] {
-  --paper: #151513;
-  --surface: #1d1d1a;
-  --ink: #f1eee6;
-  --ink-2: #cdc8bc;
-  --muted: #9a958a;
-  --line: #2e2d29;
-  --line-strong: #44423c;
-  --accent: #7cc3a5;
-  --accent-ink: #0f2a20;
-  --accent-soft: #20332b;
-  --mark: #b89a33;
-  --ended: #6c6860;
+  --paper: #0e1124;
+  --surface: #161a33;
+  --ink: #eef0fa;
+  --ink-2: #c4c8e0;
+  --muted: #8d92b0;
+  --line: #262b4a;
+  --line-strong: #363c63;
+  --accent: #8c9bff;
+  --accent-ink: #0e1330;
+  --accent-soft: #1f2650;
+  --mark: #ff9ec4;
+  --ended: #5e6386;
   --cat-foraldrar-bg: #3a2a20;
   --cat-foraldrar-fg: #e9b591;
   --cat-skonhet-bg: #352532;
@@ -152,8 +151,8 @@ h3,
 h4 {
   margin: 0;
   line-height: 1.08;
-  letter-spacing: -0.025em;
-  font-weight: 750;
+  letter-spacing: -0.03em;
+  font-weight: 800;
   text-wrap: balance;
 }
 
@@ -298,8 +297,8 @@ p {
 /* Long-form text: guides and offer descriptions */
 .prose {
   font-family: var(--font-serif);
-  font-size: 1.22rem;
-  line-height: 1.6;
+  font-size: 1.13rem;
+  line-height: 1.65;
   max-width: 40rem;
 }
 .prose > * + * {

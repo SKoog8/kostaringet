@@ -108,7 +108,7 @@ const ogImage = existsSync(`public/og/${offer.id}.png`) ? `/og/${offer.id}.png` 
         <h1>{data.title}</h1>
         <p class="lead">{data.description}</p>
         <p class="checked">
-          Kontrollerat av Martin på företagets egen sida <time datetime={checkedOn.toISOString()}>{formatDate(checkedOn)}</time>.
+          Kontrollerat av Martin på företagets egen sida <time datetime={checkedOn.toISOString()}>{formatDate(checkedOn)}</time>.{' '}
           <a href="/sa-kontrollerar-vi/">Så kontrollerar vi</a>
         </p>
         {
