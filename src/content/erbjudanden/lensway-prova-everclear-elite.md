@@ -10,7 +10,7 @@ requirements:
   - Rabattkod TRYELITE i kassan
 shipping: tillkommer
 published: 2026-10-09
-checked: 2026-11-11
+checked: 2026-11-17
 ---
 
 everclear ELITE är Lensways endagslinser i silikonhydrogel, med hög syregenomsläpplighet och UV-skydd. Du kan prova dem utan att betala för linserna.

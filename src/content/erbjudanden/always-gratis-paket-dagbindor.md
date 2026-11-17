@@ -12,7 +12,7 @@ requirements:
   - Kupongen gäller i 15 dagar
 shipping: 0
 published: 2026-11-08
-checked: 2026-11-12
+checked: 2026-11-17
 expires: 2026-11-30
 ---
 
