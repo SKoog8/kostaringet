@@ -5,11 +5,11 @@ description: TENA skickar gratis varuprover på bindor och trosskydd för urinl�
 brand: TENA
 category: halsa
 type: gratisprov
-url: https://www.tena.nu/kvinnor/produkter/gratis-prov.html
+url: https://www.tena.nu/gratis-prov
 requirements:
   - Ett prov per person var sjätte månad
 published: 2026-10-09
-checked: 2026-11-12
+checked: 2026-11-18
 ---
 
 Urinläckage är vanligt, och det kan vara svårt att veta vilket skydd som passar. TENA låter dig därför beställa ett kostnadsfritt provpaket hem.
