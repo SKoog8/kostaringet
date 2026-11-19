@@ -11,7 +11,7 @@ requirements:
   - Under graviditeten eller tills barnet är 8 veckor
 published: 2026-10-09
 updated: 2026-11-04
-checked: 2026-11-13
+checked: 2026-11-19
 featured: true
 ---
 

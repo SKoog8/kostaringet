@@ -11,7 +11,7 @@ requirements:
   - Säg upp befintliga abonnemang hos tjänsterna först
   - Blir betalt efter 30 dagar
 published: 2026-11-04
-checked: 2026-11-13
+checked: 2026-11-19
 ---
 
 Trippel är ett samarbete mellan Viaplay, Storytel och Podme. Du får filmer och serier, ljudböcker och poddar i ett och samma paket, och den första månaden är gratis.
