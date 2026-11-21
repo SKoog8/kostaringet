@@ -2,27 +2,28 @@
 title: Gratis välkomstpaket till gravida från One Million Babies
 seoTitle: "One Million Babies: gratis välkomstpaket"
 illustration: nappflaska
-description: Gravidappen One Million Babies skickar ett gratis välkomstpaket med badtermometer, napphållare, amningsinlägg, salvprov och våtservetter. Beställs i appen.
+description: Gravidappen One Million Babies skickar ett gratis välkomstpaket med amningsinlägg, Purelan-salva, napphållare, snuttefilt och badtermometer. Ingen frakt.
 brand: One Million Babies
 category: foraldrar
 type: startpaket
-url: https://www.onemillionbabies.se/valkomstpaket/
+url: https://onemillionbabies.se/
 requirements:
   - Beställs i appen One Million Babies
   - För dig som är gravid
 shipping: 0
 published: 2026-11-10
-checked: 2026-11-16
+updated: 2026-11-21
+checked: 2026-11-21
 ---
 
 One Million Babies är en gratis gravidapp. Som användare kan du beställa ett välkomstpaket med produkter från appens samarbetspartner, helt utan kostnad.
 
 ## Det här ingår
 
-- En badtermometer formad som en giraff
-- En napphållare från ESSKA formad som en elefant
-- Ett prov på PURELAN-salva och amningsinlägg från Medela
-- Våtservetter från Kit & Kin
+- Amningsinlägg och Purelan-salva från Medela
+- En napphållare från Esska
+- En snuttefilt
+- En badtermometer
 - En gratis gravidförsäkring från ICA Försäkring
 - Ett erbjudande från Apotek Hjärtat
 
@@ -33,6 +34,7 @@ One Million Babies är en gratis gravidapp. Som användare kan du beställa ett 
 
 ## Bra att veta
 
-- Innehållet kommer från appens samarbetspartner och kan ändras.
+- Paketet och frakten kostar 0 kr.
+- Innehållet kommer från appens samarbetspartner och kan variera.
 - Appen har också en tävling om en barnvagn för den som gör appens kunskapsresa. Tävlingen är frivillig och ingår inte i paketet.
 - Läs vilka utskick du tackar ja till när du registrerar dig.

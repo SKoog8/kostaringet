@@ -6,7 +6,7 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "check": "astro check",
+    "check": "node scripts/check-offers.mjs",
     "bot": "node bot/run.mjs",
     "bot:dry": "node bot/run.mjs --dry-run",
     "bot:expire": "node bot/expire.mjs",

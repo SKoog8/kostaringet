@@ -35,7 +35,13 @@ const { topic = 'kontakt', label = 'Meddelande', placeholder = '' } = Astro.prop
 </form>
 
 <script>
+  // A link from an offer page ("Fungerar inte erbjudandet?") passes the offer name in ?erbjudande=.
+  const reported = new URL(location.href).searchParams.get('erbjudande');
   document.querySelectorAll<HTMLFormElement>('[data-contact-form]').forEach((form) => {
+    const message = form.querySelector<HTMLTextAreaElement>('textarea[name="message"]');
+    if (reported && message && !message.value) {
+      message.value = `Erbjudandet "${reported.slice(0, 200)}" verkar inte fungera längre. Det här hände: `;
+    }
     const status = form.querySelector<HTMLElement>('.status')!;
     const button = form.querySelector<HTMLButtonElement>('button[type="submit"]')!;
     form.addEventListener('submit', async (e) => {

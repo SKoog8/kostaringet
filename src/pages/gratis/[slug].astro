@@ -203,6 +203,9 @@ const ogImage = existsSync(`public/og/${offer.id}.png`) ? `/og/${offer.id}.png` 
             )}
             Du beställer direkt hos {data.brand}. Kontrollera alltid villkoren innan du lämnar dina uppgifter.
           </p>
+          <p class="facts__report">
+            <a href={`/kontakt/?erbjudande=${encodeURIComponent(data.brand + ' – ' + data.title)}`}>Fungerar inte erbjudandet? Säg till</a>
+          </p>
         </div>
         <AdSlot slot="sidebar" />
       </aside>
@@ -322,6 +325,14 @@ const ogImage = existsSync(`public/og/${offer.id}.png`) ? `/og/${offer.id}.png` 
   .facts__cta {
     justify-content: center;
     text-align: center;
+  }
+  .facts__report {
+    margin: 12px 0 0;
+    font-size: 0.9rem;
+  }
+  .facts__report a {
+    color: var(--accent);
+    font-weight: 600;
   }
   .facts__ended {
     text-align: center;

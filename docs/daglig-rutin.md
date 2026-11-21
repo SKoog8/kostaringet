@@ -141,13 +141,22 @@ Temasidor samlar erbjudanden kring något folk söker på, till exempel `/gratis
 - Inlägg får automatiskt kategorins illustration. Passar en annan bättre i en guide, sätt `illustration:` till en av `kalender`, `vinter`, `bok` eller `jul` (alla finns i `src/illustrations/`). Använd aldrig företagens logotyper eller produktbilder.
 - Erbjudanden får illustration automatiskt: provperioder ett timglas, startpaket en babybox (husdjur: valp), övriga kategorins bild. Passar ett annat motiv bättre, sätt `illustration:` till exempel `ljudbok`, `tidning`, `nalle`, `vaska`, `nappflaska`, `katt` eller `bok`.
 
-## 6. Städa bland gamla erbjudanden
+## 6. Städa bland gamla erbjudanden (bara morgonkörningen)
 
-Kontrollera de fem aktiva erbjudanden som har äldst `checked`-datum:
+1. **Kör `npm run check`.** Skriptet läser varje aktivt erbjudandes egen sida (utan Firecrawl) och flaggar sidor som inte finns längre, som skickas vidare till startsidan eller till en annan sajt, och sidor där det står att kampanjen är slut. Sidor som byggs med JavaScript eller blockerar skript flaggas också, eftersom de måste läsas med Firecrawl.
+2. **Kontrollera först alla flaggade erbjudanden** med Firecrawl (`maxAge: 0`).
+3. **Kontrollera sedan de tio aktiva erbjudanden som har äldst `checked`-datum.** Då blir varje erbjudande kontrollerat ungefär var fjärde dag.
 
-- Finns erbjudandet kvar: sätt `checked` till dagens datum.
-- Är det slut: sätt `status: avslutad` och `updated` till dagens datum. Radera aldrig filen.
+**Så kontrollerar du ett erbjudande (gäller också nya):**
+
+- Det räcker inte att sidan finns eller att sidans beskrivning säger "gratis prov". Själva beställningen måste finnas kvar: ett formulär, en knapp, en kupong eller en tydlig instruktion om hur man får erbjudandet. Läs sidans text, inte bara rubriken eller beskrivningen.
+- Finns beställningen kvar: sätt `checked` till dagens datum. Har villkor eller innehåll ändrats: uppdatera texten och sätt `updated`.
+- Har sidan flyttat men erbjudandet finns kvar: byt `url` till den nya adressen.
+- Är beställningen borta, eller står det att erbjudandet är slut: sätt `status: avslutad` och `updated` till dagens datum. Ta bort erbjudandet ur guider och temasidor som länkar till det, och skriv en kort notis i guiden om att det är slut. Radera aldrig filen.
+- Går det inte att avgöra (sidan laddar inte, eller beställningen syns bara efter inloggning): skriv det i sammanfattningen och kontrollera igen nästa morgon. Två morgnar i rad utan bekräftelse: markera som avslutat.
+- Ber ett företag oss att ta bort ett erbjudande: sätt `status: avslutad` och `draft: true`, ta bort det ur guiderna och lägg in en omdirigering i `vercel.json` från erbjudandets adress till närmaste guide eller kategori (se TENA, november 2026).
 - Var säker innan du avslutar. En startsida som leder till en gammal kampanj betyder inte att allt är slut. Kolla företagets kampanj- eller erbjudandesida och sök efter aktuella kampanjer först.
+- Rapporter från besökare kommer via kontaktformuläret ("Fungerar inte erbjudandet? Säg till" på erbjudandesidorna). Martin vidarebefordrar dem. De kontrolleras först nästa körning.
 
 ## 7. Bygg, committa och pusha
 
