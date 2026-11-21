@@ -31,4 +31,4 @@ I går skrev vi att [Buzzador](/gratis/buzzador-bli-testpilot/) inte haft några
 
 - **BabyBox** kostar 69 kr att få hemskickad. Den är fortfarande gratis att hämta i Lekia- eller Babya-butik.
 - **Nextory** kostar från 89 kr i månaden efter den kostnadsfria provperioden på 14 dagar.
-- **TENA, ValpBag, Lensway och Studio Lisa Bengtssons tapetprover** är kontrollerade och finns kvar.
+- **ValpBag, Lensway och Studio Lisa Bengtssons tapetprover** är kontrollerade och finns kvar.

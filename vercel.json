@@ -200,6 +200,16 @@
       "source": "/blogg/gratis-till-nyblivna-foraldrar",
       "destination": "/nyblivna-foraldrar/",
       "permanent": true
+    },
+    {
+      "source": "/gratis/tena-gratis-prov/",
+      "destination": "/guide/gratis-prover-inkontinensskydd/",
+      "permanent": true
+    },
+    {
+      "source": "/gratis/tena-gratis-prov",
+      "destination": "/guide/gratis-prover-inkontinensskydd/",
+      "permanent": true
     }
   ]
 }

@@ -12,6 +12,8 @@ published: 2026-10-09
 checked: 2026-11-21
 updated: 2026-11-21
 status: avslutad
+# Borttaget helt på TENA:s begäran 2026-11-21. Adressen skickas vidare till guiden (vercel.json).
+draft: true
 ---
 
 TENA har avslutat sitt erbjudande om gratis varuprover, och provbeställningen är inte längre öppen. Försök därför inte beställa ett prov hos TENA.
