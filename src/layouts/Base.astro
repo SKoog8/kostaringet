@@ -44,7 +44,6 @@ const organization = {
   name: site.name,
   url: site.url,
   logo: new URL('/icon-512.png', site.url).href,
-  founder: { '@type': 'Person', name: 'Martin', url: new URL('/om/', site.url).href },
   ...(socialLinks.length > 0 && { sameAs: socialLinks }),
 };
 const ld = [organization, ...(Array.isArray(jsonLd) ? jsonLd : jsonLd ? [jsonLd] : [])];
