@@ -119,6 +119,7 @@ Har dagen inte fått något inlägg när kvällskörningen är klar: skriv eller
 - Guider ligger på `/guide/<urlSlug>/`. Ge varje ny guide `urlSlug:` (kort, utan årtal och datum, t.ex. `gratis-hudvardsprover`). Filnamnet kan fortfarande börja med datum.
 - **Kolla först om det redan finns en guide eller sida om ämnet** (`/guide/`, `/nyblivna-foraldrar/`, `/jul/`, `/gratis-pa-fodelsedagen/`, kategorisidorna). Finns det: uppdatera den befintliga texten och sätt `updated:` till dagens datum i stället för att skriva en ny. Två sidor om samma sak gör att ingen av dem rankar.
 - Babyboxar och startpaket hör hemma på `/nyblivna-foraldrar/`. Skriv ingen separat guide om det.
+- Huvudsidorna för de stora sökorden är `/gratisprover/` (gratisprover, varuprover, gratisprover hemskickade) och `/gratis/` (gratis saker på nätet, gratis på nätet). Skriv inga egna guider om de sökorden. Förbättra texten på huvudsidorna i stället, och länka till dem med orden "gratisprover" och "gratis saker" från dagens inlägg och guider när det passar.
 - Ämnen som saknas: gratis hudvårdsprover, gratis parfymprover, gratis för studenter, gratis för pensionärer, gratis till skolbarn.
 - Länka till befintliga erbjudanden och till närliggande guider och temasidor. Dagens inlägg ska också länka till en guide eller temasida när det passar.
 
