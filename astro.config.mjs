@@ -40,6 +40,7 @@ const latestOffer = newest(...offers.map((o) => o.lastmod));
 const latestPost = newest(...posts.map((p) => p.lastmod));
 lastmod.set('/', newest(latestOffer, latestPost));
 lastmod.set('/gratis/', latestOffer);
+lastmod.set('/gratisprover/', latestOffer);
 lastmod.set('/blogg/', newest(...posts.filter((p) => !p.guide).map((p) => p.lastmod)));
 lastmod.set('/guide/', newest(...posts.filter((p) => p.guide).map((p) => p.lastmod)));
 lastmod.set('/nyblivna-foraldrar/', newest(...offers.filter((o) => o.category === 'foraldrar').map((o) => o.lastmod)));

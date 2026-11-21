@@ -163,12 +163,12 @@
     },
     {
       "source": "/blogg/sa-far-du-gratisprover/",
-      "destination": "/guide/sa-far-du-gratisprover/",
+      "destination": "/gratisprover/",
       "permanent": true
     },
     {
       "source": "/blogg/sa-far-du-gratisprover",
-      "destination": "/guide/sa-far-du-gratisprover/",
+      "destination": "/gratisprover/",
       "permanent": true
     },
     {
@@ -209,6 +209,16 @@
     {
       "source": "/gratis/tena-gratis-prov",
       "destination": "/guide/gratis-prover-inkontinensskydd/",
+      "permanent": true
+    },
+    {
+      "source": "/guide/sa-far-du-gratisprover/",
+      "destination": "/gratisprover/",
+      "permanent": true
+    },
+    {
+      "source": "/guide/sa-far-du-gratisprover",
+      "destination": "/gratisprover/",
       "permanent": true
     }
   ]

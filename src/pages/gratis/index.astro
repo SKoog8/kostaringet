@@ -1,16 +1,133 @@
 ---
+// "Alla erbjudanden": every offer, searchable, plus a guide aimed at "gratis saker på nätet".
 import ListingPage from '../../components/ListingPage.astro';
-import { getOffers } from '../../lib/offers';
+import { getOffers, isActive } from '../../lib/offers';
 
+const year = new Date().getFullYear();
 const offers = await getOffers();
+const active = offers.filter((o) => isActive(o));
+const count = (type: string) => active.filter((o) => o.data.type === type).length;
+
+const faq = [
+  {
+    q: 'Vad kan man få gratis på nätet?', a: 'Gratisprover och varuprover, startpaket till gravida och husdjursägare, gåvor när du går med i en kundklubb eller fyller år, och provperioder på streaming och ljudböcker. Dessutom finns tjänster som alltid är gratis, till exempel SVT Play och bibliotekens e-böcker.',
+  },
+  {
+    q: 'Hur vet jag att något är gratis på riktigt?', a: 'Gå till kassan eller sista steget innan du bestämmer dig. Står det mer än 0 kr, krävs kortuppgifter eller handlar det om en tävling är det inte helt gratis. Vi skriver alltid ut frakt, krav och uppsägning på varje erbjudande.',
+  },
+  {
+    q: 'Varför ger företag bort saker gratis?', a: 'De vill att du ska prova en produkt och köpa den senare, eller att du ska bli medlem i deras kundklubb. I gengäld får de dina kontaktuppgifter, så läs vilka utskick du tackar ja till.',
+  },
+  {
+    q: 'Hur ofta kommer nya gratiserbjudanden?', a: 'Det kommer nya hela tiden, och många tar slut snabbt. Vi letar tre gånger om dagen och publicerar det vi hittar under dagens fynd.',
+  },
+];
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage', mainEntity: faq.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+};
 ---
 
-<ListingPage
-  title="Alla gratiserbjudanden."
-  metaTitle="Alla gratisprover och gratiserbjudanden just nu"
-  description="Alla aktuella gratisprover, gratis startpaket och prova på-erbjudanden i Sverige på ett ställe. Med tydlig info om frakt, krav och uppsägning."
-  intro="Allt vi hittat som går att beställa eller prova gratis just nu – nyast först. Kostar något frakt eller kräver uppsägning står det på kortet."
+<ListingPage title="Gratis saker på nätet."
+  metaTitle={`Gratis saker på nätet ${year} – allt som är gratis nu`}
+  description="Alla gratis saker du kan beställa eller prova på nätet i Sverige just nu: gratisprover, startpaket, provperioder och gåvor. Kontrollerat och uppdaterat varje dag."
+  intro="Allt vi hittat som går att beställa eller prova gratis just nu, nyast först. Sök på ett företag eller en produkt, eller välj en kategori. Kostar något frakt eller kräver uppsägning står det på kortet."
   offers={offers}
-  search
   crumbs={[{ label: 'Alla erbjudanden', href: '/gratis/' }]}
-/>
+  search
+>
+  <article class="guide prose">
+    <h2>Det här kan du få gratis på nätet</h2>
+    <p>
+      Det finns mer att få gratis än man tror, men också mycket som bara ser gratis ut. Här är de vanligaste sorterna av gratis saker på nätet, och hur många som går att få just nu.
+    </p>
+    <ul>
+      <li>
+        <strong>Gratisprover och varuprover ({count('gratisprov')} just nu).</strong> Hudvård, parfym, foder, tyg och golv som skickas hem. Alla finns på sidan <a href="/gratisprover/">gratisprover</a>.
+      </li>
+      <li>
+        <strong>Startpaket och babyboxar ({count('startpaket')} just nu).</strong> Lådor med produkter till gravida, nyblivna föräldrar och nya husdjursägare. Se <a href="/nyblivna-foraldrar/">gratis till nyblivna föräldrar</a>.
+      </li>
+      <li>
+        <strong>Medlemsgåvor ({count('medlemsgava')} just nu).</strong> En gåva när du går med i en kundklubb eller fyller år. Se <a href="/gratis-pa-fodelsedagen/">gratis på födelsedagen</a>.
+      </li>
+      <li>
+        <strong>Provperioder ({count('provperiod')} just nu).</strong> Streaming, ljudböcker och tidningar gratis i en period. De blir betalda om du inte säger upp i tid. Se <a href="/kategori/tjanster/">prova på-tjänster</a>.
+      </li>
+      <li>
+        <strong>Helt gratis saker ({count('gratis')} just nu).</strong> Till exempel kalendrar, reflexer, kuponger och sådant som du lånar, som sportutrustning på Fritidsbanken.
+      </li>
+    </ul>
+
+    <h2>Gratis på nätet som alltid finns</h2>
+    <p>
+      En del är gratis året runt och behöver inget erbjudande. Public service är gratis att se och lyssna på: <strong>SVT Play</strong>, <strong>UR Play</strong> och <strong>Sveriges Radio Play</strong>. Med ett lånekort på biblioteket kan du dessutom låna e-böcker och ljudböcker gratis i en app. Läs guiden om <a href="/guide/gratis-streaming/">gratis streaming</a> och om <a href="/guide/gratis-ljudbocker/">gratis ljudböcker</a>.
+    </p>
+
+    <h2>Så ser du att något är gratis på riktigt</h2>
+    <ol>
+      <li><strong>Gå till sista steget innan du bestämmer dig.</strong> Där syns frakt och avgifter. Står det mer än 0 kr är det inte helt gratis.</li>
+      <li><strong>Se upp med kortuppgifter.</strong> Krävs ett kortnummer är det nästan alltid en provperiod som blir betald.</li>
+      <li><strong>Läs om det är en tävling.</strong> "Chans till" och "lottas ut" betyder att du kanske inte får något.</li>
+      <li><strong>Leta efter ordet köp.</strong> "Gåva vid köp" och "på köpet" är rabatter, inte gratis.</li>
+    </ol>
+    <p>Läs mer i guiden om <a href="/guide/gratis-eller-rabatt/">skillnaden mellan gratis och rabatt</a>.</p>
+
+    <h2>Så får du ut mest av gratiserbjudandena</h2>
+    <ul>
+      <li><strong>Använd en separat e-postadress</strong> för prover och klubbar, så slipper du reklam i den vanliga inkorgen.</li>
+      <li><strong>Lägg in slutdatum i kalendern</strong> samma dag som du startar en provperiod.</li>
+      <li><strong>Var snabb.</strong> Många erbjudanden har en begränsad upplaga och tar slut på några dagar. Titta in på <a href="/blogg/">dagens fynd</a>.</li>
+      <li><strong>Beställ på företagets egen sida.</strong> Gå inte via länkar i sms eller okända annonser.</li>
+    </ul>
+
+    <h2>Därför kan du lita på listan</h2>
+    <p>
+      Allt på sidan är kontrollerat på företagets egen sida innan det publiceras, och vi kontrollerar det igen ungefär var fjärde dag. Rabatter, tävlingar och sådant som kräver köp tar vi inte med. Läs mer om <a href="/sa-kontrollerar-vi/">hur vi kontrollerar erbjudandena</a>.
+    </p>
+  </article>
+
+  <section class="faq">
+    <h2>Vanliga frågor.</h2>
+    <dl>
+      {
+        faq.map((f) => (
+          <div>
+            <dt>{f.q}</dt>
+            <dd>{f.a}</dd>
+          </div>
+        ))
+      }
+    </dl>
+  </section>
+  <script type="application/ld+json" set:html={JSON.stringify(faqLd)} />
+</ListingPage>
+
+<style>
+  .guide,
+  .faq {
+    margin-top: 72px;
+    max-width: 46rem;
+  }
+  .faq {
+    display: grid;
+    gap: 24px;
+  }
+  dl {
+    margin: 0;
+    border-top: 1px solid var(--line);
+  }
+  dl > div {
+    padding-block: 18px;
+    border-bottom: 1px solid var(--line);
+  }
+  dt {
+    font-weight: 700;
+    font-size: 1.08rem;
+    margin-bottom: 6px;
+  }
+  dd {
+    margin: 0;
+    color: var(--ink-2);
+  }
+</style>

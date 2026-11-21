@@ -1,0 +1,184 @@
+---
+// Pillar page for "gratisprover": active free samples (always current) plus an evergreen guide.
+import ListingPage from '../components/ListingPage.astro';
+import { getOffers, isActive, offerPath, formatDate, latest } from '../lib/offers';
+import { categoryBySlug } from '../site.config';
+
+const year = new Date().getFullYear();
+const offers = (await getOffers()).filter((o) => o.data.type === 'gratisprov' || o.data.type === 'startpaket');
+const active = offers.filter((o) => isActive(o));
+const cost = (o: (typeof offers)[number]) =>
+  o.data.shipping === 'tillkommer' ? 'Gratis, frakt tillkommer' : o.data.shipping > 0 ? `Frakt ${o.data.shipping} kr` : 'Helt gratis';
+const lastChecked = active.length ? new Date(Math.max(...active.map((o) => latest(o).getTime()))) : new Date();
+
+const faq = [
+  {
+    q: 'Är gratisprover verkligen gratis?', a: 'De prover vi listar kostar inget att beställa, men en del tar ut en fraktavgift. Det står på varje prov. Prover som bara följer med ett köp räknar vi inte som gratisprover.',
+  },
+  {
+    q: 'Hur får man gratisprover hemskickade?', a: 'Du fyller i namn och adress i ett formulär på företagets egen sida, så skickas provet med posten. Ibland behöver du skapa ett konto eller gå med i en kundklubb först.',
+  },
+  {
+    q: 'Hur lång tid tar det innan provet kommer?', a: 'Det varierar mellan företagen, från några dagar till ett par veckor. Står leveranstiden på företagets sida skriver vi den på provets sida.',
+  },
+  {
+    q: 'Kan man beställa flera gånger?', a: 'Oftast inte. De flesta företag tillåter ett prov per person eller hushåll, och vissa bara ett prov per halvår.',
+  },
+  {
+    q: 'Är det säkert att lämna sina uppgifter?', a: 'Det är säkert hos seriösa företag, men lämna aldrig kortuppgifter för något som ska vara gratis. Beställ alltid på företagets egen sida och inte via en länk i ett sms.',
+  },
+];
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage', mainEntity: faq.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+};
+---
+
+<ListingPage title="Gratisprover."
+  metaTitle={`Gratisprover ${year} – beställ gratis hem`}
+  description={`Alla gratisprover och varuprover som går att beställa hem i Sverige just nu, kontrollerade hos företagen. Med frakt, krav och hur du gör.`}
+  intro="Varuprover, tygprover, foderprover och startpaket som du kan beställa hem utan att köpa något. Allt är kontrollerat på företagets egen sida, och det står tydligt om något kostar frakt."
+  offers={offers}
+  crumbs={[{ label: 'Gratisprover', href: '/gratisprover/' }]}
+>
+  <article class="guide prose">
+    <h2>Alla gratisprover just nu</h2>
+    <p>
+      Här är alla gratisprover och startpaket som går att beställa just nu, {active.length} stycken. Listan uppdateras varje dag, och den senaste kontrollen gjordes {formatDate(lastChecked)}.
+    </p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Företag</th><th>Vad du får</th><th>Kategori</th><th>Kostnad</th></tr>
+        </thead>
+        <tbody>
+          {
+            active.map((o) => (
+              <tr>
+                <td><a href={offerPath(o)}>{o.data.brand}</a></td>
+                <td>{o.data.seoTitle ?? o.data.title}</td>
+                <td>{categoryBySlug[o.data.category].short}</td>
+                <td>{cost(o)}</td>
+              </tr>
+            ))
+          }
+        </tbody>
+      </table>
+    </div>
+
+    <h2>Vad är ett gratisprov?</h2>
+    <p>
+      Ett gratisprov är en liten mängd av en produkt som ett företag skickar hem utan att du betalar för den. Det kan vara en tub hudkräm, ett doftprov, en påse hundfoder, en bit tyg eller tapet, eller ett paket med flera produkter. Företaget hoppas att du ska gilla produkten och köpa den senare. För dig är det ett sätt att prova innan du bestämmer dig, utan risk.
+    </p>
+    <p>
+      Vi räknar bara sådant som du får utan att köpa något. Prover som följer med en beställning, "gåva vid köp"
+      och rabatter tar vi inte med. Läs mer om <a href="/guide/gratis-eller-rabatt/">skillnaden mellan gratis och rabatt</a>.
+    </p>
+
+    <h2>Så beställer du gratisprover hem</h2>
+    <ol>
+      <li><strong>Gå till företagets egen sida.</strong> Länken finns på varje prov här. Beställ inte via länkar i sms eller okända annonser.</li>
+      <li><strong>Fyll i formuläret.</strong> Oftast räcker namn, adress och e-post. Vissa prover kräver att du skapar ett konto eller går med i en kundklubb.</li>
+      <li><strong>Kryssa ur det du inte vill ha.</strong> Nyhetsbrev och utskick från partner är nästan alltid frivilliga.</li>
+      <li><strong>Vänta på posten.</strong> Leveranstiden varierar från några dagar till ett par veckor.</li>
+    </ol>
+
+    <h2>Olika sorters gratisprover</h2>
+    <p>
+      <strong>Varuprover från märken.</strong> Hudvård, parfym, hygien och mat. De kommer ofta när en ny produkt lanseras och finns bara under en kort tid. Läs guiden om <a href="/guide/gratis-skonhetsprover/">gratis skönhetsprover</a>.
+    </p>
+    <p>
+      <strong>Fasta provsidor.</strong> Vissa företag har prover året runt, till exempel tygprover, tapetprover och golvprover. De passar när du ska köpa något större och vill se färgen hemma. Läs guiden om <a href="/guide/gratis-prover-till-hemmet/">gratis prover till hemmet</a>.
+    </p>
+    <p>
+      <strong>Startpaket och babyboxar.</strong> Lådor med flera prover och produkter till gravida, nyblivna föräldrar och nya husdjursägare. Alla finns på sidan för <a href="/nyblivna-foraldrar/">nyblivna föräldrar</a> och i guiderna om <a href="/guide/gratis-till-hund/">hund</a> och <a href="/guide/gratis-till-katt/">katt</a>.
+    </p>
+    <p>
+      <strong>Prover för vardagsbehov.</strong> Till exempel skydd vid urinläckage och provlinser. Läs guiderna om <a href="/guide/gratis-prover-inkontinensskydd/">inkontinensskydd</a> och <a href="/guide/prova-kontaktlinser-gratis/">kontaktlinser</a>.
+    </p>
+    <p>
+      <strong>Testpaneler.</strong> Hos testpaneler ansöker du om att få testa en produkt och skriva om den. Du får produkten om du blir utvald, men det är inte säkert.
+    </p>
+
+    <h2>Så hinner du före när proverna tar slut</h2>
+    <ul>
+      <li>Många prover har en begränsad upplaga och kan ta slut på några dagar. Beställ när du ser dem.</li>
+      <li>Använd webbläsarens autofyll för namn och adress, så går det snabbt.</li>
+      <li>Titta in här eller på <a href="/blogg/">dagens fynd</a>. Vi letar efter nya prover tre gånger om dagen.</li>
+    </ul>
+
+    <h2>Fällor att se upp med</h2>
+    <ul>
+      <li><strong>Kortuppgifter.</strong> Ett gratisprov ska inte kräva kortnummer, utom när du själv har valt att betala frakt.</li>
+      <li><strong>Provperioder.</strong> "Prova gratis" kan betyda ett abonnemang som blir betalt efter 14 eller 30 dagar. Läs <a href="/guide/sag-upp-provperiod/">hur du säger upp i tid</a>.</li>
+      <li><strong>Falska kampanjer.</strong> Lovar ett sms eller en annons dyra produkter gratis, kontrollera att erbjudandet finns på företagets egen sida.</li>
+      <li><strong>Många utskick.</strong> Använd en separat e-postadress för prover och klubbar. Läs mer om att <a href="/guide/skydda-dina-uppgifter/">skydda dina uppgifter</a>.</li>
+    </ul>
+
+    <h2>Så kontrollerar vi gratisproverna</h2>
+    <p>
+      Varje prov på sidan är kontrollerat på företagets egen sida innan det publiceras, och vi kontrollerar det igen ungefär var fjärde dag. När ett prov tar slut markerar vi det som avslutat. Läs mer om <a href="/sa-kontrollerar-vi/">hur vi kontrollerar erbjudandena</a>. Fungerar ett prov inte längre får du gärna säga till via knappen på provets sida.
+    </p>
+  </article>
+
+  <section class="faq">
+    <h2>Vanliga frågor om gratisprover.</h2>
+    <dl>
+      {
+        faq.map((f) => (
+          <div>
+            <dt>{f.q}</dt>
+            <dd>{f.a}</dd>
+          </div>
+        ))
+      }
+    </dl>
+  </section>
+  <script type="application/ld+json" set:html={JSON.stringify(faqLd)} />
+</ListingPage>
+
+<style>
+  .guide,
+  .faq {
+    margin-top: 72px;
+    max-width: 46rem;
+  }
+  .faq {
+    display: grid;
+    gap: 24px;
+  }
+  .table-wrap {
+    overflow-x: auto;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+  }
+  th, td {
+    text-align: left;
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--line);
+    vertical-align: top;
+  }
+  th {
+    font-weight: 700;
+  }
+  dl {
+    margin: 0;
+    border-top: 1px solid var(--line);
+  }
+  dl > div {
+    padding-block: 18px;
+    border-bottom: 1px solid var(--line);
+  }
+  dt {
+    font-weight: 700;
+    font-size: 1.08rem;
+    margin-bottom: 6px;
+  }
+  dd {
+    margin: 0;
+    color: var(--ink-2);
+  }
+</style>
