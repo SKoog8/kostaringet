@@ -12,7 +12,7 @@ Varje vecka delar svenska och internationella varumärken ut gratisprover på al
 
 **Hos varumärket självt.** Den vanligaste vägen. Ett formulär på företagets egen sida där du fyller i namn och adress. Parfymhus som [Lancôme](/gratis/lancome-gratis-doftprov-la-vie-est-belle-elixir/) gör så vid lanseringar.
 
-**Fasta provsidor.** Vissa företag har gratisprover året runt, till exempel [TENA](/gratis/tena-gratis-prov/) och [Attends](/gratis/attends-gratis-produktprov/). Där finns det alltid något att beställa.
+**Fasta provsidor.** Vissa företag har gratisprover året runt, till exempel [Attends](/gratis/attends-gratis-produktprov/) och [Soferia](/gratis/soferia-gratis-tygprover/). Där finns det alltid något att beställa.
 
 **Testpaneler.** Hos till exempel [Buzzador](/gratis/buzzador-bli-testpilot/) söker du till kampanjer och får produkter om du blir utvald.
 

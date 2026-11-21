@@ -9,7 +9,6 @@ category: skonhet
 offers:
   - lancome-gratis-doftprov-la-vie-est-belle-elixir
   - always-gratis-paket-dagbindor
-  - tena-gratis-prov
 ---
 
 Parfym och hudvård är dyrt att köpa på chans. Ett prov räcker ofta för att veta om en doft passar dig eller om en kräm fungerar på din hud. Men många "gratis prover" i skönhetsbutikerna följer bara med när du handlar. Här är skillnaden, och några prover som du får helt utan köp just nu.
@@ -20,7 +19,7 @@ Parfym och hudvård är dyrt att köpa på chans. Ett prov räcker ofta för att
 
 **Hygien i matbutiken.** Med en sms-kupong får du ett [gratis paket Always-dagbindor](/gratis/always-gratis-paket-dagbindor/) i matbutiken. Kupongen täcker hela priset, och kampanjen pågår till och med den 30 november.
 
-**Diskreta prover hem.** [TENA](/gratis/tena-gratis-prov/) och Attends skickar gratis prover på skydd vid urinläckage. Läs mer i guiden om [gratis prover på inkontinensskydd](/guide/gratis-prover-inkontinensskydd/).
+**Diskreta prover hem.** [Attends](/gratis/attends-gratis-produktprov/) skickar gratis prover på skydd vid urinläckage. Läs mer i guiden om [gratis prover på inkontinensskydd](/guide/gratis-prover-inkontinensskydd/).
 
 Alla aktuella skönhetsprover samlar vi i kategorin [skönhet och hygien](/kategori/skonhet/).
 

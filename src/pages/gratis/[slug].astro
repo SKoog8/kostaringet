@@ -55,7 +55,7 @@ const facts: [string, string][] = [
 ];
 
 // Free trials turn into paid subscriptions, so they are not marked up as free products.
-const productLd = data.type === 'provperiod' ? undefined : {
+const productLd = data.type === 'provperiod' || !active ? undefined : {
   '@context': 'https://schema.org',
   '@type': 'Product',
   name: data.title,
