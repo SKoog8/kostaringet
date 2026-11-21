@@ -18,9 +18,11 @@ interface Props {
   category?: CategorySlug;
   /** Hide the page from search engines (e.g. a category without active offers). */
   noindex?: boolean;
+  /** Show a search box that filters the offers on the page. */
+  search?: boolean;
 }
 
-const { title, metaTitle, description, intro, offers, crumbs, category, noindex = false } = Astro.props;
+const { title, metaTitle, description, intro, offers, crumbs, category, noindex = false, search = false } = Astro.props;
 const active = offers.filter((o) => isActive(o));
 const ended = offers.filter((o) => !isActive(o));
 ---
@@ -37,6 +39,21 @@ const ended = offers.filter((o) => !isActive(o));
   </div>
 
   <div class="wrap">
+    {
+      search && (
+        <div class="search" role="search">
+          <label for="sok" class="visually-hidden">Sök bland erbjudandena</label>
+          <input
+            id="sok"
+            type="search"
+            placeholder="Sök på företag eller produkt, till exempel BookBeat eller tygprover"
+            autocomplete="off"
+            enterkeyhint="search"
+          />
+          <p class="search__status" aria-live="polite"></p>
+        </div>
+      )
+    }
     <div class="filters">
       <CategoryList current={category} />
     </div>
@@ -56,7 +73,76 @@ const ended = offers.filter((o) => !isActive(o));
   </div>
 </Base>
 
+{
+  search && (
+    <script>
+      // Filters the offer cards on the page as you type. Matches brand, title, description, category and type,
+      // and ignores accents, so "lancome" finds Lancôme. The query is kept in ?q= so a search can be linked.
+      const input = document.getElementById('sok') as HTMLInputElement | null;
+      const status = document.querySelector('.search__status');
+      const cards = Array.from(document.querySelectorAll<HTMLElement>('.card[data-search]'));
+      const ended = document.querySelector<HTMLElement>('.ended');
+      const norm = (s: string) => s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+      const texts = cards.map((c) => norm(c.dataset.search ?? ''));
+      function run() {
+        if (!input) return;
+        const words = norm(input.value).split(/\s+/).filter(Boolean);
+        let hits = 0;
+        cards.forEach((card, i) => {
+          const show = words.every((w) => texts[i].includes(w));
+          card.hidden = !show;
+          if (show && !card.classList.contains('card--ended')) hits++;
+        });
+        if (ended) ended.hidden = words.length > 0 && !ended.querySelector('.card:not([hidden])');
+        if (status) {
+          status.textContent = !words.length
+            ? ''
+            : hits === 0
+              ? 'Inga aktiva erbjudanden matchar sökningen.'
+              : `${hits} ${hits === 1 ? 'aktivt erbjudande matchar' : 'aktiva erbjudanden matchar'}.`;
+        }
+        const url = new URL(location.href);
+        if (words.length) url.searchParams.set('q', input.value.trim());
+        else url.searchParams.delete('q');
+        history.replaceState(null, '', url);
+      }
+      if (input) {
+        input.value = new URL(location.href).searchParams.get('q') ?? '';
+        input.addEventListener('input', run);
+        if (input.value) run();
+      }
+    </script>
+  )
+}
+
 <style>
+  .search {
+    display: grid;
+    gap: 8px;
+    margin-bottom: 20px;
+    max-width: 40rem;
+  }
+  .search input {
+    width: 100%;
+    font: inherit;
+    font-size: 1.05rem;
+    padding: 14px 18px;
+    border: 1px solid var(--line-strong);
+    border-radius: 999px;
+    background: var(--surface);
+    color: var(--ink);
+  }
+  .search input:focus {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+    border-color: var(--accent);
+  }
+  .search__status {
+    margin: 0;
+    min-height: 1.2em;
+    font-size: 0.92rem;
+    color: var(--muted);
+  }
   .page-head {
     display: flex;
     align-items: center;

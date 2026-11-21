@@ -391,3 +391,8 @@ p {
 [data-cat='hem'] { --il-tint: var(--cat-hem-bg); --il-fg: var(--cat-hem-fg); }
 [data-cat='djur'] { --il-tint: var(--cat-djur-bg); --il-fg: var(--cat-djur-fg); }
 [data-cat='tjanster'] { --il-tint: var(--cat-tjanster-bg); --il-fg: var(--cat-tjanster-fg); }
+
+/* The hidden attribute must win over display rules (used by the search on /gratis/). */
+[hidden] {
+  display: none !important;
+}

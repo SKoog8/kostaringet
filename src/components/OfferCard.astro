@@ -1,5 +1,5 @@
 ---
-import { offerTypes } from '../site.config';
+import { categoryBySlug, offerTypes } from '../site.config';
 import Illustration from './Illustration.astro';
 import { offerIllustrationName } from '../lib/illustrations';
 import { isActive, offerPath, formatShort, latest, type Offer } from '../lib/offers';
@@ -12,12 +12,16 @@ interface Props {
 const { offer, headingLevel: H = 'h3' } = Astro.props;
 const { data } = offer;
 const active = isActive(offer);
+// Text the search box on /gratis/ matches against.
+const searchText = [data.brand, data.title, data.description, categoryBySlug[data.category].name, offerTypes[data.type]]
+  .join(' ')
+  .toLowerCase();
 const shippingNote =
   data.shipping === 'tillkommer' ? 'Frakt tillkommer' : data.shipping > 0 ? `Frakt ${data.shipping} kr` : null;
 const note = shippingNote ?? data.requirements[0] ?? 'Inga krav';
 ---
 
-<article class:list={['card', { 'card--ended': !active }]} data-category={data.category}>
+<article class:list={['card', { 'card--ended': !active }]} data-category={data.category} data-search={searchText}>
   <div class="card__top">
     <Illustration name={offerIllustrationName(data)} cat={data.category} size={44} class="card__il" />
     <span class="card__brand">{data.brand}</span>
