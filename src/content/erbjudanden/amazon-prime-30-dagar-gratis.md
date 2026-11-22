@@ -9,7 +9,7 @@ requirements:
   - Kräver ett Amazon-konto
   - Säg upp innan 30 dagar om du inte vill betala
 published: 2026-11-11
-checked: 2026-11-16
+checked: 2026-11-22
 ---
 
 Amazon har en gratis provperiod på Prime i 30 dagar. Efter provperioden kostar Prime 69 kr i månaden eller 649 kr om året.

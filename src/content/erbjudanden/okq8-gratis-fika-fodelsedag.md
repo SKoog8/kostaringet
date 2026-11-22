@@ -13,7 +13,7 @@ requirements:
   - Medlem i OK
   - Kupongen finns i OKQ8-appen
 published: 2026-11-16
-checked: 2026-11-16
+checked: 2026-11-22
 ---
 
 OKQ8 bjuder sina medlemmar på kaffe och fikabröd när de fyller år. Du går in på en OKQ8-station och skannar kupongen som du får i OKQ8-appen.

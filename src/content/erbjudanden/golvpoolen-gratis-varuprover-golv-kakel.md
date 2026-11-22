@@ -10,7 +10,7 @@ requirements:
   - 1–5 prover per beställning
   - Bara varor som finns i lager
 published: 2026-11-16
-checked: 2026-11-16
+checked: 2026-11-22
 ---
 
 Golvpoolen säljer golv, kakel, klinker och badrum. På de flesta golv och plattor finns en knapp för gratis varuprov, och proverna skickas hem utan fraktkostnad.

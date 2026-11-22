@@ -13,7 +13,7 @@ requirements:
   - Gratis medlemskap i Kompisklubben
   - Registrera dina djur
 published: 2026-11-16
-checked: 2026-11-16
+checked: 2026-11-22
 ---
 
 Det är inte bara du som kan få något när du fyller år. Arken Zoos kundklubb Kompisklubben ger en gratis födelsedagspresent varje år till upp till tre av dina djur.

@@ -9,7 +9,7 @@ url: https://mcare.se/bestall-gratisprov/
 requirements:
   - M Care ringer upp innan proverna skickas
 published: 2026-11-16
-checked: 2026-11-16
+checked: 2026-11-22
 ---
 
 M Care säljer stomipåsar och tillbehör, bland annat från Salts och Eakin. Du kan beställa varuprover kostnadsfritt och prova hemma vilka produkter som passar dig.
