@@ -150,6 +150,8 @@ Temasidor samlar erbjudanden kring något folk söker på, till exempel `/gratis
 
 **Så kontrollerar du ett erbjudande (gäller också nya):**
 
+- Företagets egen webbplats eller kampanjsida räknas som kontroll. Det gör också företagets egna officiella konton i sociala medier, alltså inlägg som företaget själv har publicerat (till exempel Pressbyråns julmust, november 2026). Annonser, tipssajter och andras inlägg räknas aldrig.
+
 - Det räcker inte att sidan finns eller att sidans beskrivning säger "gratis prov". Själva beställningen måste finnas kvar: ett formulär, en knapp, en kupong eller en tydlig instruktion om hur man får erbjudandet. Läs sidans text, inte bara rubriken eller beskrivningen.
 - Finns beställningen kvar: sätt `checked` till dagens datum. Har villkor eller innehåll ändrats: uppdatera texten och sätt `updated`.
 - Har sidan flyttat men erbjudandet finns kvar: byt `url` till den nya adressen.
