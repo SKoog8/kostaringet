@@ -1,7 +1,7 @@
 ---
 title: Bokus Play gratis i 30 dagar
 illustration: ljudbok
-description: Bokus Play har 30 dagars gratis provperiod för nya användare, med upp till 30 timmars lyssning och läsning. Därefter från 79 kr i månaden.
+description: Bokus Play har 30 dagars gratis provperiod för nya användare. Just nu under Black Week går det att prova Premium gratis i 60 dagar. Därefter från 79 kr i månaden.
 brand: Bokus Play
 category: tjanster
 type: provperiod
@@ -10,11 +10,15 @@ requirements:
   - Gäller nya användare
   - Säg upp innan 30 dagar om du inte vill betala
 published: 2026-10-09
-updated: 2026-11-05
-checked: 2026-11-20
+updated: 2026-11-23
+checked: 2026-11-23
 ---
 
 Bokus Play är bokhandeln Bokus egen tjänst för ljudböcker och e-böcker. Nya användare kan prova gratis i 30 dagar, med upp till 30 timmars lyssning och läsning, och få tillgång till över 100 000 titlar.
+
+## Just nu: 60 dagar gratis under Black Week
+
+Bokus Play har en Black Week-kampanj där du kan prova Premium gratis i 60 dagar i stället för 30. Du startar den via kampanjlänken "Gratis ljudböcker i 60 dagar" på bokus.com/play. Bokus anger inte när kampanjen slutar, så räkna med att den kan försvinna när Black Week är över.
 
 ## Så gör du
 

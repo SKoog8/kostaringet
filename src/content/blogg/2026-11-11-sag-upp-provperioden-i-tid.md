@@ -5,6 +5,7 @@ seoTitle: "Så säger du upp en gratis provperiod i tid"
 illustration: kalender
 description: "Gratis provperioder på streaming och ljudböcker blir betalda om du glömmer att säga upp dem. Så håller du koll, och vilka provperioder som finns just nu."
 published: 2026-11-11
+updated: 2026-11-23
 kind: guide
 category: tjanster
 offers:
@@ -22,8 +23,8 @@ En gratis provperiod är ett bra sätt att testa en tjänst. Men nästan alla fo
 - **[Amazon Prime](/gratis/amazon-prime-30-dagar-gratis/), 30 dagar.** Prime Video, fri frakt på Prime-varor och Prime Gaming. Därefter 69 kr i månaden eller 649 kr om året. Nytt på sajten i dag.
 - **[Trippel](/gratis/trippel-viaplay-storytel-podme-30-dagar/), 30 dagar.** Viaplay, Storytel och Podme i ett paket.
 - **[BookBeat](/gratis/bookbeat-ljudbocker-30-dagar-gratis/), 30 dagar.** 20 timmar ljudböcker och e-böcker. Därefter från 99 kr i månaden.
-- **[Bokus Play](/gratis/bokus-play-30-dagar-gratis/), 30 dagar.** 30 timmar lyssning och läsning. Därefter från 79 kr i månaden.
-- **[Nextory](/gratis/nextory-ljudbocker-14-dagar-gratis/), 14 dagar.** Ljudböcker och e-böcker.
+- **[Bokus Play](/gratis/bokus-play-30-dagar-gratis/), 30 dagar (just nu 60 dagar Premium under Black Week).** 30 timmar lyssning och läsning. Därefter från 79 kr i månaden.
+- **[Nextory](/gratis/nextory-ljudbocker-14-dagar-gratis/), 30 dagar.** 30 timmar läsning och lyssning. Därefter från 89 kr i månaden.
 
 Alla gäller för nya kunder. Villkoren ändras ofta, så läs alltid på tjänstens egen sida innan du startar.
 

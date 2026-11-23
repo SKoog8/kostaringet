@@ -1,20 +1,21 @@
 ---
-title: Prova Nextory gratis i 14 dagar
+title: Prova Nextory gratis i 30 dagar
+seoTitle: "Nextory: ljudböcker gratis i 30 dagar"
 illustration: ljudbok
-description: Nextory har 14 dagars gratis provperiod på ljudböcker och e-böcker för nya användare. Prenumerationen fortsätter automatiskt om du inte säger upp den.
+description: Nextory har 30 dagars gratis provperiod med 30 timmars läsning och lyssning för nya användare. Därefter från 89 kr i månaden om du inte säger upp.
 brand: Nextory
 category: tjanster
 type: provperiod
 url: https://nextory.com/se
 requirements:
   - Gäller nya användare
-  - Säg upp innan 14 dagar om du inte vill betala
+  - Säg upp innan 30 dagar om du inte vill betala
 published: 2026-10-09
-updated: 2026-11-07
-checked: 2026-11-17
+updated: 2026-11-23
+checked: 2026-11-23
 ---
 
-Nextory är en tjänst för ljudböcker och e-böcker. Nya användare kan prova gratis i 14 dagar, med upp till 30 timmars läsning och lyssning, och välja mellan olika abonnemang, till exempel Standard med upp till 30 timmars läsning och lyssning per månad.
+Nextory är en tjänst för ljudböcker och e-böcker. Nya användare kan prova gratis i 30 dagar, med 30 timmars läsning och lyssning. Alla abonnemang har samma provperiod, till exempel Mini med upp till 10 timmar i månaden efter provperioden.
 
 ## Så gör du
 
@@ -24,5 +25,5 @@ Nextory är en tjänst för ljudböcker och e-böcker. Nya användare kan prova 
 
 ## Bra att veta
 
-- Provperioden är kortare än hos flera konkurrenter, 14 dagar.
+- Provperioden förlängdes i november 2026 från 14 till 30 dagar.
 - **Abonnemanget blir betalt automatiskt** när provperioden är slut, från 89 kr i månaden beroende på abonnemang. Säg upp i tid om du bara vill prova.
