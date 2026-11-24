@@ -1,6 +1,6 @@
 ---
 import Logo from './Logo.astro';
-import { categories, site } from '../site.config';
+import { categories, site, publisher } from '../site.config';
 
 const year = new Date().getFullYear();
 ---
@@ -46,7 +46,7 @@ const year = new Date().getFullYear();
     </div>
   </div>
   <div class="wrap footer__bottom">
-    <span>© {year} {site.domain}</span>
+    <span>© {year} {site.domain} · Drivs av <a href={publisher.url}>{publisher.name}</a></span>
     <a href="/kontakt/">Kontakta oss</a>
   </div>
 </footer>

@@ -1,5 +1,6 @@
 ---
 import TextPage from '../layouts/TextPage.astro';
+import { publisher } from '../site.config';
 ---
 
 <TextPage
@@ -30,6 +31,12 @@ import TextPage from '../layouts/TextPage.astro';
     andra sajter och annonser i sociala medier räcker inte. Gamla erbjudanden kontrolleras igen, och när ett
     erbjudande tar slut markeras det som avslutat. Läs mer om <a href="/sa-kontrollerar-vi/">hur vi kontrollerar
     erbjudandena</a>.
+  </p>
+
+  <h2>Vem står bakom?</h2>
+  <p>
+    Kostaringet.se drivs av <a href={publisher.url}>{publisher.name}</a>{publisher.orgNr && ` (org.nr ${publisher.orgNr})`},
+    ett svenskt mediebolag som också driver Cashbacka och Kostar mindre.
   </p>
 
   <h2>Vad vi menar med gratis</h2>

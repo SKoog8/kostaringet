@@ -12,6 +12,16 @@ export const site = {
   email: 'hej@kostaringet.se',
 };
 
+// Bolaget bakom sajten. Byt namn till "Kvittra Media AB" och fyll i orgNr när bolaget är registrerat –
+// då ändras sidfoten, Om-sidan och den strukturerade datan på en gång.
+export const publisher = {
+  name: 'Kvittra Media',
+  url: 'https://www.kvittramedia.se',
+  // Samma @id som kvittramedia.se använder, så att Google ser att det är samma bolag bakom sajterna.
+  id: 'https://www.kvittramedia.se/#organisation',
+  orgNr: '',
+};
+
 export type CategorySlug =
   | 'foraldrar'
   | 'skonhet'
