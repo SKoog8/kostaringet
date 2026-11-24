@@ -12,7 +12,7 @@ requirements:
 shipping: 79
 published: 2026-10-09
 updated: 2026-11-04
-checked: 2026-11-19
+checked: 2026-11-24
 ---
 
 Goboken är en bokklubb för barn mellan 0 och 6 år. Som start får bebisen ett välkomstpaket. Just nu har paketet jultema och innehåller bland annat en julbok, sångkort och en haklapp med julmotiv. Innehållet byts ut under året.
