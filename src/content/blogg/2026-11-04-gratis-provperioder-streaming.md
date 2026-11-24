@@ -12,7 +12,7 @@ offers:
   - trippel-viaplay-storytel-podme-30-dagar
   - bokus-play-30-dagar-gratis
   - bookbeat-ljudbocker-30-dagar-gratis
-  - nextory-ljudbocker-14-dagar-gratis
+  - nextory-ljudbocker-30-dagar-gratis
   - aftonbladet-plus-student-5-manader-gratis
 ---
 
@@ -27,7 +27,7 @@ Vi har kontrollerat de här provperioderna hos tjänsterna själva:
 | [Trippel](/gratis/trippel-viaplay-storytel-podme-30-dagar/) (Viaplay, Storytel och Podme) | 30 dagar | Betalt abonnemang |
 | [Bokus Play](/gratis/bokus-play-30-dagar-gratis/) | 30 dagar, just nu 60 dagar Premium under Black Week | Från 79 kr/mån |
 | [BookBeat](/gratis/bookbeat-ljudbocker-30-dagar-gratis/) | 30 dagar, 20 timmar | Från 99 kr/mån |
-| [Nextory](/gratis/nextory-ljudbocker-14-dagar-gratis/) | 30 dagar, upp till 30 timmar | Från 89 kr/mån |
+| [Nextory](/gratis/nextory-ljudbocker-30-dagar-gratis/) | 30 dagar, upp till 30 timmar | Från 89 kr/mån |
 | [Aftonbladet Plus](/gratis/aftonbladet-plus-student-5-manader-gratis/) för studenter | 5 månader | 79 kr/mån |
 
 Nytt i dag är **Trippel**, där Viaplay, Storytel och Podme ingår i samma paket. Det är ett bra sätt att prova tre tjänster på en gång. Har du redan något av abonnemangen måste du säga upp det först.

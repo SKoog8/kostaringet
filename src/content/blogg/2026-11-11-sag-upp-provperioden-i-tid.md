@@ -13,7 +13,7 @@ offers:
   - trippel-viaplay-storytel-podme-30-dagar
   - bookbeat-ljudbocker-30-dagar-gratis
   - bokus-play-30-dagar-gratis
-  - nextory-ljudbocker-14-dagar-gratis
+  - nextory-ljudbocker-30-dagar-gratis
 ---
 
 En gratis provperiod är ett bra sätt att testa en tjänst. Men nästan alla fortsätter automatiskt som ett betalt abonnemang när provtiden är slut. Den som glömmer att säga upp får betala för en månad som den kanske inte ville ha. Så här undviker du det.
@@ -24,7 +24,7 @@ En gratis provperiod är ett bra sätt att testa en tjänst. Men nästan alla fo
 - **[Trippel](/gratis/trippel-viaplay-storytel-podme-30-dagar/), 30 dagar.** Viaplay, Storytel och Podme i ett paket.
 - **[BookBeat](/gratis/bookbeat-ljudbocker-30-dagar-gratis/), 30 dagar.** 20 timmar ljudböcker och e-böcker. Därefter från 99 kr i månaden.
 - **[Bokus Play](/gratis/bokus-play-30-dagar-gratis/), 30 dagar (just nu 60 dagar Premium under Black Week).** 30 timmar lyssning och läsning. Därefter från 79 kr i månaden.
-- **[Nextory](/gratis/nextory-ljudbocker-14-dagar-gratis/), 30 dagar.** 30 timmar läsning och lyssning. Därefter från 89 kr i månaden.
+- **[Nextory](/gratis/nextory-ljudbocker-30-dagar-gratis/), 30 dagar.** 30 timmar läsning och lyssning. Därefter från 89 kr i månaden.
 
 Alla gäller för nya kunder. Villkoren ändras ofta, så läs alltid på tjänstens egen sida innan du startar.
 

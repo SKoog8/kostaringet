@@ -10,12 +10,19 @@ import { offerTypes, site } from '../site.config';
 
 const offers = await getOffers();
 const active = offers.filter((o) => isActive(o));
-const newestOffers = [...active].sort((a, b) => latest(b).getTime() - latest(a).getTime()).slice(0, 7);
-const parents = active.filter((o) => o.data.category === 'foraldrar').slice(0, 3);
 
 const posts = await getPosts();
 const [lead, ...rest] = posts;
 const recent = rest.slice(0, 6);
+
+// Offers already featured in the posts shown on this page are left out of the sidebar,
+// so the same offer does not appear twice on the start page.
+const shownInPosts = new Set([lead, ...recent].filter(Boolean).flatMap((p) => p!.data.offers));
+const newestOffers = [...active]
+  .filter((o) => !shownInPosts.has(o.id))
+  .sort((a, b) => latest(b).getTime() - latest(a).getTime())
+  .slice(0, 7);
+const parents = active.filter((o) => o.data.category === 'foraldrar' && !shownInPosts.has(o.id)).slice(0, 3);
 const leadOffers = lead
   ? lead.data.offers.map((slug) => offers.find((o) => o.id === slug)).filter((o) => o !== undefined)
   : [];
@@ -147,7 +154,7 @@ const websiteLd = {
         <div class="wrap">
           <div class="band">
             <div class="band__text">
-              <p class="eyebrow">Egen flik</p>
+              <p class="eyebrow">Föräldrar</p>
               <h2>Väntar ni barn?</h2>
               <p>
                 Gravida och nyblivna föräldrar får fler gratispaket än någon annan. Vi har samlat babyboxar,

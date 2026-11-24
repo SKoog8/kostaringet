@@ -85,6 +85,8 @@ export default defineConfig({
         if (path.includes('/404')) return false;
         // Gratisbevakarens sidor läggs till i sitemapen när utskicken är igång (newsletter.enabled i site.config.ts).
         if (path.startsWith('/gratisbevakaren/')) return false;
+        // Ended offers are noindex (thin pages with nothing to claim), so they stay out of the sitemap.
+        if (offers.some((o) => !o.active && path === `/gratis/${o.id}/`)) return false;
         // Empty categories are noindex until they have active offers again.
         return !emptyCategories.some((c) => path === `/kategori/${c}/`);
       },

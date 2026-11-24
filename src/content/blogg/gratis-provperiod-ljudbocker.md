@@ -17,7 +17,7 @@ Nästan alla ljudbokstjänster i Sverige låter nya användare lyssna gratis en 
 | --- | --- | --- |
 | [BookBeat](/gratis/bookbeat-ljudbocker-30-dagar-gratis/) | 30 dagar | 20 timmar ingår, sedan från 99 kr/mån |
 | [Bokus Play](/gratis/bokus-play-30-dagar-gratis/) | 30 dagar, just nu 60 dagar Premium under Black Week | Sedan från 79 kr/mån |
-| [Nextory](/gratis/nextory-ljudbocker-14-dagar-gratis/) | 30 dagar | 30 timmar ingår, sedan från 89 kr/mån |
+| [Nextory](/gratis/nextory-ljudbocker-30-dagar-gratis/) | 30 dagar | 30 timmar ingår, sedan från 89 kr/mån |
 
 Villkoren ändras ofta. Kontrollera alltid hos tjänsten innan du startar.
 

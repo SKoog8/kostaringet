@@ -85,6 +85,7 @@ const ogImage = existsSync(`public/og/${offer.id}.png`) ? `/og/${offer.id}.png` 
 ---
 
 <Base
+  noindex={!active}
   title={data.seoTitle ?? data.title}
   image={ogImage}
   description={data.description}

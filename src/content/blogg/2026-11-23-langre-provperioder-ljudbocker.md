@@ -7,7 +7,7 @@ kind: dagens
 category: tjanster
 illustration: ljudbok
 offers:
-  - nextory-ljudbocker-14-dagar-gratis
+  - nextory-ljudbocker-30-dagar-gratis
   - bokus-play-30-dagar-gratis
 ---
 
@@ -15,7 +15,7 @@ Två ljudbokstjänster har gjort sina gratis provperioder längre. Det är bra n
 
 ## Nextory: 30 dagar i stället för 14
 
-[Nextory](/gratis/nextory-ljudbocker-14-dagar-gratis/) har förlängt sin gratis provperiod från 14 till 30 dagar. Under provperioden ingår 30 timmars läsning och lyssning, och det gäller alla abonnemang. Efter provperioden kostar Nextory från 89 kr i månaden.
+[Nextory](/gratis/nextory-ljudbocker-30-dagar-gratis/) har förlängt sin gratis provperiod från 14 till 30 dagar. Under provperioden ingår 30 timmars läsning och lyssning, och det gäller alla abonnemang. Efter provperioden kostar Nextory från 89 kr i månaden.
 
 ## Bokus Play: 60 dagar Premium under Black Week
 

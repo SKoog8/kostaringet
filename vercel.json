@@ -230,6 +230,16 @@
       "source": "/gratis-i-jul",
       "destination": "/jul/",
       "permanent": true
+    },
+    {
+      "source": "/gratis/nextory-ljudbocker-14-dagar-gratis/",
+      "destination": "/gratis/nextory-ljudbocker-30-dagar-gratis/",
+      "permanent": true
+    },
+    {
+      "source": "/gratis/nextory-ljudbocker-14-dagar-gratis",
+      "destination": "/gratis/nextory-ljudbocker-30-dagar-gratis/",
+      "permanent": true
     }
   ]
 }

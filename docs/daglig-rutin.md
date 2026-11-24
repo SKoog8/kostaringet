@@ -76,16 +76,31 @@ themes:                                  # bara om det passar en temasida, se st
   - fodelsedag
 ---
 
-En inledande mening om vad man får.
+Två–tre meningar om vad man får, vem det passar och om det är helt gratis.
+
+## Vad ingår
+
+- … (konkret innehåll som står på företagets sida, inga gissningar)
+
+## Vem kan beställa?
+
+…
 
 ## Så beställer du
 
 1. …
 
-## Bra att veta
+## Vad kostar det?
 
-- …
+… (frakt, tillägg man kan kryssa ur, vad som händer efter en provperiod)
+
+## Bra att tänka på
+
+- … (fällor, vad man säger ja till, tips från egen kontroll)
+- Länk till minst en närliggande guide eller ett liknande erbjudande på sajten.
 ```
+
+**Längd och värde (viktigt för Google och AdSense):** en erbjudandesida ska ha 300–450 ord egen text. Den ska ge läsaren mer än företagets egen sida: vad man faktiskt säger ja till (medlemskap, marknadsföring, uppgifter som delas), vad det kostar efter provperioden, hur det står sig mot liknande erbjudanden och vad man ska tänka på. Fyll aldrig ut med allmänt prat eller fakta du inte har läst på företagets sida. Finns det inte tillräckligt att säga är erbjudandet för tunt för en egen sida: nämn det i dagens inlägg i stället.
 
 **Tips:** innehåller en rubrik eller beskrivning ett kolon följt av mellanslag, sätt hela värdet inom citattecken. Annars går bygget sönder.
 
@@ -106,7 +121,7 @@ offers:
 ---
 ```
 
-Innehåll, 250–500 ord:
+Innehåll, 400–700 ord:
 
 - En kort inledning om vad som är nytt i dag.
 - Ett stycke per erbjudande (`##`-rubrik per erbjudande) med vad man får, vad det kostar och vad man ska tänka på. Länka till erbjudandets sida på sajten, `/gratis/<slug>/`.
@@ -141,6 +156,14 @@ Temasidor samlar erbjudanden kring något folk söker på, till exempel `/gratis
 - Google visar ungefär 60 tecken av en titel. Blir `title` längre än 55 tecken: lägg till `seoTitle` med en kortare variant (högst 55 tecken) i både erbjudanden och inlägg.
 - Inlägg får automatiskt kategorins illustration. Passar en annan bättre i en guide, sätt `illustration:` till en av `kalender`, `vinter`, `bok` eller `jul` (alla finns i `src/illustrations/`). Använd aldrig företagens logotyper eller produktbilder.
 - Erbjudanden får illustration automatiskt: provperioder ett timglas, startpaket en babybox (husdjur: valp), övriga kategorins bild. Passar ett annat motiv bättre, sätt `illustration:` till exempel `ljudbok`, `tidning`, `nalle`, `vaska`, `nappflaska`, `katt` eller `bok`.
+
+## 5c. Bygg ut tunna erbjudandesidor (bara lunchkörningen)
+
+Många äldre erbjudandesidor har under 200 ord. Ta de tre aktiva erbjudanden som har kortast text (räkna orden under front matter), kontrollera dem på företagets sida och skriv om dem efter mallen i steg 4. Sätt `updated` och `checked` till dagens datum. Hittar du att något är fel (pris, villkor, innehåll), rätta det. Fortsätt tills inget aktivt erbjudande har under 300 ord.
+
+## 5d. Guider ska vara långa
+
+Guider (`kind: guide`) ska ha minst 1 000 ord egen text, gärna med en jämförelsetabell, vanliga frågor och länkar till erbjudandena. Kvällskörningen som skriver en guide väljer hellre att bygga ut en befintlig guide under 800 ord än att skriva en ny kort.
 
 ## 6. Städa bland gamla erbjudanden (bara morgonkörningen)
 
