@@ -59,6 +59,7 @@ const birthday = read('./src/content/erbjudanden').filter(({ src }) => /^themes:
 lastmod.set('/gratis-pa-fodelsedagen/', newest(pageDate('src/pages/gratis-pa-fodelsedagen.astro'), ...birthday.map(({ src }) => newest(field(src, 'published'), field(src, 'updated'), field(src, 'checked')))));
 for (const [path, file] of [
   ['/jul/', 'src/pages/jul.astro'],
+  ['/betalda-undersokningar/', 'src/pages/betalda-undersokningar.astro'],
   ['/om/', 'src/pages/om.astro'],
   ['/kontakt/', 'src/pages/kontakt.astro'],
   ['/tipsa/', 'src/pages/tipsa.astro'],

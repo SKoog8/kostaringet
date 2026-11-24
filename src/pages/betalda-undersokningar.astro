@@ -1,0 +1,203 @@
+---
+// Betalda undersökningar: undersökningspaneler där man får poäng eller pengar för att svara på enkäter.
+// Fakta om varje panel kontrolleras på panelens egen sida, som allt annat på sajten.
+// Annonslänkar (t.ex. YouGov via Daisycon) läggs in av Martin och märks "Annonslänk".
+import Base from '../layouts/Base.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import Illustration from '../components/Illustration.astro';
+
+const year = new Date().getFullYear();
+const checked = '24 november 2026';
+
+type Panel = { name: string; by: string; url: string; text: string };
+const panels: Panel[] = [
+  {
+    name: 'YouGov',
+    by: 'YouGov, internationellt opinionsinstitut',
+    url: 'https://account.yougov.com/se-sv/join/main',
+    text: 'YouGov gör opinionsundersökningar och marknadsundersökningar och har en egen svensk panel. Du registrerar dig på YouGovs svenska sida.',
+  },
+  {
+    name: 'M3 Panel',
+    by: 'Bilendi',
+    url: 'https://www.m3panel.se/',
+    text: 'Du samlar poäng genom att svara på enkäter. Poängen byter du mot belöningar när du nått gränsen för uttag.',
+  },
+  {
+    name: 'Toluna',
+    by: 'Toluna, internationell undersökningspanel',
+    url: 'https://www.toluna.com/sv-SE/web/guest/home',
+    text: 'En stor internationell panel med svensk webbplats och app. Du registrerar dig på Tolunas svenska sida.',
+  },
+];
+
+const faq = [
+  {
+    q: 'Hur mycket kan man tjäna på betalda undersökningar?',
+    a: 'Räkna med en liten extrainkomst, inte en lön. En enkät ger oftast några kronor eller poäng i taget, och det tar tid att komma upp till gränsen för utbetalning. Hur mycket det blir beror på hur ofta du passar in i de grupper som efterfrågas.',
+  },
+  {
+    q: 'Är betalda undersökningar seriöst?',
+    a: 'De stora panelerna drivs av etablerade undersökningsföretag och är seriösa. Men det finns också bluffar. Betala aldrig för att gå med, och lämna inga kortuppgifter. En riktig panel är gratis att gå med i.',
+  },
+  {
+    q: 'Behöver man skatta för pengar från undersökningar?',
+    a: 'Ersättning för enkäter kan vara skattepliktig inkomst. Kontrollera vad som gäller för dig hos Skatteverket, särskilt om beloppen blir större.',
+  },
+  {
+    q: 'Varför får jag ofta avslag i början av en enkät?',
+    a: 'Företagen söker svar från vissa grupper, till exempel en viss ålder eller personer som använder en viss produkt. Passar du inte in avbryts enkäten efter några frågor. Det är vanligt och inget fel på ditt konto.',
+  },
+];
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faq.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+};
+---
+
+<Base
+  title={`Betalda undersökningar ${year} – tjäna pengar på enkäter`}
+  description={`Betalda undersökningar i Sverige ${year}: så fungerar undersökningspaneler, vad du kan tjäna, hur du får betalt och vilka paneler som är seriösa.`}
+  jsonLd={faqLd}
+>
+  <div class="wrap head">
+    <div class="head__text">
+      <Breadcrumbs items={[{ label: 'Betalda undersökningar', href: '/betalda-undersokningar/' }]} />
+      <p class="eyebrow">Tjäna extra</p>
+      <h1>Betalda undersökningar.</h1>
+      <p class="lead">
+        I undersökningspaneler får du poäng eller pengar för att svara på enkäter. Det blir ingen lön, men det är gratis att gå
+        med och kan ge en liten extrainkomst eller några presentkort om året. Senast kontrollerat {checked}.
+      </p>
+    </div>
+    <Illustration name="kalender" size="clamp(110px, 18vw, 170px)" />
+  </div>
+
+  <div class="wrap body prose">
+    <h2>Paneler som är gratis att gå med i</h2>
+    <p>
+      Alla paneler här är gratis att gå med i och drivs av etablerade undersökningsföretag. Vi kontrollerar uppgifterna på
+      panelens egen sida och fyller på listan med fler paneler och mer detaljer om ersättning och utbetalning.
+    </p>
+    <div class="panels">
+      {
+        panels.map((p) => (
+          <article class="panel">
+            <h3>{p.name}</h3>
+            <p class="panel__by">{p.by}</p>
+            <p>{p.text}</p>
+            <a class="btn panel__btn" href={p.url} rel="noopener" target="_blank">
+              Gå till {p.name} <span aria-hidden="true">↗</span>
+            </a>
+          </article>
+        ))
+      }
+    </div>
+
+    <h2>Så fungerar betalda undersökningar</h2>
+    <ol>
+      <li><strong>Gå med i en panel.</strong> Du fyller i en profil med till exempel ålder, ort och hushåll. Ju mer du fyller i, desto fler enkäter passar dig.</li>
+      <li><strong>Få inbjudningar.</strong> Panelen mejlar dig eller visar enkäter i sin app när du passar in i målgruppen.</li>
+      <li><strong>Svara och samla.</strong> Varje genomförd enkät ger poäng eller pengar. Långa enkäter ger mer än korta.</li>
+      <li><strong>Ta ut.</strong> När du når panelens gräns för utbetalning byter du poängen mot pengar eller presentkort.</li>
+    </ol>
+
+    <h2>Så får du ut mest</h2>
+    <ul>
+      <li><strong>Gå med i flera paneler.</strong> Ingen panel har enkäter till dig varje dag. Med två eller tre kommer det oftare inbjudningar.</li>
+      <li><strong>Fyll i profilen ordentligt.</strong> Det minskar avslagen i början av enkäterna.</li>
+      <li><strong>Svara ärligt.</strong> Panelerna kontrollerar svaren, och den som svarar slarvigt kan bli avstängd.</li>
+      <li><strong>Använd en separat e-postadress.</strong> Inbjudningarna blir många. Läs mer om att <a href="/guide/skydda-dina-uppgifter/">skydda dina uppgifter</a>.</li>
+    </ul>
+
+    <h2>Undvik bluffar</h2>
+    <p>
+      En riktig undersökningspanel kostar ingenting att gå med i och kräver aldrig kortuppgifter. Var misstänksam mot sajter som
+      lovar hundratals kronor per enkät, eller som vill att du betalar en avgift för att få tillgång till "de bästa enkäterna".
+      Läs mer om <a href="/guide/gratis-eller-rabatt/">hur du ser om något är gratis på riktigt</a>.
+    </p>
+
+    <h2>Vanliga frågor</h2>
+    <dl>
+      {
+        faq.map((f) => (
+          <div>
+            <dt>{f.q}</dt>
+            <dd>{f.a}</dd>
+          </div>
+        ))
+      }
+    </dl>
+    <p class="small">
+      Vissa länkar på sidan kan bli annonslänkar. Då står det tydligt, och det påverkar aldrig vilka paneler vi tar med.
+    </p>
+  </div>
+</Base>
+
+<style>
+  .head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px 48px;
+    padding-block: clamp(32px, 6vw, 72px) 32px;
+  }
+  .head__text {
+    display: grid;
+    gap: 18px;
+    max-width: 46rem;
+  }
+  @media (max-width: 640px) {
+    .head {
+      flex-direction: column-reverse;
+      align-items: flex-start;
+    }
+  }
+  .body {
+    max-width: 46rem;
+    padding-bottom: 24px;
+  }
+  .panels {
+    display: grid;
+    gap: 14px;
+    margin-block: 8px 24px;
+  }
+  .panel {
+    padding: 18px 20px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--surface);
+  }
+  .panel h3 {
+    margin: 0;
+  }
+  .panel__by {
+    margin: 2px 0 8px;
+    color: var(--muted);
+    font-size: 0.9rem;
+  }
+  .panel__btn {
+    margin-top: 6px;
+  }
+  dl {
+    margin: 0;
+    border-top: 1px solid var(--line);
+  }
+  dl > div {
+    padding-block: 16px;
+    border-bottom: 1px solid var(--line);
+  }
+  dt {
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+  dd {
+    margin: 0;
+    color: var(--ink-2);
+  }
+  .small {
+    color: var(--muted);
+    font-size: 0.92rem;
+  }
+</style>
