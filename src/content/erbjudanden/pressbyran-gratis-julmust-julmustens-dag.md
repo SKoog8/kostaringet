@@ -12,6 +12,8 @@ requirements:
 published: 2026-11-22
 checked: 2026-11-22
 expires: 2026-11-24
+status: avslutad
+updated: 2026-11-25
 ---
 
 Tisdag den 24 november är det julmustens dag. Då delar Pressbyrån ut 10 000 gratis julmust i sin app Pressbyrån Kompis. Pressbyrån har själva berättat om kampanjen på sina konton i sociala medier.
