@@ -4,12 +4,11 @@ urlSlug: gratis-skonhetsprover
 seoTitle: "Gratis skönhetsprover: parfym, hudvård och hygien"
 description: "Så får du gratis doftprover och skönhetsprover utan att köpa något, vilka prover som skickas hem just nu och vilka erbjudanden som bara är prov på köpet."
 published: 2026-11-21
-updated: 2026-11-22
+updated: 2026-11-24
 kind: guide
 category: skonhet
 offers:
   - garnier-gratis-varuprover-vitamin-c
-  - lancome-gratis-doftprov-la-vie-est-belle-elixir
   - always-gratis-paket-dagbindor
 ---
 
@@ -19,7 +18,7 @@ Parfym och hudvård är dyrt att köpa på chans. Ett prov räcker ofta för att
 
 **Ansiktskräm från Garnier.** Garnier skickar [fem gratis varuprover på Vitamin C Sorbet Cream](/gratis/garnier-gratis-varuprover-vitamin-c/) hem i brevlådan, så länge lagret räcker.
 
-**Doftprov från Lancôme.** Lancôme skickar ett [gratis doftprov på La vie est belle L'Elixir](/gratis/lancome-gratis-doftprov-la-vie-est-belle-elixir/). Du beställer det längst ner på Lancômes sida om doften.
+**Doftprov från Lancôme (slut).** Lancômes gratis doftprov på La vie est belle L'Elixir gick inte längre att beställa den 24 november 2026.
 
 **Hygien i matbutiken.** Med en sms-kupong får du ett [gratis paket Always-dagbindor](/gratis/always-gratis-paket-dagbindor/) i matbutiken. Kupongen täcker hela priset, och kampanjen pågår till och med den 30 november.
 

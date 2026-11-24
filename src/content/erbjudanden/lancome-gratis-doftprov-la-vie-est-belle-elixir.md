@@ -8,7 +8,11 @@ type: gratisprov
 url: https://www.lancome.se/inspiration/la-vie-est-belle-l-elixir
 published: 2026-10-09
 checked: 2026-11-24
+updated: 2026-11-24
+status: avslutad
 ---
+
+**Erbjudandet är slut.** Den 24 november 2026 ledde Lancômes knapp "Beställ doftprov" inte längre till något beställningsformulär, utan till en allmän sida med artiklar. Doftprovet går alltså inte att beställa längre.
 
 Lancôme har lanserat La vie est belle L'Elixir, en ny Eau de Parfum i La vie est belle-familjen. Doften öppnar med hallonlikör och bergamott, har viol och ros i hjärtat och slutar i kakaosmör, läder och ceder. Du kan beställa ett gratis doftprov innan du bestämmer dig för en hel flaska.
 
