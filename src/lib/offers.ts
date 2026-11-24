@@ -6,7 +6,8 @@ export type Offer = CollectionEntry<'erbjudanden'>;
 /** An offer is active unless it is marked as ended or its end date has passed. */
 export function isActive(offer: Offer, now = new Date()): boolean {
   if (offer.data.status === 'avslutad') return false;
-  if (offer.data.expires && offer.data.expires < now) return false;
+  // expires is the last valid day, so the offer runs until that day has ended.
+  if (offer.data.expires && offer.data.expires.getTime() + 864e5 <= now.getTime()) return false;
   return true;
 }
 

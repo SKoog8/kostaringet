@@ -60,6 +60,8 @@ export default defineConfig({
       filter: (page) => {
         const path = new URL(page).pathname;
         if (path.includes('/404')) return false;
+        // Gratisbevakarens bekräftelsesidor ska aldrig indexeras. Själva sidan läggs till när utskicken är igång (newsletter.enabled).
+        if (path.startsWith('/gratisbevakaren/')) return false;
         // Empty categories are noindex until they have active offers again.
         return !emptyCategories.some((c) => path === `/kategori/${c}/`);
       },

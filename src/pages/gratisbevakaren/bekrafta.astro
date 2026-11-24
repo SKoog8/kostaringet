@@ -1,0 +1,26 @@
+---
+// Sidan som bekräftelselänken i mejlet leder till. Knappen skickar koden till /api/confirm/.
+import TextPage from '../../layouts/TextPage.astro';
+---
+
+<TextPage title="Bekräfta Gratisbevakaren" path="/gratisbevakaren/bekrafta/" description="Bekräfta din anmälan till Gratisbevakaren." noindex>
+  <p>Ett klick till, så startar bevakningen. Du får ett mejl i veckan med nya saker du kan få gratis.</p>
+  <form method="post" action="/api/confirm/" data-confirm>
+    <input type="hidden" name="t" value="" />
+    <button class="btn" type="submit">Ja, starta Gratisbevakaren</button>
+  </form>
+  <p class="small">Har du inte anmält dig kan du stänga sidan. Då händer ingenting.</p>
+  <script>
+    const t = new URL(location.href).searchParams.get('t') ?? '';
+    const input = document.querySelector<HTMLInputElement>('[data-confirm] input[name="t"]');
+    if (input) input.value = t;
+    if (!t) location.replace('/gratisbevakaren/');
+  </script>
+</TextPage>
+
+<style>
+  .small {
+    color: var(--muted);
+    font-size: 0.95rem;
+  }
+</style>

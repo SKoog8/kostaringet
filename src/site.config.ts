@@ -117,6 +117,12 @@ export const offerTypes = {
 } as const;
 export type OfferType = keyof typeof offerTypes;
 
+/**
+ * Gratisbevakaren (veckobrevet). Sätt enabled till true när Resend är klart: verifierad domän,
+ * RESEND_AUDIENCE_ID och NEWSLETTER_FROM i Vercel (se docs/gratisbevakaren.md). Tills dess visas inga anmälningsrutor.
+ */
+export const newsletter = { enabled: false };
+
 /** Links to our own social media accounts (Facebook, Instagram …). Shown in structured data as sameAs. */
 export const socialLinks: string[] = [];
 

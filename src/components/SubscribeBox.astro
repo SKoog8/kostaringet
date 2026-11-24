@@ -1,0 +1,143 @@
+---
+// Anmälan till Gratisbevakaren (veckobrevet). Skickar till /api/subscribe/, som mejlar en bekräftelselänk.
+import { newsletter } from '../site.config';
+
+interface Props {
+  /** "box" = färgad ruta med rubrik, "inline" = bara fältet (på /gratisbevakaren/). */
+  variant?: 'box' | 'inline';
+  heading?: string;
+}
+const { variant = 'box', heading = 'Få nya gratissaker i mejlen' } = Astro.props;
+const id = `gb-${Math.random().toString(36).slice(2, 8)}`;
+---
+
+{newsletter.enabled && (<section class:list={['gb', `gb--${variant}`]} aria-labelledby={variant === 'box' ? `${id}-h` : undefined}>
+  {
+    variant === 'box' && (
+      <div class="gb__text">
+        <p class="gb__eyebrow">Gratisbevakaren</p>
+        <h2 id={`${id}-h`} class="gb__h">{heading}</h2>
+        <p class="gb__p">
+          Ett mejl i veckan med de nya gratisproverna, startpaketen och provperioderna, kontrollerade hos företagen. Gratis
+          och utan reklam, och du avslutar med ett klick.
+        </p>
+      </div>
+    )
+  }
+  <form class="gb__form" data-subscribe novalidate>
+    <label for={`${id}-email`} class="visually-hidden">Din e-postadress</label>
+    <input id={`${id}-email`} name="email" type="email" required autocomplete="email" placeholder="Din e-postadress" />
+    <div class="hp" aria-hidden="true">
+      <label for={`${id}-website`}>Lämna tomt</label>
+      <input id={`${id}-website`} name="website" type="text" tabindex="-1" autocomplete="off" />
+    </div>
+    <button class="btn" type="submit">Starta bevakningen</button>
+    <p class="gb__status" role="status" aria-live="polite"></p>
+    <p class="gb__small">
+      Vi skickar ett mejl där du bekräftar. Vi använder adressen bara till Gratisbevakaren och delar den aldrig med andra. Se <a href="/integritetspolicy/">integritetspolicyn</a>.
+    </p>
+  </form>
+</section>)}
+
+<script>
+  document.querySelectorAll<HTMLFormElement>('[data-subscribe]').forEach((form) => {
+    const status = form.querySelector<HTMLElement>('.gb__status')!;
+    const button = form.querySelector<HTMLButtonElement>('button')!;
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      status.className = 'gb__status';
+      if (!form.checkValidity()) {
+        status.textContent = 'Ange en giltig e-postadress.';
+        status.classList.add('is-error');
+        return;
+      }
+      button.disabled = true;
+      try {
+        const res = await fetch('/api/subscribe/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(Object.fromEntries(new FormData(form))),
+        });
+        const data = await res.json().catch(() => ({}));
+        if (!res.ok) throw new Error(data.error || 'Något gick fel. Försök igen.');
+        form.reset();
+        status.textContent = 'Nästan klart! Vi har skickat ett mejl. Klicka på länken i det för att starta bevakningen.';
+        status.classList.add('is-ok');
+      } catch (err) {
+        status.textContent = err instanceof Error ? err.message : 'Något gick fel. Försök igen.';
+        status.classList.add('is-error');
+      } finally {
+        button.disabled = false;
+      }
+    });
+  });
+</script>
+
+<style>
+  .gb--box {
+    display: grid;
+    gap: 18px;
+    padding: clamp(20px, 3vw, 32px);
+    border-radius: var(--radius);
+    background: var(--accent-soft);
+  }
+  .gb__eyebrow {
+    margin: 0;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+  .gb__h {
+    margin: 6px 0 8px;
+    font-size: clamp(1.4rem, 2.6vw, 1.8rem);
+  }
+  .gb__p {
+    margin: 0;
+    color: var(--ink-2);
+    max-width: 38rem;
+  }
+  .gb__form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+  }
+  .gb__form input[type='email'] {
+    flex: 1 1 240px;
+    min-width: 0;
+    font: inherit;
+    padding: 13px 18px;
+    border: 1px solid var(--line-strong);
+    border-radius: 999px;
+    background: var(--surface);
+    color: var(--ink);
+  }
+  .gb__form input[type='email']:focus {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+  .gb__status,
+  .gb__small {
+    flex-basis: 100%;
+    margin: 0;
+    font-size: 0.88rem;
+    color: var(--muted);
+  }
+  .gb__status:empty {
+    display: none;
+  }
+  .gb__status.is-ok {
+    color: var(--accent);
+    font-weight: 600;
+  }
+  .gb__status.is-error {
+    color: #c0392b;
+    font-weight: 600;
+  }
+  .hp {
+    position: absolute;
+    left: -9999px;
+  }
+</style>

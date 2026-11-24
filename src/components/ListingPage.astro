@@ -5,6 +5,7 @@ import Breadcrumbs from './Breadcrumbs.astro';
 import CategoryList from './CategoryList.astro';
 import OfferGrid from './OfferGrid.astro';
 import Illustration from './Illustration.astro';
+import SubscribeBox from './SubscribeBox.astro';
 import { isActive, type Offer } from '../lib/offers';
 import type { CategorySlug } from '../site.config';
 
@@ -58,6 +59,10 @@ const ended = offers.filter((o) => !isActive(o));
       <CategoryList current={category} />
     </div>
     <OfferGrid offers={active} itemList />
+
+    <div class="subscribe">
+      <SubscribeBox />
+    </div>
 
     <slot />
 
@@ -142,6 +147,9 @@ const ended = offers.filter((o) => !isActive(o));
     min-height: 1.2em;
     font-size: 0.92rem;
     color: var(--muted);
+  }
+  .subscribe {
+    margin-top: 48px;
   }
   .page-head {
     display: flex;

@@ -221,5 +221,11 @@
       "destination": "/gratisprover/",
       "permanent": true
     }
+  ],
+  "crons": [
+    {
+      "path": "/api/weekly/",
+      "schedule": "7 7 * * 4"
+    }
   ]
 }

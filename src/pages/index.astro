@@ -3,6 +3,7 @@ import Base from '../layouts/Base.astro';
 import OfferGrid from '../components/OfferGrid.astro';
 import CategoryList from '../components/CategoryList.astro';
 import Illustration from '../components/Illustration.astro';
+import SubscribeBox from '../components/SubscribeBox.astro';
 import { getOffers, isActive, offerPath, formatDate, formatShort, latest } from '../lib/offers';
 import { getPosts, kindLabel, postIllustration, postPath } from '../lib/posts';
 import { offerTypes, site } from '../site.config';
@@ -123,6 +124,12 @@ const websiteLd = {
       </aside>
     </div>
   </div>
+
+  <section class="section">
+    <div class="wrap">
+      <SubscribeBox />
+    </div>
+  </section>
 
   <section class="section">
     <div class="wrap">

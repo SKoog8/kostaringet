@@ -5,6 +5,7 @@ import Base from '../../layouts/Base.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import OfferGrid from '../../components/OfferGrid.astro';
 import AdSlot from '../../components/AdSlot.astro';
+import SubscribeBox from '../../components/SubscribeBox.astro';
 import { getOffers, isActive, formatDate, latest, offerPath, outbound, type Offer } from '../../lib/offers';
 import { categoryBySlug, offerTypes, site } from '../../site.config';
 
@@ -159,6 +160,8 @@ const ogImage = existsSync(`public/og/${offer.id}.png`) ? `/og/${offer.id}.png` 
         </div>
 
         <AdSlot slot="article" />
+
+        <SubscribeBox heading="Missa inga nya gratissaker" />
 
         <p class="byline">
           Publicerad <time datetime={data.published.toISOString()}>{formatDate(data.published)}</time>

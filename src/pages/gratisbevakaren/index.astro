@@ -1,0 +1,108 @@
+---
+import Base from '../../layouts/Base.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import SubscribeBox from '../../components/SubscribeBox.astro';
+import Illustration from '../../components/Illustration.astro';
+import { getOffers, isActive } from '../../lib/offers';
+import { newsletter } from '../../site.config';
+
+const active = (await getOffers()).filter((o) => isActive(o)).length;
+const faq = [
+  { q: 'Vad kostar Gratisbevakaren?', a: 'Ingenting. Den är gratis, och du avslutar när du vill med en länk längst ner i varje mejl.' },
+  { q: 'Hur ofta får jag mejl?', a: 'Ett mejl i veckan. Ibland, när något stort och tidsbegränsat dyker upp, kan det komma ett extra tips.' },
+  { q: 'Vad händer med min e-postadress?', a: 'Vi använder den bara för att skicka Gratisbevakaren. Vi säljer den aldrig och delar den inte med de företag vi skriver om.' },
+  { q: 'Varför måste jag bekräfta?', a: 'Så att ingen kan anmäla någon annans adress. Du får ett mejl med en länk, och först när du klickar på den börjar bevakningen.' },
+];
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faq.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+};
+---
+
+<Base
+  title="Gratisbevakaren – nya gratissaker i mejlen varje vecka"
+  description="Gratisbevakaren är ett gratis veckomejl med nya gratisprover, startpaket och provperioder i Sverige, kontrollerade hos företagen. Avsluta när du vill."
+  jsonLd={faqLd}
+  noindex={!newsletter.enabled}
+>
+  <div class="wrap head">
+    <div class="head__text">
+      <Breadcrumbs items={[{ label: 'Gratisbevakaren', href: '/gratisbevakaren/' }]} />
+      <p class="eyebrow">Veckomejl</p>
+      <h1>Gratisbevakaren.</h1>
+      <p class="lead">
+        Gratisprover och kampanjer tar ofta slut på några dagar. Med Gratisbevakaren får du de nya erbjudandena i mejlen
+        varje vecka, så att du hinner beställa. Just nu har vi {active} aktiva erbjudanden.
+      </p>
+      {newsletter.enabled ? <SubscribeBox variant="inline" /> : <p class="soon"><strong>Gratisbevakaren startar snart.</strong> Under tiden hittar du allt som är gratis just nu bland <a href="/gratis/">alla erbjudanden</a>.</p>}
+    </div>
+    <Illustration name="hero" size="clamp(180px, 26vw, 300px)" />
+  </div>
+
+  <div class="wrap body prose">
+    <h2>Det här får du</h2>
+    <ul>
+      <li><strong>Veckans nya gratissaker.</strong> Gratisprover, startpaket, provperioder och medlemsgåvor som har kommit under veckan.</li>
+      <li><strong>Det som snart tar slut.</strong> Erbjudanden med slutdatum, så att du inte missar dem.</li>
+      <li><strong>Ett tips i veckan.</strong> Till exempel hur du säger upp en provperiod i tid, eller vad som är gratis inför julen.</li>
+    </ul>
+    <p>
+      Allt är kontrollerat på företagets egen sida innan det hamnar i mejlet, precis som på sajten. Rabatter, tävlingar och
+      sådant som kräver köp tar vi inte med.
+    </p>
+
+    <h2>Vanliga frågor</h2>
+    <dl>
+      {
+        faq.map((f) => (
+          <div>
+            <dt>{f.q}</dt>
+            <dd>{f.a}</dd>
+          </div>
+        ))
+      }
+    </dl>
+  </div>
+</Base>
+
+<style>
+  .head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px 48px;
+    padding-block: clamp(32px, 6vw, 72px) 32px;
+  }
+  .head__text {
+    display: grid;
+    gap: 18px;
+    max-width: 44rem;
+  }
+  @media (max-width: 640px) {
+    .head {
+      flex-direction: column-reverse;
+      align-items: flex-start;
+    }
+  }
+  .body {
+    max-width: 46rem;
+    padding-bottom: 24px;
+  }
+  dl {
+    margin: 0;
+    border-top: 1px solid var(--line);
+  }
+  dl > div {
+    padding-block: 16px;
+    border-bottom: 1px solid var(--line);
+  }
+  dt {
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+  dd {
+    margin: 0;
+    color: var(--ink-2);
+  }
+</style>

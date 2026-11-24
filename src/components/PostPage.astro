@@ -7,6 +7,7 @@ import AdSlot from '../components/AdSlot.astro';
 import ProductBox from '../components/ProductBox.astro';
 import OfferGrid from '../components/OfferGrid.astro';
 import Illustration from '../components/Illustration.astro';
+import SubscribeBox from '../components/SubscribeBox.astro';
 import { formatDate, getOffers, isActive } from '../lib/offers';
 import { getPosts, kindLabel, postIllustration, postPath } from '../lib/posts';
 import { categoryBySlug, site } from '../site.config';
@@ -77,6 +78,7 @@ const ogImage = existsSync(`public/og/${post.id}.png`) ? `/og/${post.id}.png` : 
     </div>
     {data.product && <ProductBox slug={data.product} />}
     <AdSlot slot="article" />
+    <SubscribeBox />
   </article>
 
   {
