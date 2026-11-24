@@ -28,4 +28,27 @@ const empty = !offers.some((o) => isActive(o));
     { label: 'Alla erbjudanden', href: '/gratis/' },
     { label: category.name, href: category.path },
   ]}
-/>
+>
+  {
+    category.slug === 'mat-dryck' && (
+      <p class="season">
+        Säsong: julmust, julkalendrar och annat som är gratis inför julen finns på sidan
+        <a href="/jul/">gratis i jul {new Date().getFullYear()}</a>.
+      </p>
+    )
+  }
+</ListingPage>
+
+<style>
+  .season {
+    margin-top: 32px;
+    padding: 16px 20px;
+    border-radius: var(--radius);
+    background: var(--accent-soft);
+    max-width: 46rem;
+  }
+  .season a {
+    font-weight: 700;
+    color: var(--accent);
+  }
+</style>

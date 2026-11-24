@@ -220,6 +220,16 @@
       "source": "/guide/sa-far-du-gratisprover",
       "destination": "/gratisprover/",
       "permanent": true
+    },
+    {
+      "source": "/gratis-i-jul/",
+      "destination": "/jul/",
+      "permanent": true
+    },
+    {
+      "source": "/gratis-i-jul",
+      "destination": "/jul/",
+      "permanent": true
     }
   ],
   "crons": [

@@ -154,6 +154,7 @@ Temasidor samlar erbjudanden kring något folk söker på, till exempel `/gratis
 
 - Det räcker inte att sidan finns eller att sidans beskrivning säger "gratis prov". Själva beställningen måste finnas kvar: ett formulär, en knapp, en kupong eller en tydlig instruktion om hur man får erbjudandet. Läs sidans text, inte bara rubriken eller beskrivningen.
 - Finns beställningen kvar: sätt `checked` till dagens datum. Har villkor eller innehåll ändrats: uppdatera texten och sätt `updated`.
+- Har ett erbjudandes `expires` passerat: sätt `status: avslutad` och `updated` till dagens datum. Sajten räknar det redan som slut, men ändringen ger en ny publicering så att sidan visar att det är slut även om inget annat ändrats den dagen.
 - Har sidan flyttat men erbjudandet finns kvar: byt `url` till den nya adressen.
 - Är beställningen borta, eller står det att erbjudandet är slut: sätt `status: avslutad` och `updated` till dagens datum. Ta bort erbjudandet ur guider och temasidor som länkar till det, och skriv en kort notis i guiden om att det är slut. Radera aldrig filen.
 - Går det inte att avgöra (sidan laddar inte, eller beställningen syns bara efter inloggning): skriv det i sammanfattningen och kontrollera igen nästa morgon. Två morgnar i rad utan bekräftelse: markera som avslutat.

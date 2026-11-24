@@ -1,7 +1,8 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
-import { readdirSync, readFileSync } from 'node:fs';
+import { readdirSync, readFileSync, statSync, existsSync } from 'node:fs';
+import { execFileSync } from 'node:child_process';
 
 // Read front matter from the content folders so the sitemap can leave out empty
 // categories and give every URL a <lastmod>.
@@ -46,6 +47,27 @@ lastmod.set('/guide/', newest(...posts.filter((p) => p.guide).map((p) => p.lastm
 lastmod.set('/nyblivna-foraldrar/', newest(...offers.filter((o) => o.category === 'foraldrar').map((o) => o.lastmod)));
 const categorySlugs = [...new Set(offers.map((o) => o.category))];
 for (const c of categorySlugs) lastmod.set(`/kategori/${c}/`, newest(...offers.filter((o) => o.category === c).map((o) => o.lastmod)));
+// Fixed pages (Om, Kontakt, Jul …): last commit that touched the page file, or its file date as a fallback.
+const pageDate = (file) => {
+  try {
+    const d = execFileSync('git', ['log', '-1', '--format=%cI', '--', file], { encoding: 'utf8' }).trim();
+    if (d) return new Date(d);
+  } catch {}
+  return existsSync(file) ? statSync(file).mtime : undefined;
+};
+const birthday = read('./src/content/erbjudanden').filter(({ src }) => /^themes:[\s\S]*?- fodelsedag/m.test(src));
+lastmod.set('/gratis-pa-fodelsedagen/', newest(pageDate('src/pages/gratis-pa-fodelsedagen.astro'), ...birthday.map(({ src }) => newest(field(src, 'published'), field(src, 'updated'), field(src, 'checked')))));
+for (const [path, file] of [
+  ['/jul/', 'src/pages/jul.astro'],
+  ['/om/', 'src/pages/om.astro'],
+  ['/kontakt/', 'src/pages/kontakt.astro'],
+  ['/tipsa/', 'src/pages/tipsa.astro'],
+  ['/integritetspolicy/', 'src/pages/integritetspolicy.astro'],
+  ['/sa-kontrollerar-vi/', 'src/pages/sa-kontrollerar-vi.astro'],
+  ['/pottraning-gratis-checklista/', 'src/pages/pottraning-gratis-checklista.astro'],
+  ['/gratisbevakaren/', 'src/pages/gratisbevakaren/index.astro'],
+]) if (!lastmod.has(path)) lastmod.set(path, pageDate(file));
+
 const emptyCategories = ['skonhet', 'mat-dryck', 'halsa', 'hem', 'djur', 'tjanster', 'ovrigt'].filter(
   (c) => !offers.some((o) => o.category === c && o.active),
 );

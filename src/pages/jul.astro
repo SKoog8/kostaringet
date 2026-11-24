@@ -10,6 +10,8 @@ const year = 2026;
 const checked = '12 november 2026';
 
 const slugs = [
+  'pressbyran-gratis-julmust-julmustens-dag',
+  'srf-valpkalendern-gratis',
   'goboken-valkomstpaket-bebis',
   'fritidsbanken-lana-sportutrustning-gratis',
   'amazon-prime-30-dagar-gratis',
@@ -17,6 +19,8 @@ const slugs = [
   'bokus-play-30-dagar-gratis',
 ];
 const all = await getOffers();
+const julmust = all.find((o) => o.id === 'pressbyran-gratis-julmust-julmustens-dag');
+const julmustActive = Boolean(julmust && isActive(julmust));
 const offers = slugs
   .map((s) => all.find((o) => o.id === s))
   .filter((o): o is NonNullable<typeof o> => Boolean(o) && isActive(o!));
@@ -43,15 +47,15 @@ const faqLd = {
 ---
 
 <Base
-  title={`Gratis till jul ${year} – julkalendrar och julpaket`}
-  description={`Det här kan du få gratis till jul ${year}: julkalendern på SVT och Sveriges Radio, svar från tomten, julpaket till bebisen och julfilmer med provperiod.`}
+  title={`Gratis i jul ${year} – julmust, julkalendrar och prover`}
+  description={`Det här kan du få gratis i jul ${year}: julkalendern på SVT och Sveriges Radio, svar från tomten, julpaket till bebisen, en gratis väggkalender och julfilmer med provperiod.`}
   jsonLd={faqLd}
 >
   <div class="wrap"><div class="page-head">
     <Illustration name="jul" size="clamp(96px, 14vw, 130px)" />
-    <Breadcrumbs items={[{ label: `Gratis till jul ${year}`, href: '/jul/' }]} />
+    <Breadcrumbs items={[{ label: `Gratis i jul ${year}`, href: '/jul/' }]} />
     <p class="eyebrow">Säsong</p>
-    <h1>Gratis till jul {year}.</h1>
+    <h1>Gratis i jul {year}.</h1>
     <p class="lead"> Julkalendrar, brev från tomten, ett julpaket till bebisen och julfilmer utan att betala. Allt på sidan är kontrollerat hos den som erbjuder det. Senast kontrollerad {checked}. </p>
   </div></div>
 
@@ -64,6 +68,24 @@ const faqLd = {
 
       <h2>Skriv brev till tomten och få svar</h2>
       <p> Tomtens adress är <strong>Tomten, 173 00 Tomteboda</strong>. Det är PostNord som tar hand om breven, och <a href="https://www.postnord.se/privat/jul-och-nyar/brev-till-tomten/" rel="noopener">alla barn som skriver sin adress på brevet får en hälsning tillbaka</a>. Svaret är gratis, men brevet till tomten behöver ett frimärke. Skicka i god tid i december om svaret ska hinna fram före julafton. </p>
+
+      {
+        julmustActive && (
+          <>
+            <h2>Gratis julmust på julmustens dag</h2>
+            <p>
+              Den 24 november är det julmustens dag. Då delar Pressbyrån ut 10 000 gratis julmust i appen Pressbyrån Kompis, så
+              länge de räcker. Läs mer om <a href="/gratis/pressbyran-gratis-julmust-julmustens-dag/">hur du får julmusten</a>.
+            </p>
+          </>
+        )
+      }
+
+      <h2>En gratis väggkalender till nästa år</h2>
+      <p>
+        Synskadades Riksförbund skickar <a href="/gratis/srf-valpkalendern-gratis/">Valpkalendern 2027</a> gratis. Den har bilder
+        på valpar som kan bli ledarhundar, och en gåva till SRF är frivillig. Den passar också som en enkel julklapp.
+      </p>
 
       <h2>Julpaket till bebisen</h2>
       <p> Goboken skickar ett välkomstpaket till bebisar som just nu är jultema: en julbok som lyser och spelar, en låda med julsångskort och en röd dregglis med texten "God Jul". Paketet är gratis, men frakten kostar 79 kr. Fler babypaket hittar du på sidan för <a href="/nyblivna-foraldrar/">nyblivna föräldrar</a>. </p>
