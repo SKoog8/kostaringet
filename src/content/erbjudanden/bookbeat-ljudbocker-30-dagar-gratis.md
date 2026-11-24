@@ -31,3 +31,5 @@ BookBeat är en svensk tjänst för ljudböcker och e-böcker. Som ny användare
 
 - **Prenumerationen fortsätter automatiskt** efter 30 dagar och kostar då från 99 kr per månad.
 - Skriv upp dagen i kalendern och säg upp under kontoinställningar innan provperioden tar slut om du inte vill fortsätta.
+
+Vill du fortsätta lyssna efter provperioden? På vår syskonsajt Kostar mindre samlar vi [rabatter och studentrabatt hos BookBeat](https://kostarmindre.se/butik/bookbeat), kontrollerade mot BookBeats egna villkor.

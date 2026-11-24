@@ -50,3 +50,5 @@ Fler finns bland [alla erbjudanden](/gratis/), och på [Gratis på födelsedagen
 ## Vad vi menar med gratis
 
 På kostaringet.se betyder gratis att du inte behöver köpa något. Kostar ett erbjudande frakt, kräver medlemskap eller blir en betald prenumeration skriver vi det tydligt överst på sidan, under Villkor i korthet. Läs mer om [hur vi kontrollerar erbjudandena](/sa-kontrollerar-vi/).
+
+Letar du efter rabatter snarare än saker som är helt gratis? På vår syskonsajt Kostar mindre finns [rabattkoder som är kontrollerade mot butikens villkor](https://kostarmindre.se/rabattkoder), med slutdatum och källa för varje kod.

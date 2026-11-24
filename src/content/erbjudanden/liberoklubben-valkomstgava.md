@@ -28,3 +28,5 @@ Liberoklubben är Libero och Essitys klubb för blivande och nyblivna föräldra
 Registrera dig på libero.se under Liberoklubben. Du behöver ange beräknat förlossningsdatum eller barnets födelsedatum. Välkomstgåvan skickas hem till dig.
 
 > Tips: Spara blöjpaketens poängkoder från första dagen. De är lätta att slänga i farten men blir snabbt värda en gåva.
+
+Vill du också spara på blöjorna? På vår syskonsajt Kostar mindre samlar vi [aktuella rabatter på Libero](https://kostarmindre.se/butik/libero), till exempel kampanjer i nätbutiker och Liberos sms-kuponger när de finns.
