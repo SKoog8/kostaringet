@@ -1,6 +1,7 @@
-// Gratisbevakaren steg 1: tar emot en e-postadress och skickar ett mejl med en bekräftelselänk (dubbel opt-in).
-// Ingen adress sparas förrän personen klickar på länken (se api/confirm.js).
-import { EMAIL, SITE, env, sender, makeToken, resend } from './_mail.js';
+// Gratisbevakaren: lägger till en e-postadress i gruppen Gratisbevakaren hos MailerLite.
+// Dubbel opt-in sköts av MailerLite (inställningen "Double opt-in for API and integrations"): adressen får ett
+// bekräftelsemejl och får utskick först när den har bekräftats. API-nyckeln finns bara i Vercel.
+import { EMAIL, env } from './_mail.js';
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
@@ -14,23 +15,31 @@ export default async function handler(req, res) {
   const email = String(body.email ?? '').trim().toLowerCase().slice(0, 200);
   if (!EMAIL.test(email)) return res.status(400).json({ error: 'Ange en giltig e-postadress.' });
 
-  const from = sender();
-  if (!env('RESEND_API_KEY') || !env('RESEND_AUDIENCE_ID') || !from) {
+  const apiKey = env('MAILERLITE_API_KEY');
+  const group = env('MAILERLITE_GROUP_ID');
+  if (!apiKey || !group) {
     return res.status(503).json({ error: 'Gratisbevakaren startar snart. Försök igen om några dagar.' });
   }
 
-  // Länken går till en sida med en knapp, så att e-postprogram som förhandsgranskar länkar inte anmäler någon av misstag.
-  const link = `${SITE}/gratisbevakaren/bekrafta/?t=${encodeURIComponent(makeToken(email))}`;
-  const r = await resend('/emails', {
-    from,
-    to: [email],
-    subject: 'Bekräfta Gratisbevakaren från kostaringet.se',
-    text: `Hej!\n\nKlicka på länken för att börja få Gratisbevakaren, ett mejl i veckan med nya saker du kan få gratis:\n\n${link}\n\nLänken gäller i 7 dagar. Har du inte anmält dig kan du strunta i det här mejlet, då händer ingenting.\n\nkostaringet.se`,
-    html: `<p>Hej!</p><p>Klicka på knappen för att börja få Gratisbevakaren, ett mejl i veckan med nya saker du kan få gratis.</p><p><a href="${link}" style="display:inline-block;background:#2f45d9;color:#fff;padding:12px 22px;border-radius:999px;text-decoration:none;font-weight:700">Ja, jag vill ha Gratisbevakaren</a></p><p style="color:#6b7090;font-size:14px">Länken gäller i 7 dagar. Har du inte anmält dig kan du strunta i det här mejlet, då händer ingenting.</p><p>kostaringet.se</p>`,
-  });
-  if (!r.ok) {
-    console.error('Gratisbevakaren: bekräftelsemejlet kunde inte skickas', r.status, r.json?.name);
-    return res.status(502).json({ error: 'Mejlet kunde inte skickas just nu. Försök igen om en stund.' });
+  const ip = String(req.headers['x-forwarded-for'] ?? '').split(',')[0].trim();
+  const r = await fetch('https://connect.mailerlite.com/api/subscribers', {
+    method: 'POST',
+    headers: { Authorization: `Bearer ${apiKey}`, 'Content-Type': 'application/json', Accept: 'application/json' },
+    body: JSON.stringify({
+      email,
+      groups: [group],
+      // Den som själv anmäler sig igen efter att ha avslutat ska kunna komma tillbaka (får ett nytt bekräftelsemejl).
+      resubscribe: true,
+      ...(ip && { ip_address: ip }),
+    }),
+    signal: AbortSignal.timeout(15000),
+  }).catch(() => null);
+
+  if (!r?.ok) {
+    const detail = r ? await r.json().catch(() => ({})) : {};
+    console.error('Gratisbevakaren: MailerLite svarade', r?.status, detail?.message);
+    if (r?.status === 422) return res.status(400).json({ error: 'Adressen kunde inte läggas till. Kontrollera att den är rätt stavad.' });
+    return res.status(502).json({ error: 'Något gick fel. Försök igen om en stund.' });
   }
   return res.status(200).json({ ok: true });
 }

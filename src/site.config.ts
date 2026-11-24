@@ -128,8 +128,8 @@ export const offerTypes = {
 export type OfferType = keyof typeof offerTypes;
 
 /**
- * Gratisbevakaren (veckobrevet). Sätt enabled till true när Resend är klart: verifierad domän,
- * RESEND_AUDIENCE_ID och NEWSLETTER_FROM i Vercel (se docs/gratisbevakaren.md). Tills dess visas inga anmälningsrutor.
+ * Gratisbevakaren (nyhetsbrevet via MailerLite). Sätt enabled till true när MailerLite är klart och
+ * MAILERLITE_API_KEY och MAILERLITE_GROUP_ID finns i Vercel (se docs/gratisbevakaren.md). Tills dess visas inga anmälningsrutor.
  */
 export const newsletter = { enabled: false };
 

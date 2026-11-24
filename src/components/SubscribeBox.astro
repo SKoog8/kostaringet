@@ -1,5 +1,5 @@
 ---
-// Anmälan till Gratisbevakaren (veckobrevet). Skickar till /api/subscribe/, som mejlar en bekräftelselänk.
+// Anmälan till Gratisbevakaren. Skickar till /api/subscribe/, som lägger in adressen hos MailerLite (dubbel opt-in).
 import { newsletter } from '../site.config';
 
 interface Props {
@@ -34,7 +34,7 @@ const id = `gb-${Math.random().toString(36).slice(2, 8)}`;
     <button class="btn" type="submit">Starta bevakningen</button>
     <p class="gb__status" role="status" aria-live="polite"></p>
     <p class="gb__small">
-      Vi skickar ett mejl där du bekräftar. Vi använder adressen bara till Gratisbevakaren och delar den aldrig med andra. Se <a href="/integritetspolicy/">integritetspolicyn</a>.
+      Du får ett mejl där du bekräftar. Vi använder adressen bara till Gratisbevakaren och delar den aldrig med andra. Se <a href="/integritetspolicy/">integritetspolicyn</a>.
     </p>
   </form>
 </section>)}
