@@ -139,7 +139,7 @@ export const socialLinks: string[] = [];
 export const nav = [
   { href: '/', label: 'Hem' },
   { href: '/gratis/', label: 'Alla erbjudanden' },
-  { href: '/nyblivna-foraldrar/', label: 'Nyblivna föräldrar' },
+  { href: '/nyblivna-foraldrar/', label: 'Babyboxar' },
   { href: '/kategori/tjanster/', label: 'Prova på' },
   { href: '/guide/', label: 'Guider' },
   { href: '/jul/', label: 'Jul' },

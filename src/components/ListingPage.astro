@@ -21,10 +21,16 @@ interface Props {
   noindex?: boolean;
   /** Show a search box that filters the offers on the page. */
   search?: boolean;
+  /** Offers shown in their own section above the main grid (slot "featured" holds its heading and text). */
+  featured?: Offer[];
+  /** Heading for the main grid when a featured section is shown. */
+  gridHeading?: string;
 }
 
-const { title, metaTitle, description, intro, offers, crumbs, category, noindex = false, search = false } = Astro.props;
+const { title, metaTitle, description, intro, offers, crumbs, category, noindex = false, search = false, featured = [], gridHeading } = Astro.props;
 const active = offers.filter((o) => isActive(o));
+const featuredActive = featured.filter((o) => isActive(o));
+const rest = active.filter((o) => !featuredActive.includes(o));
 const ended = offers.filter((o) => !isActive(o));
 ---
 
@@ -55,10 +61,19 @@ const ended = offers.filter((o) => !isActive(o));
         </div>
       )
     }
+    {
+      featuredActive.length > 0 && (
+        <section class="featured" id="utvalda">
+          <slot name="featured" />
+          <OfferGrid offers={featuredActive} itemList adAfter={0} />
+        </section>
+      )
+    }
     <div class="filters">
       <CategoryList current={category} />
     </div>
-    <OfferGrid offers={active} itemList />
+    {featuredActive.length > 0 && gridHeading && <h2 class="grid-heading">{gridHeading}</h2>}
+    <OfferGrid offers={featuredActive.length > 0 ? rest : active} itemList={featuredActive.length === 0} />
 
     <div class="subscribe">
       <SubscribeBox />
@@ -121,6 +136,12 @@ const ended = offers.filter((o) => !isActive(o));
 }
 
 <style>
+  .featured {
+    margin-bottom: 56px;
+  }
+  .grid-heading {
+    margin: 0 0 20px;
+  }
   .search {
     display: grid;
     gap: 8px;

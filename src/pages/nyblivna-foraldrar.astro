@@ -8,6 +8,9 @@ const category = categoryBySlug.foraldrar;
 const offers = await getOffers('foraldrar');
 const year = new Date().getFullYear();
 const active = offers.filter((o) => isActive(o));
+// Babyboxar och startpaket visas först, i ett eget avsnitt högst upp på sidan.
+const boxes = active.filter((o) => o.data.type === 'startpaket');
+const freeBoxes = boxes.filter((o) => o.data.shipping === 0).length;
 const cost = (o: (typeof offers)[number]) =>
   o.data.shipping === 'tillkommer' ? 'Frakt tillkommer' : o.data.shipping > 0 ? `Frakt ${o.data.shipping} kr` : 'Gratis';
 
@@ -42,14 +45,25 @@ const faqLd = {
 ---
 
 <ListingPage
-  title={`${category.heading}.`}
+  title={`Gratis babyboxar och allt för nyblivna föräldrar.`}
   metaTitle={`Gratis babyboxar och babypaket ${year}`}
   description={`Alla gratis babyboxar, startpaket och blöjprover för gravida och nyblivna föräldrar ${year}. Se vad som ingår, vad frakten kostar och hur länge du kan beställa.`}
   intro={category.intro}
   offers={offers}
   category="foraldrar"
   crumbs={[{ label: category.name, href: category.path }]}
+  featured={boxes}
+  gridHeading="Mer gratis för gravida och föräldrar"
 >
+  <div slot="featured" class="boxes-head">
+    <h2>Alla gratis babyboxar {year}</h2>
+    <p>
+      Just nu finns {boxes.length} babyboxar och startpaket att beställa{freeBoxes > 0 && `, varav ${freeBoxes} helt utan fraktkostnad`}.
+      Alla är kontrollerade på företagets egen sida. Längre ner finns en <a href="#tabell">tabell med frakt och villkor</a> och
+      tips om när du ska beställa.
+    </p>
+  </div>
+
   <article class="guide prose">
     <h2>Gratis babyboxar {year}: så fungerar det</h2>
     <p>
@@ -59,7 +73,7 @@ const faqLd = {
       senaste kontrollen står på erbjudandets sida.
     </p>
 
-    <h3>Alla paket i en tabell</h3>
+    <h3 id="tabell">Alla paket i en tabell</h3>
     <div class="table-wrap">
       <table>
         <thead>
@@ -132,6 +146,13 @@ const faqLd = {
 </ListingPage>
 
 <style>
+  .boxes-head {
+    max-width: 46rem;
+    margin-bottom: 20px;
+  }
+  .boxes-head h2 {
+    margin: 0 0 8px;
+  }
   .guide {
     margin-top: 72px;
     max-width: 46rem;
