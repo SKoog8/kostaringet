@@ -10,11 +10,11 @@
 
 ## Det här behöver göras en gång (Martin)
 
-1. **Skapa ett konto på mailerlite.com** (gratis upp till 1 000 prenumeranter).
+1. **Skapa ett konto på mailerlite.com** (Free-planen: upp till 250 prenumeranter och 2 500 mejl i månaden). Klart.
 2. **Verifiera avsändardomänen** kostaringet.se (Sites/Domains → Authenticate domain, lägg in DNS-posterna). Avsändare t.ex. `bevakaren@kostaringet.se`.
 3. **Slå på dubbel opt-in för API:** Account settings → Subscribe settings → "Double opt-in for API and integrations". Sätt sidan efter bekräftelsen till `https://kostaringet.se/gratisbevakaren/tack/`. Skriv bekräftelsemejlet på svenska.
-4. **Skapa gruppen** Gratisbevakaren (Subscribers → Groups). Kopiera gruppens ID.
-5. **Skapa en API-nyckel** (Integrations → API).
+4. **Skapa gruppen** Gratisbevakaren (Subscribers → Groups). Klart 2026-11-25, gruppens ID är `205088895630574649`.
+5. **Skapa en API-nyckel** (Integrations → API). Klart.
 6. **Lägg in i Vercel** (Settings → Environment Variables) och publicera om:
    - `MAILERLITE_API_KEY`
    - `MAILERLITE_GROUP_ID`
