@@ -131,7 +131,7 @@ export type OfferType = keyof typeof offerTypes;
  * Gratisbevakaren (nyhetsbrevet via MailerLite). Sätt enabled till true när MailerLite är klart och
  * MAILERLITE_API_KEY och MAILERLITE_GROUP_ID finns i Vercel (se docs/gratisbevakaren.md). Tills dess visas inga anmälningsrutor.
  */
-export const newsletter = { enabled: false };
+export const newsletter = { enabled: true };
 
 /** Links to our own social media accounts (Facebook, Instagram …). Shown in structured data as sameAs. */
 export const socialLinks: string[] = [];
