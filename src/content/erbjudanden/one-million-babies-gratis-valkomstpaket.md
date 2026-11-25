@@ -13,7 +13,7 @@ requirements:
 shipping: 0
 published: 2026-11-10
 updated: 2026-11-21
-checked: 2026-11-21
+checked: 2026-11-25
 ---
 
 One Million Babies är en gratis gravidapp. Som användare kan du beställa ett välkomstpaket med produkter från appens samarbetspartner, helt utan kostnad.

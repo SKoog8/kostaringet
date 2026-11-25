@@ -12,7 +12,7 @@ url: https://espressohouse.com/fika-club
 requirements:
   - Medlem i Fika Club (Espresso House-appen)
 published: 2026-11-16
-checked: 2026-11-22
+checked: 2026-11-25
 ---
 
 Espresso Houses medlemsklubb heter Fika Club och finns i deras app. Som medlem får du en gratis dryck på din födelsedag, och dessutom personliga erbjudanden under resten av året.

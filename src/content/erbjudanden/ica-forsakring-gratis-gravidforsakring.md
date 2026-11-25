@@ -11,7 +11,7 @@ requirements:
   - Gäller tills barnet fyller sex månader
 shipping: 0
 published: 2026-11-10
-checked: 2026-11-21
+checked: 2026-11-25
 ---
 
 ICA Försäkring har två gravidförsäkringar: Gravid Fri, som är gratis, och Gravid Plus, som kostar. Den gratis varianten ger ett grundskydd för den gravida, bebisen och partnern.
