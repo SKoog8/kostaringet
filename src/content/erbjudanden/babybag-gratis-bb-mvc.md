@@ -11,16 +11,33 @@ requirements:
   - Delas ut av din vårdenhet
 published: 2026-10-09
 checked: 2026-11-26
+updated: 2026-11-26
 ---
 
-BabyBag har delats ut till svenska föräldrar sedan 1992. Väskan innehåller produkter, varuprover och information som ska underlätta vardagen med en nyfödd. Innehållet granskas av en oberoende grupp barnmorskor och sjukvårdspersonal.
+BabyBag är en gratis påse till blivande och nyblivna föräldrar. Den delas ut på många sjukhus, barnmorskemottagningar och barnavårdscentraler i Sverige, och har funnits sedan 1992. Enligt BabyBag har den delats ut till över två miljoner familjer.
+
+## Vad ingår
+
+Påsen innehåller en blandning av produkter, varuprover, information och erbjudanden som ska göra vardagen med ett litet barn lite enklare. BabyBag skriver inte ut exakt vilka märken som ingår, och innehållet kan variera.
+
+Innehållet granskas av en oberoende referensgrupp med legitimerade barnmorskor, i samarbete med organisationer och vårdpersonal. Det skiljer BabyBag från många andra startpaket, som sätts ihop av en butik eller ett varumärke.
+
+## Vem kan få den?
+
+BabyBag är till för dig som väntar barn eller nyss har fått barn. Den delas ut av vården, så du behöver inte registrera dig någonstans för att få den på din vårdenhet.
 
 ## Så får du den
 
-1. Fråga på ditt MVC, på förlossningen eller på BB om de delar ut BabyBag.
-2. Om din vårdenhet inte har den kan du beställa den direkt via babybag.se.
+1. Fråga på din barnmorskemottagning (MVC), på förlossningen, på BB eller på BVC om de delar ut BabyBag.
+2. Om din vårdenhet inte delar ut den kan du beställa hem den via babybag.se.
 
-## Bra att veta
+## Vad kostar det?
 
-- BabyBag kommer från samma företag som BabyBox, Nordic Family Group. Du kan ha både och.
-- Kontrollera på babybag.se om det tillkommer någon avgift när du beställer direkt i stället för att få den på vårdenheten.
+Påsen är gratis när du får den på vårdenheten. Beställer du hem den själv: kontrollera på babybag.se om det tillkommer någon avgift innan du skickar beställningen.
+
+## Bra att tänka på
+
+- BabyBag kommer från samma företag som [BabyBox](/gratis/babybox-gratis-startpaket/), och du kan ha båda.
+- Påsar som delas ut via vården innehåller ofta erbjudanden från företag. Du bestämmer själv vilka du vill gå vidare med, och du behöver inte registrera dig för något för att få påsen.
+- Fråga gärna redan vid första besöket på barnmorskemottagningen. Det är inte säkert att påsen erbjuds om du inte frågar.
+- Se alla [gratis babyboxar och startpaket](/nyblivna-foraldrar/) på en sida, med frakt och villkor i en tabell.
