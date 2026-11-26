@@ -13,7 +13,7 @@ requirements:
   - Medlem i Pinchos app
   - Gåvan finns två veckor före och efter födelsedagen
 published: 2026-11-16
-checked: 2026-11-22
+checked: 2026-11-26
 ---
 
 Pinchos är en restaurangkedja där du beställer och betalar i en app. Som medlem i appen får du en gåva på din födelsedag.

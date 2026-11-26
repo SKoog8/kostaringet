@@ -12,7 +12,7 @@ requirements:
   - Säg upp innan 30 dagar om du inte vill betala
 published: 2026-10-09
 updated: 2026-11-23
-checked: 2026-11-23
+checked: 2026-11-26
 ---
 
 Nextory är en tjänst för ljudböcker och e-böcker. Nya användare kan prova gratis i 30 dagar, med 30 timmars läsning och lyssning. Alla abonnemang har samma provperiod, till exempel Mini med upp till 10 timmar i månaden efter provperioden.

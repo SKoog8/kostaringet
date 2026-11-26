@@ -11,7 +11,7 @@ requirements:
   - Beställs i webbutiken
 shipping: tillkommer
 published: 2026-11-14
-checked: 2026-11-23
+checked: 2026-11-26
 ---
 
 AlgGuttens Hundmat gör svensktillverkat hundfoder. I webbutiken kan du lägga en provpåse på 100 g i varukorgen för 0 kr och se om din hund tycker om fodret.

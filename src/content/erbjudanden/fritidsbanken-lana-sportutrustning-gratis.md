@@ -11,7 +11,7 @@ requirements:
   - Utbudet varierar mellan orterna
 shipping: 0
 published: 2026-11-12
-checked: 2026-11-23
+checked: 2026-11-26
 ---
 
 Fritidsbanken är som ett bibliotek, fast för sport- och friluftsutrustning. Du lånar gratis i 14 dagar och lämnar tillbaka när du är klar.

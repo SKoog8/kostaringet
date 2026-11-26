@@ -13,7 +13,7 @@ requirements:
   - Gratis medlemskap i Kompisklubben
   - Hämtas i butik
 published: 2026-11-07
-checked: 2026-11-24
+checked: 2026-11-26
 featured: true
 updated: 2026-11-24
 ---

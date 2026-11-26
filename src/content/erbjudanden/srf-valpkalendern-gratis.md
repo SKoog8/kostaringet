@@ -11,7 +11,7 @@ requirements:
   - Personnummer i beställningen
   - Skickas från mitten av november
 published: 2026-11-17
-checked: 2026-11-23
+checked: 2026-11-26
 ---
 
 Synskadades Riksförbund, SRF, ger varje år ut Valpkalendern. Det är en väggkalender med bilder på valpar som en dag kan bli ledarhundar, och den är kostnadsfri. Nu går det att beställa 2027 års kalender.
