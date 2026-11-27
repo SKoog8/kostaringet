@@ -10,7 +10,7 @@ requirements:
   - Från 16 år och bosatt i Sverige
   - Så länge lagret räcker
 published: 2026-11-22
-checked: 2026-11-25
+checked: 2026-11-27
 ---
 
 Garnier delar ut fem varuprover på sin ansiktskräm Vitamin C Fresh & Bright Hydrating Sorbet Cream, en lätt kräm med sorbetliknande konsistens. Proverna räcker till en rutin på fem dagar och skickas hem i brevlådan utan kostnad.

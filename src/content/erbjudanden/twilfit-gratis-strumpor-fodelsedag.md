@@ -14,7 +14,7 @@ requirements:
   - Hämtas i fysisk butik
   - Gäller i en vecka
 published: 2026-11-16
-checked: 2026-11-25
+checked: 2026-11-27
 ---
 
 Twilfits medlemsklubb heter Club CHANGE. Som medlem får du en gratis födelsedagspresent: ett par Isabella-strumpor som du hämtar i en av Twilfits butiker.

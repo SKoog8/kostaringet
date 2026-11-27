@@ -7,7 +7,7 @@ category: halsa
 type: gratisprov
 url: https://www.attends.se/kostnadsfria-varuprover
 published: 2026-10-09
-checked: 2026-11-24
+checked: 2026-11-27
 updated: 2026-11-24
 ---
 

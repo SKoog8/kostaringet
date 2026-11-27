@@ -11,7 +11,7 @@ requirements:
   - Gratis medlemskap i Klubb BabySam
   - Hämtas i butik inom 3 månader
 published: 2026-10-09
-checked: 2026-11-24
+checked: 2026-11-27
 featured: true
 updated: 2026-11-24
 ---
